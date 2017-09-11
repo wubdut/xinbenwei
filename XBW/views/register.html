@@ -1,0 +1,74 @@
+<div class="col-sm-6 col-sm-offset-3" ng-controller="registerCtrl">
+    <h1>战队注册</h1>
+    <form name="registerForm" novalidate>
+        <!--
+        <div id="email-group">
+            <label for="email">E-mail:</label> <input type="email"
+                class="form-control" ng-model="email" name="email" id="email"
+                placeholder="请输入电子邮箱..." required>
+            <p>
+                <span style="color: red" ng-show=" registerForm.email.$invalid">
+                    <span ng-show="registerForm.email.$error.required">*请输入邮箱</span> <span
+                    ng-show="registerForm.email.$error.email">*请输入正确的email地址</span>
+                </span>
+            </p>
+        </div>
+        -->
+
+        <div id="name-group">
+            <label for="name">战队名称：</label> <input type="text"
+                class="form-control" ng-model="name" name="name" id="name"
+                placeholder="请输入战队名称..." required>
+            <p>
+                <span style="color: red" ng-show="registerForm.name.$invalid">
+                    <span ng-show="registerForm.name.$error.required">*请输入战队名称</span>
+                </span>
+                <span style="color: red" ng-show="!registerForm.name.$invalid">
+                    <span ng-show={{nameerror}} >*战队名已经被注册</span>
+                </span>
+            </p>
+        </div>
+
+        <div id="password-group">
+            <label for="password">密码：</label> <input type="password"
+                class="form-control" ng-model="password" ng-minlength="6"
+                ng-maxlength="20" name="password" id="password"
+                placeholder="请输入密码..." required>
+            <p>
+                <span style="color: red" ng-show="registerForm.password.$invalid">
+                    <span ng-show="registerForm.password.$error.minlength">*密码长度不小于6</span>
+                    <span ng-show="registerForm.password.$error.maxlength">*密码长度不超过20</span>
+                </span>
+            </p>
+        </div>
+
+        <div id="passwordagaingroup">
+            <label for="passwordagain">再输入一遍密码：</label> <input type="password"
+                class="form-control" ng-model="passwordagain" name="passwordagain"
+                id="passwordagain" placeholder="请再输一遍密码..." required>
+            <p>
+                <span style="color: red" ng-show="registerForm.password.$valid">
+                    <span ng-show="passwordagain!=password">*两次密码输入不一致</span>
+                </span>
+            </p>
+        </div>
+
+        <div id="namegroup">
+            <label for="password">部门：</label> 
+            <select name="type" class="form-control" ng-model="choosenItem">
+                <option ng-repeat="department in departments" value="{{department.name}}"> {{ department.name }} </option> 
+            </select> 
+            <p><span style="color: red">
+                    <span ng-show="choosenItem==undefined">*选择部门</span>
+                </span>
+            </br>
+            </p>
+        </div>
+        <div id="namegroup">
+            <label for="password"> </label> 
+            <button type="submit" class="btn btn-success" ng-click="register()" ng-disabled="registerForm.email.$invalid || registerForm.name.$invalid || registerForm.password.$invalid || (password != passwordagain) || (choosenItem == undefined)">
+                <span class="fa fa-arrow-right">注册</span>
+            </button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,45 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>部门管理</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">管理员</a>
+            </li>
+            <li>
+                <a>报名管理</a>
+            </li>
+            <li class="active">
+                <strong>赛程安排</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content" id="ibox-content">
+
+                    <div id="vertical-timeline" class="vertical-container dark-timeline center-orientation"  ng-controller='matchscheduleCtrl'>
+                        <div class="vertical-timeline-block" ng-repeat="schedule in schedules">
+                            <div class="vertical-timeline-icon navy-bg">
+                                <i class="fa fa-briefcase" ></i>
+                            </div>
+
+                            <div class="vertical-timeline-content">
+                                <h4> <big>{{ schedule.department_f }}"{{ schedule.team_f }}"</big>战队 <span style="color: red" >VS</span> <big>{{ schedule.department_s }}"{{ schedule.team_s }}"</big>战队</h4>
+                                <span class="vertical-date">
+                                    {{ schedule.date_s }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

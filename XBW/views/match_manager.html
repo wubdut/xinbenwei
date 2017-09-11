@@ -1,0 +1,103 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>比赛管理</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">管理员</a>
+            </li>
+            <li>
+                <a>报名管理</a>
+            </li>
+            <li class="active">
+                <strong>比赛管理</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight"  ng-controller='matchmanagerCtrl'>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="col-md-2">
+                <div><p><br/></p></div>
+                <div id="cn-group">
+                    <label for="name">每组比赛场数/天</label> <input type="text" 
+                        class="form-control" ng-model="cn" placeholder=1 required>
+                        <p><br/><br/><br/><br/></p>
+                </div>
+                <div id="namegroup">
+                    <label for="password"> </label> 
+                    <button type="submit" class="btn btn-success" ng-click="update_schedule(cn)" >
+                        <span class="fa fa-arrow-right">生成赛程</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="ibox-content">
+                    <div>
+                        <div>
+                            <span>第0小组</span>
+                            <small class="pull-right">{{ a.first }}/{{ a.second }}</small>
+                        </div>
+                        <div class="progress progress-small">
+                            <div style="width: {{ a.third }};" class="progress-bar"></div>
+                        </div>
+                        <div>
+                            <span>第1小组</span>
+                            <small class="pull-right">{{ b.first }}/{{ b.second }}</small>
+                        </div>
+                        <div class="progress progress-small">
+                            <div style="width: {{ b.third }};" class="progress-bar"></div>
+                        </div>
+                        <div>
+                            <span>第2小组</span>
+                            <small class="pull-right">{{ c.first }}/{{ c.second }}</small>
+                        </div>
+                        <div class="progress progress-small">
+                            <div style="width: {{ c.third }};" class="progress-bar"></div>
+                        </div>
+                        <div>
+                            <span>第3小组</span>
+                            <small class="pull-right">{{ d.first }}/{{ d.second }}</small>
+                        </div>
+                        <div class="progress progress-small">
+                            <div style="width: {{ d.third }};" class="progress-bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div><p><br/></p></div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>部门之间比赛数量</h5>
+                    <div ibox-tools></div>
+                </div>
+                <div class="ibox-content" >
+                    <div e-gallery e-data='option' ng-style="{height : 400 }"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight"  >
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins" ng-controller='importantCtrl'>
+                <div class="ibox-title">
+                    <h5>不能参加比赛战队数量</h5>
+                    <div ibox-tools></div>
+                </div>
+                <div class="ibox-content" >
+                    <div e-bar e-data='option' ng-style="{height : 400 }"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

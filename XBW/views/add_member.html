@@ -1,0 +1,68 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>添加成员</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">参赛战队</a>
+            </li>
+            <li>
+                <a>我的战队</a>
+            </li>
+            <li class="active">
+                <strong>添加成员</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="addmemberCtrl">
+    <div class="col-sm-6 col-sm-offset-3">
+    <form name="registerForm" novalidate>
+        
+        
+
+        <div id="name-group">
+            <label for="name">姓名：</label> <input type="text"
+                class="form-control" ng-model="name" name="name" id="name"
+                placeholder="请输入战友姓名..." required>
+            <p>
+                <span style="color: red" ng-show="registerForm.name.$invalid">
+                    <span ng-show="registerForm.name.$error.required">*请输入战友姓名</span>
+                </span>
+            </p>
+        </div>
+
+        <div id="email-group">
+            <label for="email">邮箱：</label> <input type="email"
+                class="form-control" ng-model="email" name="email" id="email"
+                placeholder="请输入电子邮箱..." required>
+            <p>
+                <span style="color: red" ng-show=" registerForm.email.$invalid">
+                    <span ng-show="registerForm.email.$error.required">*请输入邮箱</span> 
+                    <span ng-show="registerForm.email.$error.email">*请输入正确的email地址</span>
+                </span>
+            </p>
+        </div>
+
+         <div id="tel-group">
+            <label for="email">电话:</label>
+            <input class="form-control" id="tel" placeholder="请输入电话" type="tel" name="tel" 
+                ng-model="tel" ng-minlength="11" ng-maxlength="11" 
+                ng-pattern="/^1[3|5|8|7][0-9]\d{4,8}$/" required>
+            <p>
+                <span style="color: red" ng-show="registerForm.tel.$invalid">
+                    <span ng-show="registerForm.tel.$error.minlength||registerForm.tel.$error.maxlength||registerForm.tel.$error.pattern||registerForm.tel.$invalid">*请输入电话</span>
+                </span>
+            </p>
+        </div>
+
+        <div id="namegroup">
+            <label for="password"> </label> 
+            <button type="submit" class="btn btn-success" ng-click="add_member()" ng-disabled="registerForm.email.$invalid || registerForm.name.$invalid || registerForm.tel.$error.minlength||registerForm.tel.$error.maxlength||registerForm.tel.$error.pattern||registerForm.tel.$invalid ">
+                <span class="fa fa-arrow-right">添加</span>
+            </button>
+        </div>
+    </form>
+</div>
+</div>
