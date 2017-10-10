@@ -8,7 +8,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,28 +23,11 @@ public class Util {
 	}
 	
 	public static boolean modifyAccess(String stock_id) {
-		Object lock = locks.getOrDefault(stock_id, new Object());
 		Path mode_path = Paths.get(root.toString(), stock_id);
 		if (!root.toFile().exists()){
 			root.toFile().mkdirs();
 		}
-		if (!mode_path.toFile().exists())
-			return true;
-		synchronized(lock){
-			Long timemillis = mode_path.toFile().lastModified();
-			Calendar modify_cal = Calendar.getInstance();
-			modify_cal.setTimeInMillis(timemillis);
-			Calendar now_cal = Calendar.getInstance();
-//			System.out.println(modify_cal.getTime() + " --- " + now_cal.getTime());
-			now_cal.setTimeInMillis(System.currentTimeMillis());
-			if (now_cal.get(Calendar.YEAR) != modify_cal.get(Calendar.YEAR)) {
-				return true;
-			}
-			if (now_cal.get(Calendar.DAY_OF_YEAR) != modify_cal.get(Calendar.DAY_OF_YEAR)) {
-				return true;
-			}
-        }
-		return false;
+		return !mode_path.toFile().exists();
 	}
 		
 	public static void save(String stock_id, OnlineStockStrategyAPI ossAPI) throws FileNotFoundException, IOException {

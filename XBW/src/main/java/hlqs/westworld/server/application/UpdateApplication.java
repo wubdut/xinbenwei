@@ -31,9 +31,6 @@ public class UpdateApplication extends Thread{
 			}
 			ossAPI.sleep();
 		}
-		for (int i = 0; i < data.size(); i++) {
-			ossAPI.respond(data.get(i).getItem(), data.get(i).getInstant());
-		}
 		Util.save(stock_id, ossAPI);
 	}
 	
