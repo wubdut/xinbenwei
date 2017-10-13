@@ -16,11 +16,15 @@ public class UpdateApplication extends Thread{
 	private boolean stopflag = false;
 	private static Logger logger = (Logger) LoggerFactory.getLogger(UpdateApplication.class);
 	private final double epoch = 5;
+	private final double DISPOSITION;
 	
-	public UpdateApplication() {}
+	public UpdateApplication(double DISPOSITION) {
+		this.DISPOSITION = DISPOSITION;
+	}
 	
-	private void update(String stock_id, DoubleSeries data) throws Exception {
-		OnlineStockStrategyAPI ossAPI = new OnlineStockStrategyAPI(2.0);
+	public void update(String stockid) throws Exception {
+		DoubleSeries data = (new StockData()).history_data(stockid);
+		OnlineStockStrategyAPI ossAPI = new OnlineStockStrategyAPI(DISPOSITION);
 		for (int i = 0; i+1 < data.size(); i++) {
 			ossAPI.createStates(data.get(i).getItem(), data.get(i+1).getItem());
 		}
@@ -31,7 +35,7 @@ public class UpdateApplication extends Thread{
 			}
 			ossAPI.sleep();
 		}
-		Util.save(stock_id, ossAPI);
+		Util.save(stockid, ossAPI);
 	}
 	
 	@Override
@@ -44,8 +48,7 @@ public class UpdateApplication extends Thread{
 				System.out.println(now_cal.getTime() + " UpdateApplication " + res.getValue("stock-id", i));
 				if (!Util.modifyAccess(res.getValue("stock-id", i))) continue;
 				try {
-					DoubleSeries data = (new StockData()).history_data(res.getValue("stock-id", i));
-					update(res.getValue("stock-id", i), data);
+					update(res.getValue("stock-id", i));
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

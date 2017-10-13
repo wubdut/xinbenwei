@@ -9,7 +9,6 @@ import com.realsight.westworld.tsp.api.OnlineStockStrategyAPI;
 import com.realsight.westworld.tsp.lib.redis.RedisUtil;
 import com.realsight.westworld.tsp.lib.series.DoubleSeries;
 import com.realsight.westworld.tsp.lib.series.MultipleStringSeries;
-import com.realsight.westworld.tsp.lib.util.TimeUtil;
 import com.realsight.westworld.tsp.lib.util.Triple;
 import com.realsight.westworld.tsp.lib.util.data.StockData;
 
@@ -31,11 +30,11 @@ public class RecommendApplication extends Thread{
 		ru = new RedisUtil(host, port, timeOut, password);
 	}
 	
-	private String recommend(String stock_id) throws Exception {
-		Double today_price = new StockData().price(stock_id);
-		OnlineStockStrategyAPI ossAPI = Util.open(stock_id);
+	public String recommend(String stockid) throws Exception {
+		Double today_price = new StockData().price(stockid);
+		OnlineStockStrategyAPI ossAPI = Util.open(stockid);
 		if (ossAPI == null) return "error";
-		DoubleSeries data = (new StockData()).history_data(stock_id);
+		DoubleSeries data = (new StockData()).history_data(stockid);
 		for (int i = 0; i < data.size(); i++) {
 			ossAPI.respond(data.get(i).getItem(), data.get(i).getInstant());
 		}
@@ -43,18 +42,17 @@ public class RecommendApplication extends Thread{
 		Triple<String, Double, Double> triple = ossAPI.respond(today_price, timestamp);
 		
 		String context = new Gson().toJson(new RecommendData(
-				stock_id, 
+				stockid, 
 				triple.getFirst(), 
 				triple.getSecond(), 
 				today_price,
 				timestamp));
 		Jedis jedis = ru.getJedis();
 		Transaction transaction = jedis.multi();
-		transaction.hset(HSET_KEY, stock_id, context);
-		transaction.zadd(ZSET_KEY, triple.getFirst().equals("a")?1.0:-1.0, stock_id);
+		transaction.hset(HSET_KEY, stockid, context);
+		transaction.zadd(ZSET_KEY, triple.getFirst().equals("a")?1.0:-1.0, stockid);
 		transaction.exec();
 		jedis.close();
-		
 		return context;
 	}
 	

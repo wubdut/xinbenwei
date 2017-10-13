@@ -29,7 +29,7 @@ public class Util {
 		}
 		return !mode_path.toFile().exists();
 	}
-		
+			
 	public static void save(String stock_id, OnlineStockStrategyAPI ossAPI) throws FileNotFoundException, IOException {
 		Object lock = locks.getOrDefault(stock_id, new Object());
 		Path mode_path = Paths.get(root.toString(), stock_id);
