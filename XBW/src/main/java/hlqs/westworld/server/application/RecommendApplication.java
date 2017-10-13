@@ -9,6 +9,7 @@ import com.realsight.westworld.tsp.api.OnlineStockStrategyAPI;
 import com.realsight.westworld.tsp.lib.redis.RedisUtil;
 import com.realsight.westworld.tsp.lib.series.DoubleSeries;
 import com.realsight.westworld.tsp.lib.series.MultipleStringSeries;
+import com.realsight.westworld.tsp.lib.util.TimeUtil;
 import com.realsight.westworld.tsp.lib.util.Triple;
 import com.realsight.westworld.tsp.lib.util.data.StockData;
 
@@ -38,13 +39,15 @@ public class RecommendApplication extends Thread{
 		for (int i = 0; i < data.size(); i++) {
 			ossAPI.respond(data.get(i).getItem(), data.get(i).getInstant());
 		}
-		Triple<String, Double, Double> triple = ossAPI.respond(today_price, System.currentTimeMillis());
+		long timestamp = System.currentTimeMillis();
+		Triple<String, Double, Double> triple = ossAPI.respond(today_price, timestamp);
 		
 		String context = new Gson().toJson(new RecommendData(
 				stock_id, 
 				triple.getFirst(), 
 				triple.getSecond(), 
-				today_price));
+				today_price,
+				timestamp));
 		Jedis jedis = ru.getJedis();
 		Transaction transaction = jedis.multi();
 		transaction.hset(HSET_KEY, stock_id, context);
