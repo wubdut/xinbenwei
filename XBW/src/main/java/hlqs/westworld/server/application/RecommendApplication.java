@@ -25,6 +25,7 @@ public class RecommendApplication extends Thread{
 	private static final String HSET_KEY = "recommend";
 	private static final String ZSET_KEY = "recommend_action";
 	private final RedisUtil ru;
+	private final double basics = 1e3;
 	
 	public RecommendApplication(String host, int port, int timeOut, String password) {
 		ru = new RedisUtil(host, port, timeOut, password);
@@ -47,10 +48,11 @@ public class RecommendApplication extends Thread{
 				triple.getSecond(), 
 				today_price,
 				timestamp));
+		double label = triple.getFirst().equals("a")?1.0:-1.0;
 		Jedis jedis = ru.getJedis();
 		Transaction transaction = jedis.multi();
 		transaction.hset(HSET_KEY, stockid, context);
-		transaction.zadd(ZSET_KEY, triple.getFirst().equals("a")?1.0:-1.0, stockid);
+		transaction.zadd(ZSET_KEY, (this.basics + triple.getSecond()) * label, stockid);
 		transaction.exec();
 		jedis.close();
 		return context;

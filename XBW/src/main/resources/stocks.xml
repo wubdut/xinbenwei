@@ -1577,11 +1577,6 @@
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>
 	<stock>
-		<stock-id>600381</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
 		<stock-id>600382</stock-id>
 		<method-id>1</method-id>
 		<start-timestamp>1451577600000</start-timestamp>
@@ -1828,11 +1823,6 @@
 	</stock>
 	<stock>
 		<stock-id>600459</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600460</stock-id>
 		<method-id>1</method-id>
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>
