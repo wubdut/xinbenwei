@@ -1,86 +1,84 @@
-<!--
-*
-* INSPINIA - Responsive Admin Theme
-* Version 2.6
-*
--->
-
 <!DOCTYPE html>
-<html ng-app="inspinia">
+<html>
 
 <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <!-- Page title set in pageTitle directive -->
-    <title page-title></title>
-
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap.css" rel="stylesheet">
-
-    <!-- Font awesome -->
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
-
-    <!-- Main Inspinia CSS files -->
-    <link href="css/animate.css" rel="stylesheet">
-    <link id="loadBefore" href="css/style.css" rel="stylesheet">
-
-
+    <meta charset="UTF-8">
+    <title>Home Page of xinbenwei</title>
+    <meta name="description" content="Description of your site goes here">
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
+    <script data-main="app/main" src="js/lib/require.js"></script>
 </head>
 
-<!-- ControllerAs syntax -->
-<!-- Main controller with serveral data used in Inspinia theme on diferent view -->
-<body ng-controller="MainCtrl as main" class="{{$state.current.data.specialClass}}" landing-scrollspy id="page-top">
+<body>
+<div class="main">
+    <div class="page">
+        <div class="header">
+            <h1 id="company">信本位科技（短线通内测）</h1>
+        </div>
+        <div class="content" data-ng-controller="shortSwingCntrl">
+            <div class="left-panel">
+                <div class="left-panel-in">
 
-<!-- Main view  -->
-<div ui-view></div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <td>代码</td>
+                                <td>名称</td>
+                                <td>推荐时间</td>
+                                <td>涨幅</td>
+                                <td>止盈</td>
+                                <td>止损</td>
 
-<!-- jQuery and Bootstrap -->
-<script src="js/jquery/jquery-2.1.1.min.js"></script>
-<script src="js/plugins/jquery-ui/jquery-ui.js"></script>
-<script src="js/bootstrap/bootstrap.min.js"></script>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="it in shortSwingList">
+                                <td>{{it.id}}</td>
+                                <td>{{it.name}}</td>
+                                <td>{{it.id}}</td>
+                                <td>{{it.name}}</td>
+                                <td>{{it.id}}</td>
+                                <td>{{it.name}}</td>
+                            </tr>
+                        </tbody>
 
-<!-- e-chart -->
-<script src="js/echart/echarts.js"></script>
+                    </table>
 
-<!-- MetsiMenu -->
-<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+                </div>
+            </div>
 
-<!-- SlimScroll -->
-<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-<!-- Peace JS -->
-<script src="js/plugins/pace/pace.min.js"></script>
-
-<!-- Custom and plugin javascript -->
-<script src="js/inspinia.js"></script>
-
-<!-- Main Angular scripts-->
-<script src="js/angular/angular.min.js"></script>
-<script src="js/angular/angular-sanitize.js"></script>
-<script src="js/plugins/oclazyload/dist/ocLazyLoad.min.js"></script>
-<script src="js/angular-translate/angular-translate.min.js"></script>
-<script src="js/ui-router/angular-ui-router.min.js"></script>
-<script src="js/bootstrap/ui-bootstrap-tpls-1.1.2.min.js"></script>
-<script src="js/plugins/angular-idle/angular-idle.js"></script>
-
-<!--
- You need to include this script on any page that has a Google Map.
- When using Google Maps on your own site you MUST signup for your own API key at:
- https://developers.google.com/maps/documentation/javascript/tutorial#api_key
- After your sign up replace the key in the URL below..
--->
-<!--
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQTpXj82d8UpCi97wzo_nKXL7nYrd4G70"></script
--->
-<!-- Anglar App Script -->
-<script src="js/app.js"></script>
-<script src="js/config.js"></script>
-<script src="js/translations.js"></script>
-<script src="js/directives.js"></script>
-<script src="js/controllers.js"></script>
+            <!--Designed by--><a href="http://www.htmltemplates.net">
+            <img src="images/copyright.gif" class="copyright" alt="http://www.htmltemplates.net"></a>
+            <div class="right-panel">
+                <div class="right-row1">
+                    <h3 class="subtitle">说明:</h3>
+                    <p>&nbsp;</p>
+                    <p class="green"><img src="images/right-bullet.jpg" alt="" height="8" width="17"><strong>短线股票推荐</strong></p>
+                    <p> 每天9:00--10:00，推荐具有短期上涨潜力的股票</p>
+                    <p>&nbsp;</p>
+                    <p class="green"><img src="images/right-bullet.jpg" alt="" height="8" width="17"><strong>止盈</strong></p>
+                    <p>建议价格涨到该值时卖出</p>
+                    <p>&nbsp;</p>
+                    <p class="green"><img src="images/right-bullet.jpg" alt="" height="8" width="17"><strong>止损</strong></p>
+                    <p>建议价格跌破该值时卖出</p>
+                    <p>&nbsp;</p>
+                    <h3 class="subtitle">联系我们:</h3>
+                    <p>&nbsp;</p>
+                </div>
+                <div class="right-row2">
+                    <p>如您有任何问题和建议，请联系：</p>
+                    <p>E-mail: wubdut@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>&copy; Copyright 2014. Designed by <a class="footer-link"
+                                                     target="_blank" href="http://www.htmltemplates.net/">html
+                templates</a>
+            </p>
+        </div>
+    </div>
+</div>
 </body>
 </html>
