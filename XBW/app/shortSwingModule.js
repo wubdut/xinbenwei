@@ -11,8 +11,9 @@ define([], function() {
 				name : '平安银行'
 			});
 		}
-        // $http.get("http://10.0.67.14:8080/solr/metrics/select?indent=on&q=*:*&wt=json&rows=2").then(function (response) {
-        //     alert(response.data.responseHeader.status);
-        // });
+        $http.get("http://localhost:8888/").then(function (response) {
+        	// var str = JSON.stringify(response);
+            alert(response.data[0].content);
+        });
 	});
 });
