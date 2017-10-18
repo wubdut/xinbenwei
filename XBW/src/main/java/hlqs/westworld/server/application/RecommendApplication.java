@@ -24,6 +24,7 @@ public class RecommendApplication extends Thread{
 	private static final MultipleStringSeries mSeries = new StockData().stockidset();
 	private static final String HSET_KEY = "recommend";
 	private static final String ZSET_KEY = "recommend_action";
+	private static final String LIST_KEY = "recommend_list";
 	private final RedisUtil ru;
 	private final double basics = 1e3;
 	
@@ -41,18 +42,17 @@ public class RecommendApplication extends Thread{
 		}
 		long timestamp = System.currentTimeMillis();
 		Triple<String, Double, Double> triple = ossAPI.respond(today_price, timestamp);
-		
 		String context = new Gson().toJson(new RecommendData(
 				stockid, 
-				triple.getFirst(), 
-				triple.getSecond(), 
+				(this.basics + triple.getSecond()), 
 				today_price,
 				timestamp));
-		double label = triple.getFirst().equals("a")?1.0:-1.0;
+		if (triple.getFirst().equals("b")) return "not recommend";
 		Jedis jedis = ru.getJedis();
 		Transaction transaction = jedis.multi();
 		transaction.hset(HSET_KEY, stockid, context);
-		transaction.zadd(ZSET_KEY, (this.basics + triple.getSecond()) * label, stockid);
+		transaction.zadd(ZSET_KEY, timestamp, stockid);
+		transaction.rpush(LIST_KEY, context);
 		transaction.exec();
 		jedis.close();
 		return context;
