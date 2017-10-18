@@ -41,25 +41,23 @@ public class UpdateApplication extends Thread{
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		while(!stopflag) {
-			MultipleStringSeries res = new StockData().stockidset();
-			for (int i = 0; i < res.size(); i+=1) {
-				Calendar now_cal = Calendar.getInstance();
-				System.out.println(now_cal.getTime() + " UpdateApplication " + res.getValue("stock-id", i));
-				if (!Util.modifyAccess(res.getValue("stock-id", i))) continue;
-				try {
-					update(res.getValue("stock-id", i));
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				try {
-					Thread.sleep(1000L * 6);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					logger.error(e.getMessage());
-				}
+		MultipleStringSeries res = new StockData().stockidset();
+		for (int i = 0; i < res.size() && stopflag; i+=1) {
+			Calendar now_cal = Calendar.getInstance();
+			System.out.println(now_cal.getTime() + " UpdateApplication " + res.getValue("stock-id", i));
+			if (!Util.modifyAccess(res.getValue("stock-id", i))) continue;
+			try {
+				update(res.getValue("stock-id", i));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				Thread.sleep(1000L * 6);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				logger.error(e.getMessage());
 			}
 		}
 	}
