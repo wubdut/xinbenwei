@@ -16,7 +16,7 @@ public class UpdateApplication extends Thread{
 	
 	private static final MultipleStringSeries mSeries = new StockData().stockidset();
 	private boolean stopflag = false;
-	private final double epoch = 5;
+	private final double EPOCH;
 	private final double DISPOSITION;
 	private final long TERMINATE_TIMESTAMP;
 	
@@ -26,9 +26,10 @@ public class UpdateApplication extends Thread{
 	private static final long sleepMillTime = 10000;
 	private static Thread thread = null;
 	
-	public UpdateApplication(double DISPOSITION, long TERMINATE_TIMESTAMP) {
+	public UpdateApplication(double DISPOSITION, long TERMINATE_TIMESTAMP, int EPOCH) {
 		this.DISPOSITION = DISPOSITION;
 		this.TERMINATE_TIMESTAMP = TERMINATE_TIMESTAMP;
+		this.EPOCH = EPOCH;
 	}
 	
 	public void update(String stockid) {
@@ -56,7 +57,7 @@ public class UpdateApplication extends Thread{
 					ossAPI.createStates(data.get(i).getItem(), data.get(i+1).getItem());
 				}
 				ossAPI.sleep();
-				for (int e = 0; e < epoch; e++) {
+				for (int e = 0; e < EPOCH; e++) {
 					for (int i = 0; i+1 < data.size(); i++) {
 						if (data.get(i).getInstant() >= TERMINATE_TIMESTAMP) continue;
 						ossAPI.train(data.get(i).getItem(), data.get(i+1).getItem());

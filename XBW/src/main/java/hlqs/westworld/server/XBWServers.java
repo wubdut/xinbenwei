@@ -28,10 +28,11 @@ public class XBWServers {
 	private boolean UPDATE_FLAG = false;
 	private boolean ASSOCIATE_FLAG = false;
 	private boolean RECOMMEND_FLAG = false;
-	private double DISPOSITION = 2.0;
+	private double DISPOSITION = 2.1;
 	private long TERMINATE_TIMESTAMP = 0L;
 	private String REDIS_PASSWORD = "";
 	private String RECOMMEND_TIME = "";
+	private int EPOCH = 10;
 	private static Logger logger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 	
 	static {
@@ -42,7 +43,7 @@ public class XBWServers {
 		initialize();
 		AssociateApplication aa = new AssociateApplication(REDIS_URL, REDIS_PORT, REDIS_TIMEOUT, REDIS_PASSWORD);
 		RecommendApplication ra = new RecommendApplication(REDIS_URL, REDIS_PORT, REDIS_TIMEOUT, REDIS_PASSWORD, RECOMMEND_TIME);
-		UpdateApplication ua = new UpdateApplication(DISPOSITION, TERMINATE_TIMESTAMP);
+		UpdateApplication ua = new UpdateApplication(DISPOSITION, TERMINATE_TIMESTAMP, EPOCH);
 		while(true){
 			if (this.UPDATE_FLAG) ua.status(false);
 			if (this.RECOMMEND_FLAG) ra.status(false);
@@ -76,7 +77,7 @@ public class XBWServers {
 		System.out.println(now_cal.getTime() + " RecommendApplication " + stockid);
 		
 		initialize();
-		UpdateApplication ua = new UpdateApplication(DISPOSITION, TERMINATE_TIMESTAMP);
+		UpdateApplication ua = new UpdateApplication(DISPOSITION, TERMINATE_TIMESTAMP, EPOCH);
 		try {
 			ua.update(stockid);
 		} catch (Exception e) {
@@ -136,6 +137,10 @@ public class XBWServers {
         
         if (property.containsKey("recommend_time")) {
         	RECOMMEND_TIME = property.getProperty("recommend_time");
+        }
+        
+        if (property.containsKey("epoch")) {
+        	EPOCH = Integer.parseInt(property.getProperty("epoch"));
         }
 	}
 	
