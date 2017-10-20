@@ -17,20 +17,16 @@ import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
-import hlqs.westworld.server.application.AssociateApplication;
 import hlqs.westworld.server.application.RecommendApplication;
 import hlqs.westworld.server.application.UpdateApplication;
+import hlqs.westworld.server.lib.config.RedisConfig;
+import hlqs.westworld.server.lib.config.ThreadConfig;
 
 public class XBWServers {
-	private String REDIS_URL = null;
-	private int REDIS_PORT = -1;
-	private int REDIS_TIMEOUT = 6000;
 	private boolean UPDATE_FLAG = false;
-	private boolean ASSOCIATE_FLAG = false;
 	private boolean RECOMMEND_FLAG = false;
 	private double DISPOSITION = 2.1;
 	private long TERMINATE_TIMESTAMP = 0L;
-	private String REDIS_PASSWORD = "";
 	private String RECOMMEND_TIME = "";
 	private int EPOCH = 10;
 	private static Logger logger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
@@ -41,13 +37,13 @@ public class XBWServers {
 	
 	public void run() {
 		initialize();
-		AssociateApplication aa = new AssociateApplication(REDIS_URL, REDIS_PORT, REDIS_TIMEOUT, REDIS_PASSWORD);
-		RecommendApplication ra = new RecommendApplication(REDIS_URL, REDIS_PORT, REDIS_TIMEOUT, REDIS_PASSWORD, RECOMMEND_TIME);
+		
+		RecommendApplication ra = new RecommendApplication(RECOMMEND_TIME);
 		UpdateApplication ua = new UpdateApplication(DISPOSITION, TERMINATE_TIMESTAMP, EPOCH);
+		
 		while(true){
 			if (this.UPDATE_FLAG) ua.status(false);
 			if (this.RECOMMEND_FLAG) ra.status(false);
-			if (this.ASSOCIATE_FLAG) aa.status(false);
 			
 			try {
 				Thread.sleep(1000L * 60);
@@ -63,7 +59,7 @@ public class XBWServers {
 		System.out.println(now_cal.getTime() + " UpdateApplication " + stockid);
 		
 		initialize();
-		RecommendApplication ra = new RecommendApplication(REDIS_URL, REDIS_PORT, REDIS_TIMEOUT, REDIS_PASSWORD, RECOMMEND_TIME);
+		RecommendApplication ra = new RecommendApplication(RECOMMEND_TIME);
 		try {
 			ra.recommend(stockid);
 		} catch (Exception e) {
@@ -100,27 +96,23 @@ public class XBWServers {
 			e.printStackTrace();
 		}
         if (property.containsKey("redis_url")){
-        	REDIS_URL = property.getProperty("redis_url");
+        	RedisConfig.setRedisURL(property.getProperty("redis_url"));
         }
         
         if (property.containsKey("redis_port")){
-        	REDIS_PORT = Integer.parseInt(property.getProperty("redis_port"));
+        	RedisConfig.setPort(Integer.parseInt(property.getProperty("redis_port")));
         }
         
         if (property.containsKey("redis_timeout")){
-        	REDIS_TIMEOUT = Integer.parseInt(property.getProperty("redis_timeout"));
+        	RedisConfig.setTimeOut(Integer.parseInt(property.getProperty("redis_timeout")));
         }
         
         if (property.containsKey("redis_password")){
-        	REDIS_PASSWORD = property.getProperty("redis_password");
+        	RedisConfig.setRedisPassword(property.getProperty("redis_password"));
         }
         
         if (property.containsKey("update_flag")) {
         	UPDATE_FLAG = property.getProperty("update_flag").toLowerCase().equals("true");
-        }
-        
-        if (property.containsKey("associate_flag")) {
-        	ASSOCIATE_FLAG = property.getProperty("associate_flag").toLowerCase().equals("true");
         }
 
         if (property.containsKey("recommend_flag")) {
@@ -141,6 +133,22 @@ public class XBWServers {
         
         if (property.containsKey("epoch")) {
         	EPOCH = Integer.parseInt(property.getProperty("epoch"));
+        }
+        
+        if (property.containsKey("core_pool_size")) {
+        	ThreadConfig.setCorePoolSize(Integer.parseInt(property.getProperty("core_pool_size")));
+        }
+        
+        if (property.containsKey("maximum_pool_size")) {
+        	ThreadConfig.setMaximumPoolSize(Integer.parseInt(property.getProperty("maximum_pool_size")));
+        }
+        
+        if (property.containsKey("keep_alive_time")) {
+        	ThreadConfig.setKeepAliveTime(Integer.parseInt(property.getProperty("keep_alive_time")));
+        }
+        
+        if (property.containsKey("sleep_mill_time")) {
+        	ThreadConfig.setSleepMillTime(Integer.parseInt(property.getProperty("sleep_mill_time")));
         }
 	}
 	

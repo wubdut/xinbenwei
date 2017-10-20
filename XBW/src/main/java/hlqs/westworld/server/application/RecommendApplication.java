@@ -15,6 +15,8 @@ import com.realsight.westworld.tsp.lib.util.Triple;
 import com.realsight.westworld.tsp.lib.util.data.StockData;
 
 import hlqs.westworld.server.lib.Util;
+import hlqs.westworld.server.lib.config.RedisConfig;
+import hlqs.westworld.server.lib.config.ThreadConfig;
 import hlqs.westworld.server.response.RecommendData;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Transaction;
@@ -26,23 +28,32 @@ public class RecommendApplication implements Runnable{
 	private static final String ZSET_KEY = "recommend_action";
 	private static final String LIST_KEY = "recommend_list";
 	private final RedisUtil ru;
-	private static final int corePoolSize = 5;
-	private static final int maximumPoolSize = 10;
-	private static final long keepAliveTime = 2000;
-	private static final long sleepMillTime = 10000;
+	private final int corePoolSize;
+	private final int maximumPoolSize;
+	private final long keepAliveTime;
+	private final long sleepMillTime;
 	private final int startHour;
 	private final int startMinute;
 	private final int endHour;
 	private final int endMinute;
 	private static Thread thread = null;
 	
-	public RecommendApplication(String host, int port, int timeOut, String password, String RECOMMEND_TIME) {
-		ru = new RedisUtil(host, port, timeOut, password);
+	public RecommendApplication(String RECOMMEND_TIME) {
+		this.ru = new RedisUtil(RedisConfig.redisURL, 
+				RedisConfig.port, 
+				RedisConfig.timeOut, 
+				RedisConfig.redisPassword);
+		
 		String[] time = RECOMMEND_TIME.split("-");
-		startHour = Integer.parseInt(time[0].split(":")[0]);
-		startMinute = Integer.parseInt(time[0].split(":")[1]);
-		endHour = Integer.parseInt(time[1].split(":")[0]);
-		endMinute = Integer.parseInt(time[1].split(":")[1]);
+		this.startHour = Integer.parseInt(time[0].split(":")[0]);
+		this.startMinute = Integer.parseInt(time[0].split(":")[1]);
+		this.endHour = Integer.parseInt(time[1].split(":")[0]);
+		this.endMinute = Integer.parseInt(time[1].split(":")[1]);
+		
+		this.corePoolSize = ThreadConfig.corePoolSize;
+		this.maximumPoolSize = ThreadConfig.maximumPoolSize;
+		this.keepAliveTime = ThreadConfig.keepAliveTime;
+		this.sleepMillTime = ThreadConfig.sleepMillTime;
 	}
 	
 	public void recommend(String stockid) {
@@ -132,8 +143,7 @@ public class RecommendApplication implements Runnable{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				break;
-//				continue;
+				continue;
 			}
 			String stockid = mSeries.getValue("stock-id", i);
 			executor.execute(new Recommend(stockid));

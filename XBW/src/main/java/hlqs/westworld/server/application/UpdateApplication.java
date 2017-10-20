@@ -11,25 +11,31 @@ import com.realsight.westworld.tsp.lib.series.MultipleStringSeries;
 import com.realsight.westworld.tsp.lib.util.data.StockData;
 
 import hlqs.westworld.server.lib.Util;
+import hlqs.westworld.server.lib.config.ThreadConfig;
 
 public class UpdateApplication extends Thread{
 	
 	private static final MultipleStringSeries mSeries = new StockData().stockidset();
 	private boolean stopflag = false;
-	private final double EPOCH;
+	private final int EPOCH;
 	private final double DISPOSITION;
 	private final long TERMINATE_TIMESTAMP;
 	
-	private static final int corePoolSize = 5;
-	private static final int maximumPoolSize = 10;
-	private static final long keepAliveTime = 2000;
-	private static final long sleepMillTime = 10000;
+	private final int corePoolSize;
+	private final int maximumPoolSize;
+	private final long keepAliveTime;
+	private final long sleepMillTime;
 	private static Thread thread = null;
 	
 	public UpdateApplication(double DISPOSITION, long TERMINATE_TIMESTAMP, int EPOCH) {
 		this.DISPOSITION = DISPOSITION;
 		this.TERMINATE_TIMESTAMP = TERMINATE_TIMESTAMP;
 		this.EPOCH = EPOCH;
+		
+		this.corePoolSize = ThreadConfig.corePoolSize;
+		this.maximumPoolSize = ThreadConfig.maximumPoolSize;
+		this.keepAliveTime = ThreadConfig.keepAliveTime;
+		this.sleepMillTime = ThreadConfig.sleepMillTime;
 	}
 	
 	public void update(String stockid) {
