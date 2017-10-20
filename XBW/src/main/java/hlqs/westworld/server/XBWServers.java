@@ -29,7 +29,9 @@ public class XBWServers {
 	private boolean ASSOCIATE_FLAG = false;
 	private boolean RECOMMEND_FLAG = false;
 	private double DISPOSITION = 2.0;
+	private long TERMINATE_TIMESTAMP = 0L;
 	private String REDIS_PASSWORD = "";
+	private String RECOMMEND_TIME = "";
 	private static Logger logger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 	
 	static {
@@ -39,8 +41,8 @@ public class XBWServers {
 	public void run() {
 		initialize();
 		AssociateApplication aa = new AssociateApplication(REDIS_URL, REDIS_PORT, REDIS_TIMEOUT, REDIS_PASSWORD);
-		RecommendApplication ra = new RecommendApplication(REDIS_URL, REDIS_PORT, REDIS_TIMEOUT, REDIS_PASSWORD);
-		UpdateApplication ua = new UpdateApplication(DISPOSITION);
+		RecommendApplication ra = new RecommendApplication(REDIS_URL, REDIS_PORT, REDIS_TIMEOUT, REDIS_PASSWORD, RECOMMEND_TIME);
+		UpdateApplication ua = new UpdateApplication(DISPOSITION, TERMINATE_TIMESTAMP);
 		while(true){
 			if (this.UPDATE_FLAG) ua.status(false);
 			if (this.RECOMMEND_FLAG) ra.status(false);
@@ -60,10 +62,9 @@ public class XBWServers {
 		System.out.println(now_cal.getTime() + " UpdateApplication " + stockid);
 		
 		initialize();
-		RecommendApplication ra = new RecommendApplication(REDIS_URL, REDIS_PORT, REDIS_TIMEOUT, REDIS_PASSWORD);
+		RecommendApplication ra = new RecommendApplication(REDIS_URL, REDIS_PORT, REDIS_TIMEOUT, REDIS_PASSWORD, RECOMMEND_TIME);
 		try {
-			String info = ra.recommend(stockid);
-			System.out.println(stockid + " RecommendApplication result is " + info);
+			ra.recommend(stockid);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -75,7 +76,7 @@ public class XBWServers {
 		System.out.println(now_cal.getTime() + " RecommendApplication " + stockid);
 		
 		initialize();
-		UpdateApplication ua = new UpdateApplication(DISPOSITION);
+		UpdateApplication ua = new UpdateApplication(DISPOSITION, TERMINATE_TIMESTAMP);
 		try {
 			ua.update(stockid);
 		} catch (Exception e) {
@@ -127,6 +128,14 @@ public class XBWServers {
         
         if (property.containsKey("disposition")) {
         	DISPOSITION = Double.parseDouble(property.getProperty("disposition"));
+        }
+        
+        if (property.containsKey("terminate_timestamp")) {
+        	TERMINATE_TIMESTAMP = Long.parseLong(property.getProperty("terminate_timestamp"));
+        }
+        
+        if (property.containsKey("recommend_time")) {
+        	RECOMMEND_TIME = property.getProperty("recommend_time");
         }
 	}
 	
