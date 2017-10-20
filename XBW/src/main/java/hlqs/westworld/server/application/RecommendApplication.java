@@ -19,7 +19,7 @@ import hlqs.westworld.server.response.RecommendData;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Transaction;
 
-public class RecommendApplication extends Thread{
+public class RecommendApplication implements Runnable{
 	private boolean stopflag = false;
 	private static final MultipleStringSeries mSeries = new StockData().stockidset();
 	private static final String HSET_KEY = "recommend";
@@ -34,6 +34,7 @@ public class RecommendApplication extends Thread{
 	private final int startMinute;
 	private final int endHour;
 	private final int endMinute;
+	private static Thread thread = null;
 	
 	public RecommendApplication(String host, int port, int timeOut, String password, String RECOMMEND_TIME) {
 		ru = new RedisUtil(host, port, timeOut, password);
@@ -131,7 +132,8 @@ public class RecommendApplication extends Thread{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				continue;
+				break;
+//				continue;
 			}
 			String stockid = mSeries.getValue("stock-id", i);
 			executor.execute(new Recommend(stockid));
@@ -144,8 +146,9 @@ public class RecommendApplication extends Thread{
 		if (stopflag) {
 			return ;
 		} else {
-			if (!this.isAlive()){
-				this.start();
+			if (thread==null || !thread.isAlive()){
+				thread = new Thread(this);
+				thread.start();
 			}
 		}
 	}

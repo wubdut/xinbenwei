@@ -30,6 +30,7 @@ public class AssociateApplication extends Thread{
 	private static final int RESULT_SIZE = 30;
 	private static final String HSET_KEY = "associate";
 	private final RedisUtil ru;
+	private static Thread thread = null;
 	
 	public AssociateApplication(String host, int port, int timeOut, String password) {
 		ru = new RedisUtil(host, port, timeOut, password);
@@ -115,8 +116,9 @@ public class AssociateApplication extends Thread{
 		if (stopflag) {
 			return ;
 		} else {
-			if (!this.isAlive()){
-				this.start();
+			if (thread==null || !thread.isAlive()){
+				thread = new Thread(this);
+				thread.start();
 			}
 		}
 	}

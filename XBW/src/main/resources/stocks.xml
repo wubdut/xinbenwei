@@ -1577,6 +1577,11 @@
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>
 	<stock>
+		<stock-id>600381</stock-id>
+		<method-id>1</method-id>
+		<start-timestamp>1451577600000</start-timestamp>
+	</stock>
+	<stock>
 		<stock-id>600382</stock-id>
 		<method-id>1</method-id>
 		<start-timestamp>1451577600000</start-timestamp>
@@ -1823,6 +1828,11 @@
 	</stock>
 	<stock>
 		<stock-id>600459</stock-id>
+		<method-id>1</method-id>
+		<start-timestamp>1451577600000</start-timestamp>
+	</stock>
+	<stock>
+		<stock-id>600460</stock-id>
 		<method-id>1</method-id>
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>
@@ -2203,11 +2213,6 @@
 	</stock>
 	<stock>
 		<stock-id>600552</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600553</stock-id>
 		<method-id>1</method-id>
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>
@@ -3477,11 +3482,6 @@
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>
 	<stock>
-		<stock-id>600832</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
 		<stock-id>600833</stock-id>
 		<method-id>1</method-id>
 		<start-timestamp>1451577600000</start-timestamp>
@@ -3908,11 +3908,6 @@
 	</stock>
 	<stock>
 		<stock-id>600990</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600991</stock-id>
 		<method-id>1</method-id>
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>
@@ -6192,11 +6187,6 @@
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>
 	<stock>
-		<stock-id>000916</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
 		<stock-id>000917</stock-id>
 		<method-id>1</method-id>
 		<start-timestamp>1451577600000</start-timestamp>
@@ -8217,11 +8207,6 @@
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>
 	<stock>
-		<stock-id>002341</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
 		<stock-id>002342</stock-id>
 		<method-id>1</method-id>
 		<start-timestamp>1451577600000</start-timestamp>
@@ -8368,396 +8353,6 @@
 	</stock>
 	<stock>
 		<stock-id>002377</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>125709</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>125960</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>125969</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300001</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300002</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300003</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300004</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300005</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300006</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300007</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300008</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300009</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300010</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300011</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300012</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300013</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300014</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300015</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300016</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300017</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300018</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300019</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300020</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300021</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300022</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300023</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300024</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300025</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300026</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300027</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300028</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300029</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300030</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300031</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300032</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300033</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300034</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300035</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300036</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300037</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300038</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300039</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300040</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300041</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300042</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300043</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300044</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300045</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300046</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300047</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300048</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300049</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300050</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300051</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300052</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300053</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300054</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300055</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300056</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300057</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300058</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>002369</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>002370</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>002371</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>399957</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300063</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300064</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300065</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300066</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>002372</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>002373</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>002374</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>002378</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>002379</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>002380</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300059</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300061</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>300062</stock-id>
 		<method-id>1</method-id>
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>

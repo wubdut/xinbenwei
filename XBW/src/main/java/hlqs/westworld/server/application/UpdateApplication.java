@@ -24,6 +24,7 @@ public class UpdateApplication extends Thread{
 	private static final int maximumPoolSize = 10;
 	private static final long keepAliveTime = 2000;
 	private static final long sleepMillTime = 10000;
+	private static Thread thread = null;
 	
 	public UpdateApplication(double DISPOSITION, long TERMINATE_TIMESTAMP) {
 		this.DISPOSITION = DISPOSITION;
@@ -101,8 +102,9 @@ public class UpdateApplication extends Thread{
 		if (stopflag) {
 			return ;
 		} else {
-			if (!this.isAlive()){
-				this.start();
+			if (thread==null || !thread.isAlive()){
+				thread = new Thread(this);
+				thread.start();
 			}
 		}
 	}
