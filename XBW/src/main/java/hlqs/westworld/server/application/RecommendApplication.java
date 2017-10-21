@@ -68,22 +68,11 @@ public class RecommendApplication implements Runnable{
 			this.stockid = stockid;
 		}
 		
-		private boolean checkTime(Calendar cal) {
-			if (cal.get(Calendar.HOUR) < startHour) return false;
-			if (cal.get(Calendar.HOUR) > endHour) return false;
-			if (cal.get(Calendar.HOUR)==startHour && cal.get(Calendar.MINUTE)<startMinute) return false;
-			if (cal.get(Calendar.HOUR)==endHour && cal.get(Calendar.MINUTE)>endMinute) return false;
-			return true;
-		}
-		
 		@Override 
 		public void run() {
 			Calendar now_cal = Calendar.getInstance();
 			System.out.println(now_cal.getTime() + " RecommendApplication " + stockid);
-			if (!checkTime(now_cal)) {
-				System.out.println(stockid + " RecommendApplication time error");
-				return ;
-			}
+			
 			try {
 				Double today_price = new StockData().price(stockid);
 				OnlineStockStrategyAPI ossAPI = Util.open(stockid);
@@ -124,6 +113,14 @@ public class RecommendApplication implements Runnable{
 			return ;
 		}
 	}
+	
+	private boolean checkTime(Calendar cal) {
+		if (cal.get(Calendar.HOUR_OF_DAY) < startHour) return false;
+		if (cal.get(Calendar.HOUR_OF_DAY) > endHour) return false;
+		if (cal.get(Calendar.HOUR_OF_DAY)==startHour && cal.get(Calendar.MINUTE)<startMinute) return false;
+		if (cal.get(Calendar.HOUR_OF_DAY)==endHour && cal.get(Calendar.MINUTE)>endMinute) return false;
+		return true;
+	}
 		
 	@Override
 	public void run() {
@@ -136,7 +133,9 @@ public class RecommendApplication implements Runnable{
                 new ArrayBlockingQueue<Runnable>(5));
 
 		for (int i = 0; i < mSeries.size() && !stopflag;) {
-			if (executor.getPoolSize() >= maximumPoolSize) {
+			Calendar now_cal = Calendar.getInstance();
+			if (executor.getPoolSize()>=maximumPoolSize || !checkTime(now_cal)) {
+				System.out.println("RecommendApplication time error");
 				try {
 					Thread.sleep(sleepMillTime);
 				} catch (InterruptedException e) {
