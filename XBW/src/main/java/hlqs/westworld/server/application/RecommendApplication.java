@@ -135,7 +135,6 @@ public class RecommendApplication implements Runnable{
 		for (int i = 0; i < mSeries.size() && !stopflag;) {
 			Calendar now_cal = Calendar.getInstance();
 			if (executor.getPoolSize()>=maximumPoolSize || !checkTime(now_cal)) {
-				System.out.println("RecommendApplication time error");
 				try {
 					Thread.sleep(sleepMillTime);
 				} catch (InterruptedException e) {
