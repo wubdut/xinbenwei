@@ -16,8 +16,8 @@
             <h1 id="company">信本位科技（短线通内测）</h1>
         </div>
         <div class="content" data-ng-controller="shortSwingCntrl">
-            <div class="left-panel">
-                <div class="left-panel-in">
+            <!--div class="left-panel">
+                <div class="left-panel-in"-->
 
                     <table class="table table-bordered">
                         <thead>
@@ -25,32 +25,34 @@
                                 <td>代码</td>
                                 <td>名称</td>
                                 <td>推荐时间</td>
+                                <td>推荐价格</td>
                                 <td>涨幅</td>
-                                <td>止盈</td>
+                                <td>当前价格</td>
                                 <td>止损</td>
-
+                                <td>止盈</td>
+                                <td>状态</td>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="it in shortSwingList">
                                 <td>{{it.stockId}}</td>
                                 <td>{{it.stockName}}</td>
-                                <td>{{it.recommandTime}}</td>
-                                <td>{{it.increase}}</td>
-                                <td>{{it.stopProfit}}</td>
+                                <td>{{it.recommendTime}}</td>
+                                <td>{{it.priceRec}}</td>
+                                <td>{{it.increase | PercentValue}}</td>
+                                <td>{{it.priceReal}}</td>
                                 <td>{{it.stopLoss}}</td>
+                                <td>{{it.stopProfit}}</td>
+                                <td>{{it.status}}</td>
                             </tr>
                         </tbody>
 
                     </table>
 
-                </div>
-            </div>
+                <!--/div>
+            </div-->
 
-
-            <!--Designed by--><a href="http://www.htmltemplates.net">
-            <img src="images/copyright.gif" class="copyright" alt="http://www.htmltemplates.net"></a>
-            <div class="right-panel">
+            <!--div class="right-panel">
                 <div class="right-row1">
                     <h3 class="subtitle">说明:</h3>
                     <p>&nbsp;</p>
@@ -70,12 +72,11 @@
                     <p>如您有任何问题和建议，请联系：</p>
                     <p>E-mail: wubdut@gmail.com</p>
                 </div>
-            </div>
+            </div-->
         </div>
         <div class="footer">
-            <p>&copy; Copyright 2014. Designed by <a class="footer-link"
-                                                     target="_blank" href="http://www.htmltemplates.net/">html
-                templates</a>
+            <p>
+                说明：每天14:30--15:00，推荐具有短期上涨潜力的股票
             </p>
         </div>
     </div>
