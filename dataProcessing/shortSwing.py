@@ -52,12 +52,28 @@ def query(server):
     return list
 
 def update(server):
-    list = []
-    while (server.llen('shortSwing_list')):
-        list.append(json.loads(server.lpop('shortSwing_list')))
+    llen = server.llen('shortSwing_list')
+    list = server.lrange('shortSwing_list', 0, llen-1)
+    listJson = []
     for it in list:
+        listJson.append(json.loads(it))
+    for it in listJson:
         df = ts.get_realtime_quotes(it['stockId'])
         priceReal = float(df.at[0,'price'].encode('utf-8'))
         setStatus(it, priceReal)
         setPriceReal(it, priceReal)
-        server.rpush('shortSwing_list', json.dumps(it))
+    for num in range(0, llen):
+        pipe = server.pipeline()
+        pipe.multi()
+        pipe.lpop('shortSwing_list')
+        pipe.rpush('shortSwing_list', json.dumps(listJson[num]))
+        pipe.execute()
+    # list =[]
+    # while (server.llen('shortSwing_list')):
+        # list.append(json.loads(server.lpop('shortSwing_list')))
+    # for it in list:
+        # df = ts.get_realtime_quotes(it['stockId'])
+        # priceReal = float(df.at[0,'price'].encode('utf-8'))
+        # setStatus(it, priceReal)
+        # setPriceReal(it, priceReal)
+        # server.rpush('shortSwing_list', json.dumps(it))

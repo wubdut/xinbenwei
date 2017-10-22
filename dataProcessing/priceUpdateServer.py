@@ -8,7 +8,9 @@ import shortSwing
 while True:
     server = redisServer.getServer('39.108.214.220')
     shortSwing.update(server)
-    print u'更新股价'
+    print 'update stock price'
+    getRecommend.getFromRecommendList(server)
+    print 'check new recommendation'
     time.sleep(60)
     
 # print timeDate.getDate(time.time())

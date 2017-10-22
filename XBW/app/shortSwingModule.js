@@ -5,7 +5,7 @@ define([], function() {
 	
 	app.controller('shortSwingCntrl', function($scope, $http) {
 		$scope.shortSwingList = [];
-        $http.get("http://localhost:8000/").then(function (response) {
+        $http.get("http://39.108.214.220:8000/").then(function (response) {   //39.108.214.220
         	// var str = JSON.stringify(response);
             $scope.shortSwingList = response.data;
         });
