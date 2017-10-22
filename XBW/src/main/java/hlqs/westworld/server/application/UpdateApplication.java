@@ -6,7 +6,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import com.realsight.westworld.tsp.api.OnlineStockStrategyAPI;
-import com.realsight.westworld.tsp.lib.series.DoubleSeries;
+import com.realsight.westworld.tsp.lib.series.MultipleDoubleSeries;
 import com.realsight.westworld.tsp.lib.series.MultipleStringSeries;
 import com.realsight.westworld.tsp.lib.util.data.StockData;
 
@@ -57,16 +57,16 @@ public class UpdateApplication extends Thread{
 			try {
 				Calendar now_cal = Calendar.getInstance();
 				System.out.println(now_cal.getTime() + " UpdateApplication " + stockid);
-				DoubleSeries data = (new StockData()).history_data(stockid);
+				MultipleDoubleSeries data = (new StockData()).history_data(stockid);
 				OnlineStockStrategyAPI ossAPI = new OnlineStockStrategyAPI(DISPOSITION);
 				for (int i = 0; i+1 < data.size(); i++) {
-					ossAPI.createStates(data.get(i).getItem(), data.get(i+1).getItem());
+					ossAPI.createStates(data.getValue("close", i), data.getValue("close", i+1));
 				}
 				ossAPI.sleep();
 				for (int e = 0; e < EPOCH; e++) {
 					for (int i = 0; i+1 < data.size(); i++) {
 						if (data.get(i).getInstant() >= TERMINATE_TIMESTAMP) continue;
-						ossAPI.train(data.get(i).getItem(), data.get(i+1).getItem());
+						ossAPI.train(data.getValue("close", i), data.getValue("close", i+1));
 					}
 					ossAPI.sleep();
 				}

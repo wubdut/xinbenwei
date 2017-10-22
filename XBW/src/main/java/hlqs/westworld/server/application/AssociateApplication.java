@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import com.realsight.westworld.tsp.api.OnlineStockStrategyAPI;
 import com.realsight.westworld.tsp.lib.redis.RedisUtil;
 import com.realsight.westworld.tsp.lib.series.DoubleSeries;
+import com.realsight.westworld.tsp.lib.series.MultipleDoubleSeries;
 import com.realsight.westworld.tsp.lib.series.MultipleStringSeries;
 import com.realsight.westworld.tsp.lib.util.Entry;
 import com.realsight.westworld.tsp.lib.util.Triple;
@@ -47,9 +48,9 @@ public class AssociateApplication extends Thread{
 			OnlineStockStrategyAPI ossAPI = Util.open(stock_id);
 			if (ossAPI==null || today_price==null)
 				return "error";
-			DoubleSeries data = (new StockData()).history_data(stock_id);
+			MultipleDoubleSeries data = (new StockData()).history_data(stock_id);
 			for (int i = 0; i < data.size(); i++) {
-				ossAPI.respond(data.get(i).getItem(), data.get(i).getInstant());
+				ossAPI.respond(data.get(i).getItem().get(0), data.get(i).getInstant());
 			}
 			ossAPI.respond(today_price, System.currentTimeMillis());
 			List<Entry<Double, Long>> entrys = ossAPI.associate(ossAPI.getActiveNeuros());

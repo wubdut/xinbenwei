@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 import com.google.gson.Gson;
 import com.realsight.westworld.tsp.api.OnlineStockStrategyAPI;
 import com.realsight.westworld.tsp.lib.redis.RedisUtil;
-import com.realsight.westworld.tsp.lib.series.DoubleSeries;
+import com.realsight.westworld.tsp.lib.series.MultipleDoubleSeries;
 import com.realsight.westworld.tsp.lib.series.MultipleStringSeries;
 import com.realsight.westworld.tsp.lib.util.Triple;
 import com.realsight.westworld.tsp.lib.util.data.StockData;
@@ -90,9 +90,9 @@ public class RecommendApplication implements Runnable{
 					System.out.println(stockid + " RecommendApplication result is error");
 					return ;
 				}
-				DoubleSeries data = (new StockData()).history_data(stockid);
+				MultipleDoubleSeries data = (new StockData()).history_data(stockid);
 				for (int i = 0; i < data.size(); i++) {
-					ossAPI.respond(data.get(i).getItem(), data.get(i).getInstant());
+					ossAPI.respond(data.getValue("close", i), data.get(i).getInstant());
 				}
 				long timestamp = System.currentTimeMillis();
 				Triple<String, Double, Double> triple = ossAPI.respond(today_price, timestamp);
