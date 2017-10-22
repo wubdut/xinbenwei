@@ -2,6 +2,9 @@ package hlqs.westworld.server.application;
 
 import java.io.IOException;
 import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TimeZone;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -24,25 +27,32 @@ import redis.clients.jedis.Transaction;
 public class RecommendApplication implements Runnable{
 	private boolean stopflag = false;
 	private static final MultipleStringSeries mSeries = new StockData().stockidset();
-	private static final String HSET_KEY = "recommend";
-	private static final String ZSET_KEY = "recommend_action";
 	private static final String LIST_KEY = "recommend_list";
 	private final RedisUtil ru;
 	private final int corePoolSize;
 	private final int maximumPoolSize;
 	private final long keepAliveTime;
 	private final long sleepMillTime;
+	private final Set<Integer> days_of_week;
 	private final int startHour;
 	private final int startMinute;
 	private final int endHour;
 	private final int endMinute;
+	private final String timeZone;
 	private static Thread thread = null;
 	
-	public RecommendApplication(String RECOMMEND_TIME) {
+	public RecommendApplication(String TIME_ZONE, String RECOMMEND_DAYS_OF_WEEK, String RECOMMEND_TIME) {
 		this.ru = new RedisUtil(RedisConfig.redisURL, 
 				RedisConfig.port, 
 				RedisConfig.timeOut, 
 				RedisConfig.redisPassword);
+		
+		this.timeZone = TIME_ZONE;
+		
+		this.days_of_week = new HashSet<Integer>();
+		for (String day : RECOMMEND_DAYS_OF_WEEK.split(",")) {
+			days_of_week.add(Integer.parseInt(day.trim()));
+		}
 		
 		String[] time = RECOMMEND_TIME.split("-");
 		this.startHour = Integer.parseInt(time[0].split(":")[0]);
@@ -97,8 +107,6 @@ public class RecommendApplication implements Runnable{
 				}
 				Jedis jedis = ru.getJedis();
 				Transaction transaction = jedis.multi();
-				transaction.hset(HSET_KEY, stockid, context);
-				transaction.zadd(ZSET_KEY, timestamp, stockid);
 				transaction.rpush(LIST_KEY, context);
 				transaction.exec();
 				jedis.close();
@@ -115,6 +123,8 @@ public class RecommendApplication implements Runnable{
 	}
 	
 	private boolean checkTime(Calendar cal) {
+		cal.setTimeZone(TimeZone.getTimeZone(timeZone));
+		if (!days_of_week.contains(cal.get(Calendar.DAY_OF_WEEK))) return false;
 		if (cal.get(Calendar.HOUR_OF_DAY) < startHour) return false;
 		if (cal.get(Calendar.HOUR_OF_DAY) > endHour) return false;
 		if (cal.get(Calendar.HOUR_OF_DAY)==startHour && cal.get(Calendar.MINUTE)<startMinute) return false;
@@ -160,5 +170,4 @@ public class RecommendApplication implements Runnable{
 			}
 		}
 	}
-	
 }

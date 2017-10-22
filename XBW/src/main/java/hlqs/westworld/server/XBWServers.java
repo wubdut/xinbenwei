@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Calendar;
 import java.util.Properties;
+import java.util.TimeZone;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
@@ -26,8 +27,10 @@ public class XBWServers {
 	private boolean UPDATE_FLAG = false;
 	private boolean RECOMMEND_FLAG = false;
 	private double DISPOSITION = 2.1;
-	private long TERMINATE_TIMESTAMP = 0L;
-	private String RECOMMEND_TIME = "";
+	private long TERMINATE_TIMESTAMP = 1496246400000L;
+	private String RECOMMEND_TIME = "14:30-15:00";
+	private String TIME_ZONE = "GMT+8:00";
+	private String RECOMMEND_DAYS_OF_WEEK = "2,3,4,5,6";
 	private int EPOCH = 10;
 	private static Logger logger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 	
@@ -38,7 +41,7 @@ public class XBWServers {
 	public void run() {
 		initialize();
 		
-		RecommendApplication ra = new RecommendApplication(RECOMMEND_TIME);
+		RecommendApplication ra = new RecommendApplication(TIME_ZONE, RECOMMEND_DAYS_OF_WEEK, RECOMMEND_TIME);
 		UpdateApplication ua = new UpdateApplication(DISPOSITION, TERMINATE_TIMESTAMP, EPOCH);
 		
 		while(true){
@@ -59,7 +62,7 @@ public class XBWServers {
 		System.out.println(now_cal.getTime() + " UpdateApplication " + stockid);
 		
 		initialize();
-		RecommendApplication ra = new RecommendApplication(RECOMMEND_TIME);
+		RecommendApplication ra = new RecommendApplication(TIME_ZONE, RECOMMEND_DAYS_OF_WEEK, RECOMMEND_TIME);
 		try {
 			ra.recommend(stockid);
 		} catch (Exception e) {
@@ -85,7 +88,7 @@ public class XBWServers {
 	public void initialize() {
 		Path root = Paths.get(System.getProperty("user.dir")).getParent();
 		Path propertyPath = Paths.get(root.toString(), 
-				"config", 
+				"config",
 				"xbw.properties");
 		
         Properties property = new Properties();
@@ -125,6 +128,14 @@ public class XBWServers {
         
         if (property.containsKey("terminate_timestamp")) {
         	TERMINATE_TIMESTAMP = Long.parseLong(property.getProperty("terminate_timestamp"));
+        }
+        
+        if (property.containsKey("recommend_days_of_week")) {
+        	RECOMMEND_DAYS_OF_WEEK = property.getProperty("recommend_days_of_week");
+        }
+        
+        if (property.containsKey("time_zone")) {
+        	TIME_ZONE = property.getProperty("time_zone");
         }
         
         if (property.containsKey("recommend_time")) {
