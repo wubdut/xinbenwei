@@ -18,14 +18,14 @@ import getRecommend
 server = redisServer.getServer('39.108.214.220')
 
 # 删除
-print server.delete('shortSwing_list')
+# print server.delete('shortSwing_list')
 
 # 恢复备份 和 更新
-llen = server.llen('recommend_dump')
-for it in server.lrange('recommend_dump', 0, llen-1):
-    server.rpush('recommend_list', it)
-    print it
-getRecommend.getFromRecommendList(server)
+# llen = server.llen('recommend_dump')
+# for it in server.lrange('recommend_dump', 0, llen-1):
+    # server.rpush('recommend_list', it)
+    # print it
+# getRecommend.getFromRecommendList(server)
 
 
     
@@ -37,6 +37,8 @@ getRecommend.getFromRecommendList(server)
     # print it
     
 
-# llen = server.llen('shortSwing_list')
-# for it in server.lrange('shortSwing_list', 0, llen-1):
-    # print it
+llen = server.llen('shortSwing_list')
+for it in server.lrange('shortSwing_list', 0, llen-1):
+    # server.rpush('shortSwing_dump', it)
+    it_json = json.loads(it)
+    print it_json['status'] != u'进行'

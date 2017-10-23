@@ -6,6 +6,8 @@ import json
 import timeDate
 
 def setStatus(item, priceReal):
+    if iitem['status'] != u'进行':
+        return
     if priceReal > item['stopProfit']:
         item['status'] = u'止盈'
     elif priceReal < item['stopLoss']:
