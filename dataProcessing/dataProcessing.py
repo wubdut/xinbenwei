@@ -46,7 +46,8 @@ class TodoHandler(BaseHTTPRequestHandler):
 
         # Just dump data to json, and return it
         # message = json.dumps(self.TODOS)
-        redis = Recommend('39.108.214.220')
+        # redis = Recommend('39.108.214.220')
+        redis = Recommend('localhost')
         
         message = []
         
@@ -56,7 +57,15 @@ class TodoHandler(BaseHTTPRequestHandler):
             tmp_dict['stockName'] = it[u'stock_name']
             
             tmp_dict['recommandTime'] = time.strftime("%Y-%m-%d %H:%M:%S",time.localtime(it[u'time']/1000))
-            tmp_dict['increase'] = round(it[u'real_price'] - it[u'price'], 3)
+            
+            price_1 = it[u'price']
+            price_2 = it[u'real_price']
+            
+            inc_float = 0.0;
+            if price_1 > 0.1:
+                inc_float = (price_2-price_1)/price_1
+            
+            tmp_dict['increase'] = round(inc_float, 3)
             tmp_dict['stopProfit'] = 0.01
             tmp_dict['stopLoss'] = -0.05
             message.append(tmp_dict)
@@ -72,5 +81,5 @@ class TodoHandler(BaseHTTPRequestHandler):
 
 
 # main
-server = HTTPServer(('localhost', 8888), TodoHandler)
+server = HTTPServer(('', 8888), TodoHandler)
 server.serve_forever()
