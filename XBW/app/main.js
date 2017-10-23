@@ -13,9 +13,7 @@ requirejs.config({
 			'../js/lib/bootstrap.min'
 		],
 
-		app: 'app',
-		
-		coreModule: 'coreModule',
+		app: 'app'
 	},
 
 	map: {
