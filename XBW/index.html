@@ -43,7 +43,7 @@
                                 <td>{{it.priceReal}}</td>
                                 <td>{{it.stopLoss}}</td>
                                 <td>{{it.stopProfit}}</td>
-                                <td>{{it.status}}</td>
+                                <td ng-style="{color: (it.status === '止盈' ? 'red' : (it.status === '止损' ? 'green' : 'black'))}">{{it.status}}</td>
                             </tr>
                         </tbody>
 
@@ -76,7 +76,7 @@
         </div>
         <div class="footer">
             <p>
-                说明：每天14:30--15:00，推荐具有短期上涨潜力的股票
+                今日推荐：每天14:30--15:00，推荐具有短期上涨潜力的股票
             </p>
         </div>
     </div>
