@@ -11,7 +11,7 @@ while True:
     print 'update stock price'
     getRecommend.getFromRecommendList(server)
     print 'check new recommendation'
-    time.sleep(60)
+    time.sleep(30)
     
 # print timeDate.getDate(time.time())
 # print timeDate.getDate(time.time()*1000)

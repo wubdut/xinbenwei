@@ -8,6 +8,7 @@ import tushare as ts
 import timeDate
 import getRecommend
 import shortSwing
+import dump
 
 # timestamp = 1462451334
 # #转换成localtime
@@ -36,32 +37,12 @@ server = redisServer.getServer('39.108.214.220')
 # llen = server.llen('shortSwing_today')
 # for it in server.lrange('shortSwing_today', 0, llen-1):
     # print it
+ 
     
-# server.delete('shortSwing_today')
-# llen = server.llen('shortSwing_today_dump')
-# for it in server.lrange('shortSwing_today_dump', 0, llen-1):
-    # server.rpush('shortSwing_today', it)
-    # print it
-    # # server.rpush('shortSwing_dump', it)
-    # it_json = json.loads(it)
-    # print it_json['status'] != u'进行'
-    
-# llen =server.llen('shortSwing_list')
-# list = []
-# for it in server.lrange('shortSwing_list', 0, llen-1):
-    # it_json = json.loads(it)
-    # print it_json['stockName']
-    # print it
-    # if it['increase'] > 0:
-        # it['status'] == u"止盈"
-    # print it['status'] == u"止盈"
-    
-# for num in range(0, 5):
-    # print server.rpop('shortSwing_today')
-    
-# server.delete('shortSwing_dump')
-# list = server.keys()
-# for it in list:
-    # print it
-# shortSwing.update(server)
-getRecommend.getShortSwingToday(server)
+# dump.recommend_list(server)
+# getRecommend.getFromRecommendList(server)
+# dump.shortSwing_list(server)
+
+# getRecommend.getShortSwingToday(server)
+
+shortSwing.update(server)
