@@ -45,3 +45,8 @@ server = redisServer.getServer('39.108.214.220')
 # getRecommend.getShortSwingToday(server)
 
 shortSwing.update(server)
+
+# server.delete('shortSwing_list')
+# llen = server.llen('shortSwing_list_dump')
+# for it in server.lrange('shortSwing_list_dump', 0, llen-1):
+    # print server.rpush('shortSwing_list', it)

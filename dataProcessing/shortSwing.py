@@ -5,15 +5,18 @@ import tushare as ts
 import json
 import timeDate
 
-def setStatus(item, priceReal):
+def setStatus(item, priceHigh):
     if item['status'] != u'进行':
         return
-    if priceReal > item['stopProfit']:
+    priceRec = item['price']
+    if priceHigh > item['stopProfit']:
         item['status'] = u'止盈'
         item['priceReal'] = "----"
-    elif priceReal < item['stopLoss']:
+        item['increase'] = round((item['stopProfit']-priceRec)/priceRec, 4)
+    elif priceHigh < item['stopLoss']:
         item['status'] = u'止损'
         item['priceReal'] = "----"
+        item['increase'] = round((item['stopLoss']-priceRec)/priceRec, 4)
         
 def setPriceReal(item, priceReal):
     if item['status'] != u'进行':
@@ -68,30 +71,28 @@ def update(server):
         itJson = json.loads(it)
         # df = ts.get_realtime_quotes(itJson['stockId'])
         # priceReal = float(df.at[0,'price'].encode('utf-8'))
+        # priceHigh = float(df.at[0,'high'].encode('utf-8'))
         # setStatus(itJson, priceReal)
         # setPriceReal(itJson, priceReal)
-        if itJson['stockId'] == '600138':
-            itJson['status'] = u'止盈'
-            itJson['priceReal'] = "----"
             
         # if itJson['status'] == u"止盈":
             # itJson['increase'] = 0.01
-        # if itJson['increase'] > 0:
-            # itJson['status'] = u"止盈"
-        if itJson['stockId'] == u'600648':
+        if itJson['increase'] > 0:
+            itJson['status'] = u"止盈"
             itJson['priceReal'] = "----"
+        if itJson['stockId'] == '600393':
+            continue
+            # itJson['priceReal'] = "----"
             # itJson['increase'] = 0.01
-        if itJson['stockId'] == u'600690':
-            itJson['priceReal'] = "----"
+        # if itJson['stockId'] == u'600690':
+            # itJson['priceReal'] = "----"
             # itJson['increase'] = 0.01
         listJson.append(itJson)
+    server.delete('shortSwing_list')
+    for it in listJson:
+        server.rpush('shortSwing_list', json.dumps(it))
         
-    for num in range(0, llen):
-        pipe = server.pipeline()
-        pipe.multi()
-        pipe.lpop('shortSwing_list')
-        pipe.rpush('shortSwing_list', json.dumps(listJson[num]))
-        pipe.execute()
+    
     # list =[]
     # while (server.llen('shortSwing_list')):
         # list.append(json.loads(server.lpop('shortSwing_list')))

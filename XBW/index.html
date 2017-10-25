@@ -36,7 +36,9 @@
                         <tbody>
                             <tr ng-repeat="it in shortSwingList">
                                 <td>{{it.stockId}}</td>
-                                <td ng-href="{stockLink(it.stockId)}">{{it.stockName}}</td>
+                                <td>
+                                    <a ng-href="{{'http://www.iwencai.com/stockpick/search?tid=stockpick&qs=box_main_ths&w=' + it.stockId}}">{{it.stockName}}</a>
+                                </td>
                                 <td>{{it.recommendTime}}</td>
                                 <td>{{it.priceRec}}</td>
                                 <td>{{it.increase | PercentValue}}</td>
