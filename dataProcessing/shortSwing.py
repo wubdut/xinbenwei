@@ -68,9 +68,12 @@ def update(server):
         itJson = json.loads(it)
         # df = ts.get_realtime_quotes(itJson['stockId'])
         # priceReal = float(df.at[0,'price'].encode('utf-8'))
-        # setPriceReal(itJson, priceReal)
         # setStatus(itJson, priceReal)
-        
+        # setPriceReal(itJson, priceReal)
+        if itJson['stockId'] == '600138':
+            itJson['status'] = u'止盈'
+            itJson['priceReal'] = "----"
+            
         # if itJson['status'] == u"止盈":
             # itJson['increase'] = 0.01
         # if itJson['increase'] > 0:
@@ -98,3 +101,6 @@ def update(server):
         # setStatus(it, priceReal)
         # setPriceReal(it, priceReal)
         # server.rpush('shortSwing_list', json.dumps(it))
+        
+# def closeMarket(server):
+    
