@@ -6,7 +6,6 @@ def recommend_list(server):
     llen = server.llen('recommend_list')
     for it in server.lrange('recommend_list', 0, llen-1):
         print server.rpush('recommend_list_dump', it)
-    print server.llen('recommend_list_dump')
         
 def shortSwing_list(server):
     server.delete('shortSwing_list_dump')

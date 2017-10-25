@@ -9,6 +9,8 @@ import timeDate
 import getRecommend
 import shortSwing
 import dump
+import loadDump
+import statistic
 
 # timestamp = 1462451334
 # #转换成localtime
@@ -37,16 +39,21 @@ server = redisServer.getServer('39.108.214.220')
 # llen = server.llen('shortSwing_today')
 # for it in server.lrange('shortSwing_today', 0, llen-1):
     # print it
-    
+
+# loadDump.recommend_list(server)
+# loadDump.shortSwing_list(server)
+
 # dump.recommend_list(server)
-# getRecommend.getFromRecommendList(server)
 # dump.shortSwing_list(server)
 
+# getRecommend.getFromRecommendList(server)
 # getRecommend.getShortSwingToday(server)
 
-shortSwing.update(server)
+# shortSwing.update(server)
 
 # server.delete('shortSwing_list')
 # llen = server.llen('shortSwing_list_dump')
 # for it in server.lrange('shortSwing_list_dump', 0, llen-1):
     # print server.rpush('shortSwing_list', it)
+    
+print statistic.increaseSum(server)
