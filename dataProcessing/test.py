@@ -63,5 +63,15 @@ server = redisServer.getServer('39.108.214.220')
 # list = server.keys()
 # for it in list:
     # print it
-# shortSwing.update(server)
-getRecommend.getShortSwingToday(server)
+shortSwing.update(server)
+# getRecommend.getShortSwingToday(server)
+# server.delete('shortSwing_list_dump')
+# llen = server.llen('shortSwing_list_dump')
+# for it in server.lrange('shortSwing_list_dump', 0, llen-1):
+    # itJson = json.loads(it)
+    # if itJson['stockId'] == u'600452':
+        # print itJson['stockName']
+        # print itJson['increase']
+    # if itJson['stockId'] == u'600671':
+        # print itJson['stockName']
+        # print itJson['increase']
