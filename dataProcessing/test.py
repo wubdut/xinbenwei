@@ -47,7 +47,7 @@ server = redisServer.getServer('39.108.214.220')
 # dump.shortSwing_list(server)
 
 # getRecommend.getFromRecommendList(server)
-# getRecommend.getShortSwingToday(server)
+getRecommend.getShortSwingToday(server)
 
 # shortSwing.update(server)
 
@@ -56,4 +56,4 @@ server = redisServer.getServer('39.108.214.220')
 # for it in server.lrange('shortSwing_list_dump', 0, llen-1):
     # print server.rpush('shortSwing_list', it)
     
-print statistic.increaseSum(server)
+# print statistic.increaseSum(server)

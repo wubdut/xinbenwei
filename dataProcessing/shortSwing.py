@@ -77,10 +77,10 @@ def update(server):
             
         # if itJson['status'] == u"止盈":
             # itJson['increase'] = 0.01
-        if itJson['increase'] > 0:
-            itJson['status'] = u"止盈"
-            itJson['priceReal'] = "----"
-        if itJson['stockId'] == '600393':
+        # if itJson['increase'] > 0:
+            # itJson['status'] = u"止盈"
+            # itJson['priceReal'] = "----"
+        if itJson['stockId'] == '600604':
             continue
             # itJson['priceReal'] = "----"
             # itJson['increase'] = 0.01
