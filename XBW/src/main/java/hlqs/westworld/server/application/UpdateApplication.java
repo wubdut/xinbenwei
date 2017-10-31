@@ -19,6 +19,7 @@ public class UpdateApplication extends Thread{
 	private boolean stopflag = false;
 	private final int EPOCH;
 	private final double DISPOSITION;
+	private final double C;
 	private final long TERMINATE_TIMESTAMP;
 	
 	private final int corePoolSize;
@@ -27,8 +28,9 @@ public class UpdateApplication extends Thread{
 	private final long sleepMillTime;
 	private static Thread thread = null;
 	
-	public UpdateApplication(double DISPOSITION, long TERMINATE_TIMESTAMP, int EPOCH) {
+	public UpdateApplication(double DISPOSITION, double C, long TERMINATE_TIMESTAMP, int EPOCH) {
 		this.DISPOSITION = DISPOSITION;
+		this.C = C;
 		this.TERMINATE_TIMESTAMP = TERMINATE_TIMESTAMP;
 		this.EPOCH = EPOCH;
 		
@@ -58,7 +60,7 @@ public class UpdateApplication extends Thread{
 				Calendar now_cal = Calendar.getInstance();
 				System.out.println(now_cal.getTime() + " UpdateApplication " + stockid);
 				MultipleDoubleSeries data = (new StockData()).history_data(stockid);
-				OnlineStockStrategyAPI ossAPI = new OnlineStockStrategyAPI(DISPOSITION);
+				OnlineStockStrategyAPI ossAPI = new OnlineStockStrategyAPI(DISPOSITION, C);
 				for (int i = 0; i+5 < data.size(); i++) {
 					Double today = (data.getValue("close", i));
 					Double tomorrow_1 = (data.getValue("close", i+1));

@@ -26,6 +26,7 @@ public class XBWServers {
 	private boolean UPDATE_FLAG = false;
 	private boolean RECOMMEND_FLAG = false;
 	private double DISPOSITION = 2.1;
+	private double C = 0.1;
 	private long TERMINATE_TIMESTAMP = 1496246400000L;
 	private String RECOMMEND_TIME = "14:30-15:00";
 	private String TIME_ZONE = "GMT+8:00";
@@ -41,7 +42,7 @@ public class XBWServers {
 		initialize();
 		
 		RecommendApplication ra = new RecommendApplication(TIME_ZONE, RECOMMEND_DAYS_OF_WEEK, RECOMMEND_TIME);
-		UpdateApplication ua = new UpdateApplication(DISPOSITION, TERMINATE_TIMESTAMP, EPOCH);
+		UpdateApplication ua = new UpdateApplication(DISPOSITION, C, TERMINATE_TIMESTAMP, EPOCH);
 		
 		while(true){
 			if (this.UPDATE_FLAG) ua.status(false);
@@ -75,7 +76,7 @@ public class XBWServers {
 		System.out.println(now_cal.getTime() + " RecommendApplication " + stockid);
 		
 		initialize();
-		UpdateApplication ua = new UpdateApplication(DISPOSITION, TERMINATE_TIMESTAMP, EPOCH);
+		UpdateApplication ua = new UpdateApplication(DISPOSITION, C, TERMINATE_TIMESTAMP, EPOCH);
 		try {
 			ua.update(stockid);
 		} catch (Exception e) {
@@ -123,6 +124,10 @@ public class XBWServers {
         
         if (property.containsKey("disposition")) {
         	DISPOSITION = Double.parseDouble(property.getProperty("disposition"));
+        }
+        
+        if (property.containsKey("C")) {
+        	C = Double.parseDouble(property.getProperty("C"));
         }
         
         if (property.containsKey("terminate_timestamp")) {
