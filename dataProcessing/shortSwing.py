@@ -80,8 +80,8 @@ def update(server):
         # if itJson['increase'] > 0:
             # itJson['status'] = u"止盈"
             # itJson['priceReal'] = "----"
-        if itJson['stockId'] == '600604':
-            continue
+        # if itJson['stockId'] == '600604':
+            # continue
             # itJson['priceReal'] = "----"
             # itJson['increase'] = 0.01
         # if itJson['stockId'] == u'600690':
@@ -89,9 +89,12 @@ def update(server):
             # itJson['increase'] = 0.01
         listJson.append(itJson)
     server.delete('shortSwing_list')
+    
+    pipe = server.pipeline()
+    pipe.multi()
     for it in listJson:
-        server.rpush('shortSwing_list', json.dumps(it))
-        
+        pipe.rpush('shortSwing_list', json.dumps(it))
+    pipe.execute()
     
     # list =[]
     # while (server.llen('shortSwing_list')):

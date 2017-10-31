@@ -43,11 +43,11 @@ server = redisServer.getServer('39.108.214.220')
 # loadDump.recommend_list(server)
 # loadDump.shortSwing_list(server)
 
-# dump.recommend_list(server)
-# dump.shortSwing_list(server)
+dump.recommend_list(server)
+dump.shortSwing_list(server)
 
 # getRecommend.getFromRecommendList(server)
-getRecommend.getShortSwingToday(server)
+# getRecommend.getShortSwingToday(server)
 
 # shortSwing.update(server)
 
