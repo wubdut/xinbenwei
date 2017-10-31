@@ -59,14 +59,26 @@ public class UpdateApplication extends Thread{
 				System.out.println(now_cal.getTime() + " UpdateApplication " + stockid);
 				MultipleDoubleSeries data = (new StockData()).history_data(stockid);
 				OnlineStockStrategyAPI ossAPI = new OnlineStockStrategyAPI(DISPOSITION);
-				for (int i = 0; i+1 < data.size(); i++) {
-					ossAPI.createStates(data.getValue("close", i), data.getValue("close", i+1));
+				for (int i = 0; i+5 < data.size(); i++) {
+					Double today = (data.getValue("close", i));
+					Double tomorrow_1 = (data.getValue("close", i+1));
+					Double tomorrow_2 = (data.getValue("close", i+2));
+					Double tomorrow_3 = (data.getValue("close", i+3));
+					Double tomorrow_4 = (data.getValue("close", i+4));
+					Double tomorrow_5 = (data.getValue("close", i+5));
+					ossAPI.createStates(today, tomorrow_1, tomorrow_2, tomorrow_3, tomorrow_4, tomorrow_5);
 				}
 				ossAPI.sleep();
 				for (int e = 0; e < EPOCH; e++) {
-					for (int i = 0; i+1 < data.size(); i++) {
+					for (int i = 0; i+5 < data.size(); i++) {
 						if (data.get(i).getInstant() >= TERMINATE_TIMESTAMP) continue;
-						ossAPI.train(data.getValue("close", i), data.getValue("close", i+1));
+						Double today = (data.getValue("close", i));
+						Double tomorrow_1 = (data.getValue("close", i+1));
+						Double tomorrow_2 = (data.getValue("close", i+2));
+						Double tomorrow_3 = (data.getValue("close", i+3));
+						Double tomorrow_4 = (data.getValue("close", i+4));
+						Double tomorrow_5 = (data.getValue("close", i+5));
+						ossAPI.train(today, tomorrow_1, tomorrow_2, tomorrow_3, tomorrow_4, tomorrow_5);
 					}
 					ossAPI.sleep();
 				}
