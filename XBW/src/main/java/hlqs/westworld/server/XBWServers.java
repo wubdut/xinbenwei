@@ -27,6 +27,8 @@ public class XBWServers {
 	private boolean RECOMMEND_FLAG = false;
 	private double DISPOSITION = 2.1;
 	private double C = 0.1;
+	private double ATTENUATION = 0.5;
+	private int TRANSACTION_PERIOD = 5;
 	private long TERMINATE_TIMESTAMP = 1496246400000L;
 	private String RECOMMEND_TIME = "14:30-15:00";
 	private String TIME_ZONE = "GMT+8:00";
@@ -42,7 +44,7 @@ public class XBWServers {
 		initialize();
 		
 		RecommendApplication ra = new RecommendApplication(TIME_ZONE, RECOMMEND_DAYS_OF_WEEK, RECOMMEND_TIME);
-		UpdateApplication ua = new UpdateApplication(DISPOSITION, C, TERMINATE_TIMESTAMP, EPOCH);
+		UpdateApplication ua = new UpdateApplication(DISPOSITION, ATTENUATION, C, TRANSACTION_PERIOD, TERMINATE_TIMESTAMP, EPOCH);
 		
 		while(true){
 			if (this.UPDATE_FLAG) ua.status(false);
@@ -76,7 +78,7 @@ public class XBWServers {
 		System.out.println(now_cal.getTime() + " RecommendApplication " + stockid);
 		
 		initialize();
-		UpdateApplication ua = new UpdateApplication(DISPOSITION, C, TERMINATE_TIMESTAMP, EPOCH);
+		UpdateApplication ua = new UpdateApplication(DISPOSITION, ATTENUATION, C, TRANSACTION_PERIOD, TERMINATE_TIMESTAMP, EPOCH);
 		try {
 			ua.update(stockid);
 		} catch (Exception e) {
@@ -99,71 +101,79 @@ public class XBWServers {
 			e.printStackTrace();
 		}
         if (property.containsKey("redis_url")){
-        	RedisConfig.setRedisURL(property.getProperty("redis_url"));
+        	RedisConfig.setRedisURL(property.getProperty("redis_url").trim());
         }
         
         if (property.containsKey("redis_port")){
-        	RedisConfig.setPort(Integer.parseInt(property.getProperty("redis_port")));
+        	RedisConfig.setPort(Integer.parseInt(property.getProperty("redis_port").trim()));
         }
         
         if (property.containsKey("redis_timeout")){
-        	RedisConfig.setTimeOut(Integer.parseInt(property.getProperty("redis_timeout")));
+        	RedisConfig.setTimeOut(Integer.parseInt(property.getProperty("redis_timeout").trim()));
         }
         
         if (property.containsKey("redis_password")){
-        	RedisConfig.setRedisPassword(property.getProperty("redis_password"));
+        	RedisConfig.setRedisPassword(property.getProperty("redis_password").trim());
         }
         
         if (property.containsKey("update_flag")) {
-        	UPDATE_FLAG = property.getProperty("update_flag").toLowerCase().equals("true");
+        	UPDATE_FLAG = property.getProperty("update_flag").trim().toLowerCase().equals("true");
         }
 
         if (property.containsKey("recommend_flag")) {
-        	RECOMMEND_FLAG = property.getProperty("recommend_flag").toLowerCase().equals("true");
+        	RECOMMEND_FLAG = property.getProperty("recommend_flag").trim().toLowerCase().equals("true");
         }
         
         if (property.containsKey("disposition")) {
-        	DISPOSITION = Double.parseDouble(property.getProperty("disposition"));
+        	DISPOSITION = Double.parseDouble(property.getProperty("disposition").trim());
+        }
+        
+        if (property.containsKey("attenuation")) {
+        	ATTENUATION = Double.parseDouble(property.getProperty("attenuation").trim());
         }
         
         if (property.containsKey("C")) {
-        	C = Double.parseDouble(property.getProperty("C"));
+        	C = Double.parseDouble(property.getProperty("C").trim());
+        }
+        
+        if (property.containsKey("transaction_period")) {
+        	TRANSACTION_PERIOD = Integer.parseInt(property.getProperty("transaction_period").trim());
         }
         
         if (property.containsKey("terminate_timestamp")) {
-        	TERMINATE_TIMESTAMP = Long.parseLong(property.getProperty("terminate_timestamp"));
+        	TERMINATE_TIMESTAMP = Long.parseLong(property.getProperty("terminate_timestamp").trim());
         }
         
         if (property.containsKey("recommend_days_of_week")) {
-        	RECOMMEND_DAYS_OF_WEEK = property.getProperty("recommend_days_of_week");
+        	RECOMMEND_DAYS_OF_WEEK = property.getProperty("recommend_days_of_week").trim();
         }
         
         if (property.containsKey("time_zone")) {
-        	TIME_ZONE = property.getProperty("time_zone");
+        	TIME_ZONE = property.getProperty("time_zone").trim();
         }
         
         if (property.containsKey("recommend_time")) {
-        	RECOMMEND_TIME = property.getProperty("recommend_time");
+        	RECOMMEND_TIME = property.getProperty("recommend_time").trim();
         }
         
         if (property.containsKey("epoch")) {
-        	EPOCH = Integer.parseInt(property.getProperty("epoch"));
+        	EPOCH = Integer.parseInt(property.getProperty("epoch").trim());
         }
         
         if (property.containsKey("core_pool_size")) {
-        	ThreadConfig.setCorePoolSize(Integer.parseInt(property.getProperty("core_pool_size")));
+        	ThreadConfig.setCorePoolSize(Integer.parseInt(property.getProperty("core_pool_size").trim()));
         }
         
         if (property.containsKey("maximum_pool_size")) {
-        	ThreadConfig.setMaximumPoolSize(Integer.parseInt(property.getProperty("maximum_pool_size")));
+        	ThreadConfig.setMaximumPoolSize(Integer.parseInt(property.getProperty("maximum_pool_size").trim()));
         }
         
         if (property.containsKey("keep_alive_time")) {
-        	ThreadConfig.setKeepAliveTime(Integer.parseInt(property.getProperty("keep_alive_time")));
+        	ThreadConfig.setKeepAliveTime(Integer.parseInt(property.getProperty("keep_alive_time").trim()));
         }
         
         if (property.containsKey("sleep_mill_time")) {
-        	ThreadConfig.setSleepMillTime(Integer.parseInt(property.getProperty("sleep_mill_time")));
+        	ThreadConfig.setSleepMillTime(Integer.parseInt(property.getProperty("sleep_mill_time").trim()));
         }
 	}
 	

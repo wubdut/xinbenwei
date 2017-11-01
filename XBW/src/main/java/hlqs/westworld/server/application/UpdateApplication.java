@@ -20,6 +20,8 @@ public class UpdateApplication extends Thread{
 	private final int EPOCH;
 	private final double DISPOSITION;
 	private final double C;
+	private final double ATTENUATION;
+	private final int TRANSACTION_PERIOD;
 	private final long TERMINATE_TIMESTAMP;
 	
 	private final int corePoolSize;
@@ -28,9 +30,16 @@ public class UpdateApplication extends Thread{
 	private final long sleepMillTime;
 	private static Thread thread = null;
 	
-	public UpdateApplication(double DISPOSITION, double C, long TERMINATE_TIMESTAMP, int EPOCH) {
+	public UpdateApplication(double DISPOSITION, 
+			double ATTENUATION, 
+			double C, 
+			int TRANSACTION_PERIOD, 
+			long TERMINATE_TIMESTAMP, 
+			int EPOCH) {
 		this.DISPOSITION = DISPOSITION;
 		this.C = C;
+		this.ATTENUATION = ATTENUATION;
+		this.TRANSACTION_PERIOD = TRANSACTION_PERIOD;
 		this.TERMINATE_TIMESTAMP = TERMINATE_TIMESTAMP;
 		this.EPOCH = EPOCH;
 		
@@ -60,27 +69,25 @@ public class UpdateApplication extends Thread{
 				Calendar now_cal = Calendar.getInstance();
 				System.out.println(now_cal.getTime() + " UpdateApplication " + stockid);
 				MultipleDoubleSeries data = (new StockData()).history_data(stockid);
-				OnlineStockStrategyAPI ossAPI = new OnlineStockStrategyAPI(DISPOSITION, C);
-				for (int i = 0; i+5 < data.size(); i++) {
-					Double today = (data.getValue("close", i));
-					Double tomorrow_1 = (data.getValue("close", i+1));
-					Double tomorrow_2 = (data.getValue("close", i+2));
-					Double tomorrow_3 = (data.getValue("close", i+3));
-					Double tomorrow_4 = (data.getValue("close", i+4));
-					Double tomorrow_5 = (data.getValue("close", i+5));
-					ossAPI.createStates(today, tomorrow_1, tomorrow_2, tomorrow_3, tomorrow_4, tomorrow_5);
+				OnlineStockStrategyAPI ossAPI = new OnlineStockStrategyAPI(DISPOSITION, ATTENUATION, C);
+				for (int i = 0; i+TRANSACTION_PERIOD < data.size(); i++) {
+					double today = (data.getValue("close", i));
+					double[] tomorrows = new double[TRANSACTION_PERIOD];
+					for (int j = 0; j < TRANSACTION_PERIOD; ++ j) {
+						tomorrows[j] = data.getValue("close", i+j+1);
+					}
+					ossAPI.createStates(today, tomorrows);
 				}
 				ossAPI.sleep();
 				for (int e = 0; e < EPOCH; e++) {
 					for (int i = 0; i+5 < data.size(); i++) {
 						if (data.get(i).getInstant() >= TERMINATE_TIMESTAMP) continue;
-						Double today = (data.getValue("close", i));
-						Double tomorrow_1 = (data.getValue("close", i+1));
-						Double tomorrow_2 = (data.getValue("close", i+2));
-						Double tomorrow_3 = (data.getValue("close", i+3));
-						Double tomorrow_4 = (data.getValue("close", i+4));
-						Double tomorrow_5 = (data.getValue("close", i+5));
-						ossAPI.train(today, tomorrow_1, tomorrow_2, tomorrow_3, tomorrow_4, tomorrow_5);
+						double today = (data.getValue("close", i));
+						double[] tomorrows = new double[TRANSACTION_PERIOD];
+						for (int j = 0; j < TRANSACTION_PERIOD; ++ j) {
+							tomorrows[j] = data.getValue("close", i+j+1);
+						}
+						ossAPI.train(today, tomorrows);
 					}
 					ossAPI.sleep();
 				}
