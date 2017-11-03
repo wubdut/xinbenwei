@@ -131,7 +131,10 @@ public class RecommendApplication implements Runnable{
 		if (cal.get(Calendar.DAY_OF_YEAR)==recommendDate.get(Calendar.DAY_OF_YEAR) && 
 				cal.get(Calendar.YEAR)==recommendDate.get(Calendar.YEAR)) {
 			if (recommends.contains(stockid)) { return false; }
-		} else { recommends.clear(); }
+		} else { 
+			recommends.clear();
+			recommendDate.setTimeInMillis(System.currentTimeMillis());
+		}
 		if (!days_of_week.contains(cal.get(Calendar.DAY_OF_WEEK))) return false;
 		if (cal.get(Calendar.HOUR_OF_DAY) < startHour) return false;
 		if (cal.get(Calendar.HOUR_OF_DAY) > endHour) return false;
