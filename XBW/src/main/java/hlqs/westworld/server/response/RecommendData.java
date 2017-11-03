@@ -2,15 +2,15 @@ package hlqs.westworld.server.response;
 
 @SuppressWarnings("unused")
 public class RecommendData {
-	private final String stockid;
+	private final String stockId;
 	private final Double score;
-	private final Double price;
-	private final long time;
+	private final Double priceRec;
+	private final long timeRec;
 	
-	public RecommendData(String stockid, Double score, Double price, long time) {
-		this.stockid = stockid;
+	public RecommendData(String stockId, Double score, Double priceRec, long timeRec) {
+		this.stockId = stockId;
 		this.score = score;
-		this.price = price;
-		this.time = time;
+		this.priceRec = priceRec;
+		this.timeRec = timeRec;
 	}
 }

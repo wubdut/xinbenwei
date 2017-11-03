@@ -80,7 +80,7 @@ public class UpdateApplication extends Thread{
 				}
 				ossAPI.sleep();
 				for (int e = 0; e < EPOCH; e++) {
-					for (int i = 0; i+5 < data.size(); i++) {
+					for (int i = 0; i+TRANSACTION_PERIOD < data.size(); i++) {
 						if (data.get(i).getInstant() >= TERMINATE_TIMESTAMP) continue;
 						double today = (data.getValue("close", i));
 						double[] tomorrows = new double[TRANSACTION_PERIOD];

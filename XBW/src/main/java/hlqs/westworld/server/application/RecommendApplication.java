@@ -40,6 +40,8 @@ public class RecommendApplication implements Runnable{
 	private final int endMinute;
 	private final String timeZone;
 	private static Thread thread = null;
+	private final Set<String> recommends = new HashSet<String>();
+	private final Calendar recommendDate = Calendar.getInstance();
 	
 	public RecommendApplication(String TIME_ZONE, String RECOMMEND_DAYS_OF_WEEK, String RECOMMEND_TIME) {
 		this.ru = new RedisUtil(RedisConfig.redisURL, 
@@ -64,6 +66,8 @@ public class RecommendApplication implements Runnable{
 		this.maximumPoolSize = ThreadConfig.maximumPoolSize;
 		this.keepAliveTime = ThreadConfig.keepAliveTime;
 		this.sleepMillTime = ThreadConfig.sleepMillTime;
+		this.recommendDate.setTimeInMillis(0L);
+		this.recommendDate.setTimeZone(TimeZone.getTimeZone(timeZone));
 	}
 	
 	public void recommend(String stockid) {
@@ -122,8 +126,12 @@ public class RecommendApplication implements Runnable{
 		}
 	}
 	
-	private boolean checkTime(Calendar cal) {
+	private boolean check(Calendar cal, String stockid) {
 		cal.setTimeZone(TimeZone.getTimeZone(timeZone));
+		if (cal.get(Calendar.DAY_OF_YEAR)==recommendDate.get(Calendar.DAY_OF_YEAR) && 
+				cal.get(Calendar.YEAR)==recommendDate.get(Calendar.YEAR)) {
+			if (recommends.contains(stockid)) { return false; }
+		} else { recommends.clear(); }
 		if (!days_of_week.contains(cal.get(Calendar.DAY_OF_WEEK))) return false;
 		if (cal.get(Calendar.HOUR_OF_DAY) < startHour) return false;
 		if (cal.get(Calendar.HOUR_OF_DAY) > endHour) return false;
@@ -144,7 +152,9 @@ public class RecommendApplication implements Runnable{
 
 		for (int i = 0; i < mSeries.size() && !stopflag;) {
 			Calendar now_cal = Calendar.getInstance();
-			if (executor.getPoolSize()>=maximumPoolSize || !checkTime(now_cal)) {
+			String stockid = mSeries.getValue("stock-id", i);
+
+			if (executor.getPoolSize()>=maximumPoolSize || !check(now_cal, stockid)) {
 				try {
 					Thread.sleep(sleepMillTime);
 				} catch (InterruptedException e) {
@@ -153,7 +163,7 @@ public class RecommendApplication implements Runnable{
 				}
 				continue;
 			}
-			String stockid = mSeries.getValue("stock-id", i);
+			recommends.add(stockid);
 			executor.execute(new Recommend(stockid));
 			i += 1;
 		}
