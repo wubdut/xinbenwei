@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+#!/usr/bin/env python -u
 # -*- coding: utf-8 -*-
 
 import basic
+import server

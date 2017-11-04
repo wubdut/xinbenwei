@@ -1,9 +1,4 @@
-'''
-Created on 2017年10月31日
-
-@author: wubin
-'''
-#!/usr/bin/env python
+#!/usr/bin/env python -u
 # -*- coding: utf-8 -*-
 
 import tornado.httpserver
@@ -11,14 +6,12 @@ import tornado.ioloop
 import tornado.options
 import tornado.web
 import json
-from server import redisServer
-from model import shortSwing
+from model.shortSwing import ShortSwing
 
 from tornado.options import define, options
 define("port", default=8000, help="run on the given port", type=int)
 
 class IndexHandler(tornado.web.RequestHandler):
-    
     #解决js跨域请求问题
     def set_default_headers(self):
         self.set_header('Access-Control-Allow-Origin', '*')
@@ -29,10 +22,8 @@ class IndexHandler(tornado.web.RequestHandler):
         
     def get(self):
         message = []
-        server = redisServer.getServer('39.108.214.220')
-        for it in shortSwing.query(server):
+        for it in ShortSwing.queryAll():
             message.append(json.loads(it))
-            
         self.write(json.dumps(message))
 
 if __name__ == "__main__":

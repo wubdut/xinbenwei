@@ -1,5 +1,11 @@
 eclipse.preferences.version=1
 encoding//src/basic/__init__.py=utf-8
 encoding//src/model/__init__.py=utf-8
-encoding//src/orm/__init__.py=utf-8
+encoding//src/model/recommend.py=utf-8
+encoding//src/model/shortSwing.py=utf-8
 encoding//src/server/__init__.py=utf-8
+encoding//src/server/redisServer.py=utf-8
+encoding//src/server/shortSwingServer.py=utf-8
+encoding//src/server/tornadoServer.py=utf-8
+encoding//src/service/__init__.py=utf-8
+encoding//src/service/shortSwingService.py=utf-8

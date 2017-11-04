@@ -1,17 +1,22 @@
-'''
-Created on 2017年10月31日
-
-@author: wubin
-'''
-#!/usr/bin/env python
+#!/usr/bin/env python -u
 # -*- coding: utf-8 -*-
 
-import shortSwing
+import json
+from server.redisServer import server
 
-def add2ShortSwingToday(server):
-    while server.llen('recommend_list') > 0:
-        shortSwing.add2ShortSwingToday(server)
+class Recommend(object):
+    
+    @staticmethod
+    def lpop():
+        item = json.loads(server.lpop('Recommend'))
+        return item
+    
+    @staticmethod
+    def queryAll():
+        llen = server.llen('Recommend')
+        return server.lrange('Recommend', 0, llen-1)
+    
+    @staticmethod
+    def getLlen(self):
+        return server.llen('Recommend')
         
-def add2ShortSwing(server):
-    while server.llen('shortSwing_today') > 0:
-        shortSwing.add2ShortSwing(server)
