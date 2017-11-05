@@ -1,8 +1,8 @@
 #!/usr/bin/env python -u
 # -*- coding: utf-8 -*-
 
-from server.redisServer import server
 import json
+from basic.redisServer import server
 
 class ShortSwing(object):
     
@@ -16,14 +16,21 @@ class ShortSwing(object):
     @staticmethod
     def queryAll():
         llen = server.llen('ShortSwing')
+        print llen
         return server.lrange('ShortSwing', 0, llen-1)
     
     @staticmethod
     def getLlen():
         return server.llen('ShortSwing')
     
+    @staticmethod
+    def queryAllOut():
+        for item in ShortSwing.queryAll():
+            print item
+    
     def __init__(self, item = {}):
         self.item = item
         
-        
+if __name__ == "__main__":
+    ShortSwing.queryAllOut()
     

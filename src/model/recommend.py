@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import json
-from server.redisServer import server
+from basic.redisServer import server
 
 class Recommend(object):
     
@@ -19,4 +19,11 @@ class Recommend(object):
     @staticmethod
     def getLlen(self):
         return server.llen('Recommend')
+    
+    @staticmethod
+    def queryAllOut():
+        for item in Recommend.queryAll():
+            print item
         
+if __name__ == "__main__":
+    Recommend.queryAllOut()

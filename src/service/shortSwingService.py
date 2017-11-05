@@ -1,12 +1,11 @@
 #!/usr/bin/env python -u
 # -*- coding: utf-8 -*-
 
+import json
+import tushare as ts
 from model.shortSwing import ShortSwing
 from model.recommend import Recommend
 from basic import timeDate
-import json
-import tushare as ts
-from server.redisServer import server
 
 def getNewStock():
     while Recommend.getLlen() > 0:
@@ -33,8 +32,8 @@ def getNewStock():
         
 
 def updatePrice():
-    llen = server.llen('shortSwing')
-    list = server.lrange('shortSwing', 0, llen-1)
+    llen = ShortSwing.getLlen()
+    list = ShortSwing.queryAll()
     for index in range(llen):
         item_str = list[index]
         item = json.loads(item_str)
@@ -42,15 +41,17 @@ def updatePrice():
             continue
         df = ts.get_realtime_quotes(item['stockId'])
         priceReal = float(df.at[0,'price'].encode('utf-8'))
-        priceHigh = float(df.at[0,'high'].encode('utf-8'))
+#         priceHigh = float(df.at[0,'high'].encode('utf-8'))
         item['priceReal'] = priceReal
         setPriceReal(item)
         setStatus(item)
         ShortSwing(item).alert(index)
     
 def closeMarket():
-    llen = server.llen('shortSwing')
-    list = server.lrange('shortSwing', 0, llen-1)
+    if not timeDate.isCloseMarketTime():
+        continue
+    llen = ShortSwing.getLlen()
+    list = ShortSwing.queryAll()
     for index in range(llen):
         item_str = list[index]
         item = json.loads(item_str)
