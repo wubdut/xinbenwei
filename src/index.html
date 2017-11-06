@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page of xinbenwei</title>
+    <meta name="description" content="Description of your site goes here">
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
+    <script data-main="app/main" src="js/lib/require.js"></script>
+</head>
+
+<body>
+<div class="main">
+    <div class="page">
+        <div class="header">
+            <h1 id="company">信本位科技（短线通内测）</h1>
+        </div>
+        <div class="content" data-ng-controller="shortSwingCntrl">
+
+           <table class="table table-bordered">
+               <thead>
+                   <tr>
+                       <td>代码</td>
+                       <td>名称</td>
+                       <td>推荐时间</td>
+                       <td>推荐价格</td>
+                       <td>涨幅</td>
+                       <td>当前价格</td>
+                       <td>止损</td>
+                       <td>止盈</td>
+                       <td>状态</td>
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr ng-repeat="it in shortSwing">
+                       <td>{{it.stockId}}</td>
+                       <td>
+                           <a ng-href="{{'http://www.iwencai.com/stockpick/search?tid=stockpick&qs=box_main_ths&w=' + it.stockId}}">{{it.stockName}}</a>
+                       </td>
+                       <td>{{it.recommendTime}}</td>
+                       <td>{{it.priceRec}}</td>
+                       <td>{{it.increase | PercentValue}}</td>
+                       <td>{{it.priceReal}}</td>
+                       <td>{{it.stopLoss}}</td>
+                       <td>{{it.stopProfit}}</td>
+                       <td ng-style="{color: (it.status === '止盈' ? 'red' : (it.status === '止损' ? 'green' : 'black'))}">{{it.status}}</td>
+                   </tr>
+               </tbody>
+           </table>
+           
+           <div class="footer">
+            <p>
+                                          今日推荐：每天14:30--15:00，推荐具有短期上涨潜力的股票
+            </p>
+           </div>
+           
+           <table class="table table-bordered">
+               <thead>
+                   <tr>
+                       <td>代码</td>
+                       <td>名称</td>
+                       <td>推荐时间</td>
+                       <td>推荐价格</td>
+                       <td>涨幅</td>
+                       <td>当前价格</td>
+                       <td>止损</td>
+                       <td>止盈</td>
+                       <td>状态</td>
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr ng-repeat="it in shortSwingToday">
+                       <td>{{it.stockId}}</td>
+                       <td>
+                           <a ng-href="{{'http://www.iwencai.com/stockpick/search?tid=stockpick&qs=box_main_ths&w=' + it.stockId}}">{{it.stockName}}</a>
+                       </td>
+                       <td>{{it.recommendTime}}</td>
+                       <td>{{it.priceRec}}</td>
+                       <td>{{it.increase | PercentValue}}</td>
+                       <td>{{it.priceReal}}</td>
+                       <td>{{it.stopLoss}}</td>
+                       <td>{{it.stopProfit}}</td>
+                       <td ng-style="{color: (it.status === '止盈' ? 'red' : (it.status === '止损' ? 'green' : 'black'))}">{{it.status}}</td>
+                   </tr>
+               </tbody>
+           </table>
+
+        </div>
+        
+    </div>
+</div>
+</body>
+</html>
