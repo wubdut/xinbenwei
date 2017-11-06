@@ -58,12 +58,26 @@ def closeMarket():
         df = ts.get_realtime_quotes(item['stockId'])
         priceReal = float(df.at[0,'price'].encode('utf-8'))
         item['priceReal'] = priceReal
-        setClostStatus(item)
+        setCloseStatus(item)
+        ShortSwing.alert(index, item)
+        
+def openMarket():
+    if not timeDate.isOpenMarketTime():
+        return
+    list = ShortSwing.queryAll()
+    for index in range(len(list)):
+        it = list[index]
+        item = json.loads(it)
+        if item['sale']:
+            continue
+        setOpenStatus(item)
         ShortSwing.alert(index, item)
     
 def setStatus(item):
     priceRec = item['priceRec']
     priceReal = item['priceReal']
+    if not item['sale']:
+        return
     if priceReal > item['stopProfit']:
         item['status'] = u'止盈'
         item['priceReal'] = "----"
@@ -78,12 +92,13 @@ def setPriceReal(item):
     priceReal = item['priceReal']
     item['increase'] = round((priceReal-priceRec)/priceRec, 4)
     
-def setClostStatus(item):
+def setCloseStatus(item):
     if item['sale']:
         if item['priceReal'] > 0:
             item['status'] = u'止盈'
-    else:
-        item['sale'] = True
+
+def setOpenStatus(item):
+    item['sale'] = True
         
 if __name__ == "__main__":
     getNewStock()
