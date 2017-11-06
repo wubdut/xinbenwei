@@ -5,18 +5,17 @@ import json
 from basic.redisServer import server
 
 class ShortSwing(object):
-    
     @staticmethod
-    def add(self):
-        server.rpush('ShortSwing', json.dumps(self.item))
+    def add(item):
+        server.rpush('ShortSwing', json.dumps(item))
         
-    def alert(self, index):
-        server.lset(index, self.item)
+    @staticmethod 
+    def alert(index, item):
+        server.lset('ShortSwing', index, json.dumps(item))
     
     @staticmethod
     def queryAll():
         llen = server.llen('ShortSwing')
-        print llen
         return server.lrange('ShortSwing', 0, llen-1)
     
     @staticmethod
@@ -27,9 +26,6 @@ class ShortSwing(object):
     def queryAllOut():
         for item in ShortSwing.queryAll():
             print item
-    
-    def __init__(self, item = {}):
-        self.item = item
         
 if __name__ == "__main__":
     ShortSwing.queryAllOut()

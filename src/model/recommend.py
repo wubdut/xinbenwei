@@ -8,8 +8,7 @@ class Recommend(object):
     
     @staticmethod
     def lpop():
-        item = json.loads(server.lpop('Recommend'))
-        return item
+        return server.lpop('Recommend')
     
     @staticmethod
     def queryAll():
@@ -17,7 +16,7 @@ class Recommend(object):
         return server.lrange('Recommend', 0, llen-1)
     
     @staticmethod
-    def getLlen(self):
+    def getLlen():
         return server.llen('Recommend')
     
     @staticmethod
@@ -26,4 +25,7 @@ class Recommend(object):
             print item
         
 if __name__ == "__main__":
-    Recommend.queryAllOut()
+    list = Recommend.queryAll()
+    for index in range(len(list)):
+        it = json.loads(list[index])
+        print it['priceRec']

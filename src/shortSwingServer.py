@@ -3,20 +3,21 @@
 
 import threading
 import time
-from service.shortSwingService import updatePrice, closeMarket, getNewStock
+from service import shortSwingService
 
 class GetNewStock(threading.Thread):
     def run(self):
         global lock
         while True:
-            getNewStock()
+            shortSwingService.getNewStock()
             time.sleep(5)
         
 class UpdatePrice(threading.Thread):
     def run(self):
         global lock
         while True:
-            updatePrice()
+            shortSwingService.updatePrice()
+            time.sleep(30)
     
     def __init__(self):
         threading.Thread.__init__(self)
@@ -26,7 +27,7 @@ class CloseMarket(threading.Thread):
         global lock
         while True:
             if lock.acquire():
-                closeMarket()
+                shortSwingService.closeMarket()
             time.sleep(5)
     
     def __init__(self):
