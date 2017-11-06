@@ -28,7 +28,18 @@ class CloseMarket(threading.Thread):
         while True:
             if lock.acquire():
                 shortSwingService.closeMarket()
-            time.sleep(5)
+            time.sleep(50)
+    
+    def __init__(self):
+        threading.Thread.__init__(self)
+        
+class OpenMarket(threading.Thread):
+    def run(self):
+        global lock
+        while True:
+            if lock.acquire():
+                shortSwingService.openMarket()
+            time.sleep(50)
     
     def __init__(self):
         threading.Thread.__init__(self)
@@ -39,10 +50,12 @@ if __name__ == "__main__":
     getNewStock = GetNewStock()
     updatePrice = UpdatePrice()
     closeMarket = CloseMarket()
+    openMarket = OpenMarket()
     
     getNewStock.start()
     updatePrice.start()
     closeMarket.start()
+    openMarket.start()
     
     
     
