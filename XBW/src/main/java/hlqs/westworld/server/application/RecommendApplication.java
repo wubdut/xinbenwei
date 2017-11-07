@@ -27,7 +27,7 @@ import redis.clients.jedis.Transaction;
 public class RecommendApplication implements Runnable{
 	private boolean stopflag = false;
 	private static final MultipleStringSeries mSeries = new StockData().stockidset();
-	private static final String LIST_KEY = "recommend_list";
+	private static final String LIST_KEY = "Recommend";
 	private final RedisUtil ru;
 	private final int corePoolSize;
 	private final int maximumPoolSize;
