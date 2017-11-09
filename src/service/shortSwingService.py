@@ -99,7 +99,7 @@ def setCloseStatus(item):
 
 def setOpenStatus(item):
     item['sale'] = True
-        
+    
 if __name__ == "__main__":
     getNewStock()
     

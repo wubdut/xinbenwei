@@ -16,7 +16,9 @@ class UpdatePrice(threading.Thread):
     def run(self):
         global lock
         while True:
-            shortSwingService.updatePrice()
+            if lock.acquire():
+                shortSwingService.updatePrice()
+                lock.release()
             time.sleep(30)
     
     def __init__(self):
@@ -28,6 +30,7 @@ class CloseMarket(threading.Thread):
         while True:
             if lock.acquire():
                 shortSwingService.closeMarket()
+                lock.release()
             time.sleep(50)
     
     def __init__(self):
@@ -39,6 +42,7 @@ class OpenMarket(threading.Thread):
         while True:
             if lock.acquire():
                 shortSwingService.openMarket()
+                lock.release()
             time.sleep(50)
     
     def __init__(self):
