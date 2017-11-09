@@ -42,7 +42,7 @@ class OpenMarket(threading.Thread):
         while True:
             if lock.acquire():
                 shortSwingService.openMarket()
-                lock.release()
+                lock.release() #xiugei
             time.sleep(50)
     
     def __init__(self):
