@@ -55,9 +55,9 @@ def closeMarket():
         item = json.loads(it)
         if item['status'] != u'进行':
             continue
-        df = ts.get_realtime_quotes(item['stockId'])
-        priceReal = float(df.at[0,'price'].encode('utf-8'))
-        item['priceReal'] = priceReal
+#         df = ts.get_realtime_quotes(item['stockId'])
+#         priceReal = float(df.at[0,'price'].encode('utf-8'))
+#         item['priceReal'] = priceReal
         setCloseStatus(item)
         ShortSwing.alert(index, item)
         
@@ -86,7 +86,7 @@ def setStatus(item):
         item['status'] = u'止损'
         item['priceReal'] = "----"
         item['increase'] = round((item['stopLoss']-priceRec)/priceRec, 4)
-         
+        
 def setPriceReal(item):
     priceRec = item['priceRec']
     priceReal = item['priceReal']
@@ -94,7 +94,7 @@ def setPriceReal(item):
     
 def setCloseStatus(item):
     if item['sale']:
-        if item['priceReal'] > 0:
+        if item['increase'] > 0:
             item['status'] = u'止盈'
 
 def setOpenStatus(item):
