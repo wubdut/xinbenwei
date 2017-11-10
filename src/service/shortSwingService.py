@@ -81,16 +81,19 @@ def setStatus(item):
     if priceReal > item['stopProfit']:
         item['status'] = u'止盈'
         item['priceReal'] = "----"
-        item['increase'] = round((item['stopProfit']-priceRec)/priceRec, 4)
+        if priceRec > 0.01:
+            item['increase'] = round((item['stopProfit']-priceRec)/priceRec, 4)
     elif priceReal < item['stopLoss']:
         item['status'] = u'止损'
         item['priceReal'] = "----"
-        item['increase'] = round((item['stopLoss']-priceRec)/priceRec, 4)
+        if priceRec > 0.01:
+            item['increase'] = round((item['stopLoss']-priceRec)/priceRec, 4)
         
 def setPriceReal(item):
     priceRec = item['priceRec']
     priceReal = item['priceReal']
-    item['increase'] = round((priceReal-priceRec)/priceRec, 4)
+    if priceRec > 0.01:
+        item['increase'] = round((priceReal-priceRec)/priceRec, 4)
     
 def setCloseStatus(item):
     if item['sale']:
