@@ -103,6 +103,19 @@ def setCloseStatus(item):
 def setOpenStatus(item):
     item['sale'] = True
     
+def freeAlert():
+    list = ShortSwing.queryAll()
+    for index in range(len(list)):
+        it = list[index]
+        item = json.loads(it)
+        if item['timeRec'][0:10] == '2017-11-10':
+            item['sale'] = False
+            item['status'] = u'进行'
+#         if item['status'] != u'进行':
+#             continue
+        ShortSwing.alert(index, item)
+    
 if __name__ == "__main__":
-    getNewStock()
+#     getNewStock()
+    freeAlert()
     

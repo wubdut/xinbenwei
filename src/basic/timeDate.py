@@ -15,7 +15,8 @@ def isCloseMarketTime():
     start_secs = time.mktime(t)
     end_secs = start_secs + 4*60+30
     t_now = time.time()
-    return t_now > start_secs and t_now < end_secs
+    t_local = time.localtime(t_now)
+    return t_now > start_secs and t_now < end_secs and t_local.tm_wday < 5
 
 def isOpenMarketTime():
     today = time.localtime()
@@ -23,7 +24,8 @@ def isOpenMarketTime():
     start_secs = time.mktime(t)
     end_secs = start_secs + 4*60+30
     t_now = time.time()
-    return t_now > start_secs and t_now < end_secs
+    t_local = time.localtime(t_now)
+    return t_now > start_secs and t_now < end_secs and t_local.tm_wday < 5
     
 if __name__ == "__main__":
     print isCloseMarketTime()

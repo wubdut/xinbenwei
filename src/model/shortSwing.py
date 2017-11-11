@@ -9,6 +9,11 @@ class ShortSwing(object):
     def add(item):
         server.rpush('ShortSwing', json.dumps(item))
         
+    @staticmethod
+    def getById(id):
+        it = server.lrange('ShortSwing', id, id)
+        return it[0]
+        
     @staticmethod 
     def alert(index, item):
         server.lset('ShortSwing', index, json.dumps(item))
@@ -28,5 +33,6 @@ class ShortSwing(object):
             print item
         
 if __name__ == "__main__":
-    ShortSwing.queryAllOut()
+#     ShortSwing.queryAllOut()
+    print ShortSwing.getById(0)
     
