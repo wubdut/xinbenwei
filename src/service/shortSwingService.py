@@ -39,6 +39,8 @@ def updatePrice():
         if item['status'] != u'进行':
             continue
         df = ts.get_realtime_quotes(item['stockId'])
+        if df is None:
+            continue
         priceReal = float(df.at[0,'price'].encode('utf-8'))
 #         priceHigh = float(df.at[0,'high'].encode('utf-8'))
         item['priceReal'] = priceReal
@@ -117,5 +119,6 @@ def freeAlert():
     
 if __name__ == "__main__":
 #     getNewStock()
-    freeAlert()
+#     freeAlert()
+    openMarket()
     
