@@ -3,6 +3,7 @@
 
 import json
 from basic.redisServer import server
+from basic import mail
 
 class ShortSwing(object):
     @staticmethod
@@ -33,6 +34,10 @@ class ShortSwing(object):
             print item
         
 if __name__ == "__main__":
-#     ShortSwing.queryAllOut()
-    print ShortSwing.getById(0)
-    
+#     user = ['wub-neu@neusoft.com']            # 收件人邮箱账号，我这边发送给自己
+    userList = ['981128587@qq.com', '1397677607@qq.com']
+    list = ShortSwing.queryAll()
+    for index in range(2):
+        item = json.loads(list[index])
+#         print item['stockId'] + "  " + item['stockName']
+        print mail.sendToAll(userList, item)

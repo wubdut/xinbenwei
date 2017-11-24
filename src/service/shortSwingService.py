@@ -5,7 +5,8 @@ import json
 import tushare as ts
 from model.shortSwing import ShortSwing
 from model.recommend import Recommend
-from basic import timeDate
+from model.user import User
+from basic import timeDate,mail
 
 def getNewStock():
     while Recommend.getLlen() > 0:
@@ -28,9 +29,9 @@ def getNewStock():
         item['stopLoss'] = round(priceRec*(1-0.05), 2)
         item['status'] = u'进行'
         item['sale'] = False
+        mail.sendToAll(User.getMailList(), item)
         ShortSwing.add(item)
         
-
 def updatePrice():
     list = ShortSwing.queryAll()
     for index in range(len(list)):
@@ -47,7 +48,7 @@ def updatePrice():
         setPriceReal(item)
         setStatus(item)
         ShortSwing.alert(index, item)
-    
+        
 def closeMarket():
     if not timeDate.isCloseMarketTime():
         return
@@ -120,5 +121,6 @@ def freeAlert():
 if __name__ == "__main__":
 #     getNewStock()
 #     freeAlert()
-    openMarket()
+#     openMarket()
+    print User.getMailList()
     
