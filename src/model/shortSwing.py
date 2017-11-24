@@ -32,12 +32,17 @@ class ShortSwing(object):
     def queryAllOut():
         for item in ShortSwing.queryAll():
             print item
+    
+    @staticmethod
+    def clear():
+        return server.delete('ShortSwing')
         
 if __name__ == "__main__":
 #     user = ['wub-neu@neusoft.com']            # 收件人邮箱账号，我这边发送给自己
-    userList = ['981128587@qq.com', '1397677607@qq.com']
-    list = ShortSwing.queryAll()
-    for index in range(2):
-        item = json.loads(list[index])
+#     userList = ['981128587@qq.com', '1397677607@qq.com']
+#     list = ShortSwing.queryAll()
+#     for index in range(2):
+#         item = json.loads(list[index])
 #         print item['stockId'] + "  " + item['stockName']
-        print mail.sendToAll(userList, item)
+#         print mail.sendToAll(userList, item)
+    print ShortSwing.clear()
