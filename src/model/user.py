@@ -4,4 +4,4 @@
 class User(object):
      @staticmethod
      def getMailList():
-         return ['981128587@qq.com', '1397677607@qq.com']
+         return ['993295377@qq.com', '1397677607@qq.com']

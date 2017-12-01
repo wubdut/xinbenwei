@@ -121,6 +121,6 @@ def freeAlert():
 if __name__ == "__main__":
 #     getNewStock()
 #     freeAlert()
-#     openMarket()
-    print User.getMailList()
+    openMarket()
+#     print User.getMailList()
     

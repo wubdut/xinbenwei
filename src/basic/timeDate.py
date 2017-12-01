@@ -20,7 +20,7 @@ def isCloseMarketTime():
 
 def isOpenMarketTime():
     today = time.localtime()
-    t = (today.tm_year, today.tm_mon, today.tm_mday, 8, 25, 0, -1, -1, -1)
+    t = (today.tm_year, today.tm_mon, today.tm_mday, 9, 30, 5, -1, -1, -1)
     start_secs = time.mktime(t)
     end_secs = start_secs + 4*60+30
     t_now = time.time()
