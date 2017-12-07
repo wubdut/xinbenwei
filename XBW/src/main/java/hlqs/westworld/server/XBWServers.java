@@ -4,15 +4,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Calendar;
 import java.util.Properties;
 
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.CommandLineParser;
-import org.apache.commons.cli.DefaultParser;
-import org.apache.commons.cli.Option;
-import org.apache.commons.cli.Options;
-import org.apache.commons.cli.ParseException;
 import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.Level;
@@ -59,40 +52,12 @@ public class XBWServers {
 		}
 	}
 	
-	public void runR(String stockid) {
-		Calendar now_cal = Calendar.getInstance();
-		System.out.println(now_cal.getTime() + " UpdateApplication " + stockid);
-		
-		initialize();
-		RecommendApplication ra = new RecommendApplication(TIME_ZONE, RECOMMEND_DAYS_OF_WEEK, RECOMMEND_TIME);
-		try {
-			ra.recommend(stockid);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	public void runU(String stockid) {
-		Calendar now_cal = Calendar.getInstance();
-		System.out.println(now_cal.getTime() + " RecommendApplication " + stockid);
-		
-		initialize();
-		UpdateApplication ua = new UpdateApplication(DISPOSITION, ATTENUATION, C, TRANSACTION_PERIOD, TERMINATE_TIMESTAMP, EPOCH);
-		try {
-			ua.update(stockid);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
 	public void initialize() {
 		Path root = Paths.get(System.getProperty("user.dir")).getParent();
 		Path propertyPath = Paths.get(root.toString(), 
 				"config",
 				"xbw.properties");
-		
+				
         Properties property = new Properties();
         try {
 			property.load(new FileInputStream(propertyPath.toFile()));
@@ -178,37 +143,39 @@ public class XBWServers {
 	}
 	
 	public static void main(String[] args) throws IOException {
-        final Options options = new Options();
-		final CommandLineParser parser = new DefaultParser();
-        CommandLine cmd = null;
-        options.addOption(new Option("u", true, "update stockid model"));
-        options.addOption(new Option("r", true, "recommended stockid result"));
-        options.addOption(new Option("h", false, "help"));
-        
-        try {
-            cmd = parser.parse(options, args);
-        } catch (final ParseException e) {
-            throw new IOException("parser command line error", e);
-        }
-        
-        if (cmd.hasOption("h")) {
-        	System.out.println("Usage: xbw.jar [cmd [arg]]\n");
-        	for (Option option : options.getOptions()) {
-        		System.out.println(option);
-        	}
-        	return ;
-        }
-        
-        if (cmd.hasOption("u") && cmd.hasOption("r")) {
-        	throw new IOException("parser command line error, There can only be one for '-u' and '-r'");
-        } else if (cmd.hasOption("u")) {
-        	String stockid = cmd.getOptionValue("u");
-        	new XBWServers().runU(stockid);
-        } else if (cmd.hasOption("r")) {
-        	String stockid = cmd.getOptionValue("r");
-        	new XBWServers().runR(stockid);
-        } else {
-        	new XBWServers().run();
-        }
+		new XBWServers().run();
+		
+//        final Options options = new Options();
+//		final CommandLineParser parser = new DefaultParser();
+//        CommandLine cmd = null;
+//        options.addOption(new Option("u", true, "update stockid model"));
+//        options.addOption(new Option("r", true, "recommended stockid result"));
+//        options.addOption(new Option("h", false, "help"));
+//        
+//        try {
+//            cmd = parser.parse(options, args);
+//        } catch (final ParseException e) {
+//            throw new IOException("parser command line error", e);
+//        }
+//        
+//        if (cmd.hasOption("h")) {
+//        	System.out.println("Usage: xbw.jar [cmd [arg]]\n");
+//        	for (Option option : options.getOptions()) {
+//        		System.out.println(option);
+//        	}
+//        	return ;
+//        }
+//        
+//        if (cmd.hasOption("u") && cmd.hasOption("r")) {
+//        	throw new IOException("parser command line error, There can only be one for '-u' and '-r'");
+//        } else if (cmd.hasOption("u")) {
+//        	String stockid = cmd.getOptionValue("u");
+//        	new XBWServers().runU(stockid);
+//        } else if (cmd.hasOption("r")) {
+//        	String stockid = cmd.getOptionValue("r");
+//        	new XBWServers().runR(stockid);
+//        } else {
+//        	new XBWServers().run();
+//        }
 	}
 }

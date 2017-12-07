@@ -2,919 +2,536 @@
 
 <stock-store>
 	<stock>
-		<stock-id>000001</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<stock-id>000826</stock-id>
+		<disposition>2.1</disposition>
+	</stock>
+	<stock>
+		<stock-id>002536</stock-id>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600000</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600004</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600005</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600006</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600007</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>600008</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600009</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600010</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600011</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600012</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>600015</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600016</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600017</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600018</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.6</disposition>
 	</stock>
 	<stock>
 		<stock-id>600019</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600020</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600021</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600022</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600026</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600027</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.7</disposition>
 	</stock>
 	<stock>
 		<stock-id>600028</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.0</disposition>
 	</stock>
 	<stock>
 		<stock-id>600029</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.0</disposition>
 	</stock>
 	<stock>
 		<stock-id>600030</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600031</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600033</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600035</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600036</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600037</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600038</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600039</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600048</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600050</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600051</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.2</disposition>
 	</stock>
 	<stock>
 		<stock-id>600052</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600053</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600054</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>600055</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600056</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.0</disposition>
 	</stock>
 	<stock>
 		<stock-id>600058</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.9</disposition>
 	</stock>
 	<stock>
 		<stock-id>600059</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600060</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600061</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600062</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600063</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.4</disposition>
 	</stock>
 	<stock>
 		<stock-id>600064</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600066</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600067</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600068</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600069</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>600070</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>600071</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600072</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600073</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600074</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600075</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.4</disposition>
 	</stock>
 	<stock>
 		<stock-id>600076</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600077</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600078</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600079</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600080</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600081</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600082</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600083</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600084</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600085</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600086</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600088</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600089</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600090</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600091</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.2</disposition>
 	</stock>
 	<stock>
 		<stock-id>600093</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.2</disposition>
 	</stock>
 	<stock>
 		<stock-id>600095</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600096</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600097</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600098</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.9</disposition>
 	</stock>
 	<stock>
 		<stock-id>600099</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.2</disposition>
 	</stock>
 	<stock>
 		<stock-id>600100</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600101</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600103</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600104</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600105</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600106</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600107</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600108</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600109</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600110</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600111</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600112</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600113</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600114</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>600115</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600116</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600117</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600118</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600119</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600120</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600121</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600122</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600123</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600125</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600126</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600127</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600128</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600129</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600130</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600131</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600132</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600133</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600135</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600136</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600137</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600138</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600139</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600141</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600143</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600145</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600146</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600148</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600149</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600150</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600151</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600152</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600153</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600155</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600156</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600157</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600158</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600159</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600160</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600161</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600162</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600163</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600165</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600166</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.9</disposition>
 	</stock>
 	<stock>
 		<stock-id>600167</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600168</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600169</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600170</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600171</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600172</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600173</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600175</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600176</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600177</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600178</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600179</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600180</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600182</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600183</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600184</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600185</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600186</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600187</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600188</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600189</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600190</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600191</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600192</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>600193</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600195</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600196</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600197</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600198</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600199</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600200</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600201</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600202</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600203</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600206</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600207</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600208</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600209</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600210</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600211</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>600212</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600213</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600215</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>600216</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600217</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600218</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600219</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600220</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600221</stock-id>
@@ -923,38 +540,31 @@
 	</stock>
 	<stock>
 		<stock-id>600222</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>600223</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.0</disposition>
 	</stock>
 	<stock>
 		<stock-id>600225</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600226</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600227</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600228</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600229</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600230</stock-id>
@@ -968,11 +578,6 @@
 	</stock>
 	<stock>
 		<stock-id>600232</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600233</stock-id>
 		<method-id>1</method-id>
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>
@@ -1037,19 +642,13 @@
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>
 	<stock>
-		<stock-id>600248</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
 		<stock-id>600249</stock-id>
 		<method-id>1</method-id>
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>
 	<stock>
 		<stock-id>600250</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>600251</stock-id>
@@ -1093,13 +692,11 @@
 	</stock>
 	<stock>
 		<stock-id>600260</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.2</disposition>
 	</stock>
 	<stock>
 		<stock-id>600261</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600262</stock-id>
@@ -1108,8 +705,7 @@
 	</stock>
 	<stock>
 		<stock-id>600265</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.4</disposition>
 	</stock>
 	<stock>
 		<stock-id>600266</stock-id>
@@ -1158,8 +754,7 @@
 	</stock>
 	<stock>
 		<stock-id>600276</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600277</stock-id>
@@ -1203,8 +798,7 @@
 	</stock>
 	<stock>
 		<stock-id>600285</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>600287</stock-id>
@@ -1273,268 +867,131 @@
 	</stock>
 	<stock>
 		<stock-id>600302</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>600303</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600305</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600306</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600307</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600308</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600309</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600310</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>600311</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600312</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600313</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>600315</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600316</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600317</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600318</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600319</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600320</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600321</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600322</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600323</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600325</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600326</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600327</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600328</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600329</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>600330</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600331</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>600332</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600333</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600335</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600336</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600337</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600338</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600339</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>600340</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600343</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600345</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600346</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600348</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600352</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.9</disposition>
 	</stock>
 	<stock>
 		<stock-id>600353</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600354</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600358</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600359</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600360</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600361</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600362</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600363</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600365</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600366</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600367</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600368</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600369</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>1.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600370</stock-id>
@@ -1673,8 +1130,7 @@
 	</stock>
 	<stock>
 		<stock-id>600406</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600408</stock-id>
@@ -1683,8 +1139,7 @@
 	</stock>
 	<stock>
 		<stock-id>600409</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600410</stock-id>
@@ -1713,18 +1168,11 @@
 	</stock>
 	<stock>
 		<stock-id>600420</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600421</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>600422</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600423</stock-id>
@@ -1838,13 +1286,11 @@
 	</stock>
 	<stock>
 		<stock-id>600462</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600463</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>600466</stock-id>
@@ -1893,11 +1339,6 @@
 	</stock>
 	<stock>
 		<stock-id>600479</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600480</stock-id>
 		<method-id>1</method-id>
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>
@@ -1978,8 +1419,7 @@
 	</stock>
 	<stock>
 		<stock-id>600499</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.2</disposition>
 	</stock>
 	<stock>
 		<stock-id>600500</stock-id>
@@ -2187,11 +1627,6 @@
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>
 	<stock>
-		<stock-id>600548</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
 		<stock-id>600549</stock-id>
 		<method-id>1</method-id>
 		<start-timestamp>1451577600000</start-timestamp>
@@ -2248,8 +1683,7 @@
 	</stock>
 	<stock>
 		<stock-id>600563</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>600565</stock-id>
@@ -2488,8 +1922,7 @@
 	</stock>
 	<stock>
 		<stock-id>600615</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600616</stock-id>
@@ -2743,8 +2176,7 @@
 	</stock>
 	<stock>
 		<stock-id>600674</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600675</stock-id>
@@ -2803,8 +2235,7 @@
 	</stock>
 	<stock>
 		<stock-id>600687</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.7</disposition>
 	</stock>
 	<stock>
 		<stock-id>600688</stock-id>
@@ -2818,8 +2249,7 @@
 	</stock>
 	<stock>
 		<stock-id>600690</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600691</stock-id>
@@ -2828,13 +2258,11 @@
 	</stock>
 	<stock>
 		<stock-id>600692</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.8</disposition>
 	</stock>
 	<stock>
 		<stock-id>600693</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600694</stock-id>
@@ -2873,11 +2301,6 @@
 	</stock>
 	<stock>
 		<stock-id>600702</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600703</stock-id>
 		<method-id>1</method-id>
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>
@@ -2943,8 +2366,11 @@
 	</stock>
 	<stock>
 		<stock-id>600718</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.2</disposition>
+	</stock>
+	<stock>
+		<stock-id>001979</stock-id>
+		<disposition>2.7</disposition>
 	</stock>
 	<stock>
 		<stock-id>600719</stock-id>
@@ -3023,8 +2449,7 @@
 	</stock>
 	<stock>
 		<stock-id>600734</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600735</stock-id>
@@ -3237,11 +2662,6 @@
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>
 	<stock>
-		<stock-id>600780</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
 		<stock-id>600781</stock-id>
 		<method-id>1</method-id>
 		<start-timestamp>1451577600000</start-timestamp>
@@ -3292,11 +2712,6 @@
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>
 	<stock>
-		<stock-id>600793</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
 		<stock-id>600794</stock-id>
 		<method-id>1</method-id>
 		<start-timestamp>1451577600000</start-timestamp>
@@ -3338,8 +2753,7 @@
 	</stock>
 	<stock>
 		<stock-id>600803</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.0</disposition>
 	</stock>
 	<stock>
 		<stock-id>600804</stock-id>
@@ -3447,11 +2861,6 @@
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>
 	<stock>
-		<stock-id>600826</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
 		<stock-id>600827</stock-id>
 		<method-id>1</method-id>
 		<start-timestamp>1451577600000</start-timestamp>
@@ -3533,8 +2942,7 @@
 	</stock>
 	<stock>
 		<stock-id>600846</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>600847</stock-id>
@@ -3563,8 +2971,7 @@
 	</stock>
 	<stock>
 		<stock-id>600854</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>600855</stock-id>
@@ -3718,8 +3125,7 @@
 	</stock>
 	<stock>
 		<stock-id>600887</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>600888</stock-id>
@@ -3768,11 +3174,6 @@
 	</stock>
 	<stock>
 		<stock-id>600897</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600898</stock-id>
 		<method-id>1</method-id>
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>
@@ -3828,11 +3229,7 @@
 	</stock>
 	<stock>
 		<stock-id>600971</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600973</stock-id>
+		<disposition>2.3</disposition>
 		<method-id>1</method-id>
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>
@@ -3843,11 +3240,6 @@
 	</stock>
 	<stock>
 		<stock-id>600976</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600978</stock-id>
 		<method-id>1</method-id>
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>
@@ -3868,11 +3260,6 @@
 	</stock>
 	<stock>
 		<stock-id>600982</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
-	</stock>
-	<stock>
-		<stock-id>600983</stock-id>
 		<method-id>1</method-id>
 		<start-timestamp>1451577600000</start-timestamp>
 	</stock>
@@ -3963,8 +3350,7 @@
 	</stock>
 	<stock>
 		<stock-id>601008</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.1</disposition>
 	</stock>
 	<stock>
 		<stock-id>601009</stock-id>
@@ -4043,8 +3429,11 @@
 	</stock>
 	<stock>
 		<stock-id>601318</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.0</disposition>
+	</stock>
+	<stock>
+		<stock-id>000063</stock-id>
+		<disposition>2.2</disposition>
 	</stock>
 	<stock>
 		<stock-id>601328</stock-id>
@@ -4083,8 +3472,7 @@
 	</stock>
 	<stock>
 		<stock-id>601607</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.3</disposition>
 	</stock>
 	<stock>
 		<stock-id>601618</stock-id>
@@ -4163,8 +3551,7 @@
 	</stock>
 	<stock>
 		<stock-id>601877</stock-id>
-		<method-id>1</method-id>
-		<start-timestamp>1451577600000</start-timestamp>
+		<disposition>2.5</disposition>
 	</stock>
 	<stock>
 		<stock-id>601888</stock-id>

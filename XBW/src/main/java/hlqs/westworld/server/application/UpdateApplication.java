@@ -49,16 +49,14 @@ public class UpdateApplication extends Thread{
 		this.sleepMillTime = ThreadConfig.sleepMillTime;
 	}
 	
-	public void update(String stockid) {
-		new Thread(new Update(stockid)).start();
-	}
-	
 	private class Update implements Runnable {
 
 		private final String stockid;
+		private final double disposition;
 		
-		public Update(String stockid) {
+		public Update(String stockid, double disposition) {
 			this.stockid = stockid;
+			this.disposition = disposition;
 		}
 		
 		@Override
@@ -69,7 +67,7 @@ public class UpdateApplication extends Thread{
 				Calendar now_cal = Calendar.getInstance();
 				System.out.println(now_cal.getTime() + " UpdateApplication " + stockid);
 				MultipleDoubleSeries data = (new StockData()).history_data(stockid);
-				OnlineStockStrategyAPI ossAPI = new OnlineStockStrategyAPI(DISPOSITION, ATTENUATION, C);
+				OnlineStockStrategyAPI ossAPI = new OnlineStockStrategyAPI(disposition, ATTENUATION, C);
 				for (int i = 0; i+TRANSACTION_PERIOD < data.size(); i++) {
 					double today = (data.getValue("close", i));
 					double[] tomorrows = new double[TRANSACTION_PERIOD];
@@ -107,10 +105,22 @@ public class UpdateApplication extends Thread{
 				maximumPoolSize, 
 				keepAliveTime, 
 				TimeUnit.MILLISECONDS,
-                new ArrayBlockingQueue<Runnable>(5));
+                new ArrayBlockingQueue<Runnable>(maximumPoolSize));
 		
-		for (int i = 0; i < mSeries.size() && !stopflag;) {
+		for (int i = 0; i < mSeries.size() && !stopflag; ) {
 			String stockid = mSeries.getValue("stock-id", i);
+			
+			double disposition = DISPOSITION;
+			if (mSeries.getValue("disposition", i) != null){
+				try {
+					disposition = Double.parseDouble(mSeries.getValue("disposition", i));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			} else {
+				i += 1;
+				continue;
+			}
 			if (executor.getPoolSize() >= maximumPoolSize) {
 				try {
 					Thread.sleep(sleepMillTime);
@@ -120,7 +130,7 @@ public class UpdateApplication extends Thread{
 				}
 				continue;
 			}
-			executor.execute(new Update(stockid));
+			executor.execute(new Update(stockid, disposition));
 			i += 1;
 		}
 	}
