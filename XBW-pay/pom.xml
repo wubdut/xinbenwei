@@ -36,7 +36,14 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.21</version>
         </dependency>
-
+		
+		<dependency>
+		    <groupId>jdk.tools</groupId>
+		    <artifactId>jdk.tools</artifactId>
+		    <version>1.8</version>
+		    <scope>system</scope>
+		    <systemPath>${JDK_HOME}/lib/tools.jar</systemPath>
+		</dependency>
     </dependencies>
 
     <licenses>

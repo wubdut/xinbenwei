@@ -94,8 +94,15 @@ public class RecommendApplication implements Runnable{
 					System.out.println(stockid + " RecommendApplication result is error");
 					return ;
 				}
+				recommends.add(stockid);
 				MultipleDoubleSeries data = (new StockData()).history_data(stockid);
 				for (int i = 0; i < data.size(); i++) {
+					Calendar cur_cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
+					Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(timeZone));
+					cur_cal.setTimeInMillis(System.currentTimeMillis());
+					cal.setTimeInMillis(data.get(i).getInstant());
+					if (cur_cal.get(Calendar.DAY_OF_YEAR)==cal.get(Calendar.DAY_OF_YEAR) && 
+							cur_cal.get(Calendar.YEAR)==cal.get(Calendar.YEAR)) continue;
 					ossAPI.respond(data.getValue("close", i), data.get(i).getInstant());
 				}
 				long timestamp = System.currentTimeMillis();
@@ -131,7 +138,7 @@ public class RecommendApplication implements Runnable{
 		if (cal.get(Calendar.DAY_OF_YEAR)==recommendDate.get(Calendar.DAY_OF_YEAR) && 
 				cal.get(Calendar.YEAR)==recommendDate.get(Calendar.YEAR)) {
 			if (recommends.contains(stockid)) { return false; }
-		} else { 
+		} else {
 			recommends.clear();
 			recommendDate.setTimeInMillis(System.currentTimeMillis());
 		}
@@ -156,7 +163,12 @@ public class RecommendApplication implements Runnable{
 		for (int i = 0; i < mSeries.size() && !stopflag;) {
 			Calendar now_cal = Calendar.getInstance();
 			String stockid = mSeries.getValue("stock-id", i);
-
+			
+			if (mSeries.getValue("disposition", i) == null) {
+				i += 1;
+				continue;
+			}
+			
 			if (executor.getPoolSize()>=maximumPoolSize || !check(now_cal, stockid)) {
 				try {
 					Thread.sleep(sleepMillTime);
@@ -166,7 +178,6 @@ public class RecommendApplication implements Runnable{
 				}
 				continue;
 			}
-			recommends.add(stockid);
 			executor.execute(new Recommend(stockid));
 			i += 1;
 		}

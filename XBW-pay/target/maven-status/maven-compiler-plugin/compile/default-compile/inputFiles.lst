@@ -1,4 +1,7 @@
-C:\Users\ariesun\Desktop\merchant-wxpay-demo\sdk\java-sdk-v2\src\main\java\com\github\wxpay\sdk\WXPayConstants.java
-C:\Users\ariesun\Desktop\merchant-wxpay-demo\sdk\java-sdk-v2\src\main\java\com\github\wxpay\sdk\WXPayUtil.java
-C:\Users\ariesun\Desktop\merchant-wxpay-demo\sdk\java-sdk-v2\src\main\java\com\github\wxpay\sdk\WXPayConfig.java
-C:\Users\ariesun\Desktop\merchant-wxpay-demo\sdk\java-sdk-v2\src\main\java\com\github\wxpay\sdk\WXPay.java
+C:\workspace\git\xinbenwei\XBW-pay\src\main\java\com\github\wxpay\sdk\IWXPayDomain.java
+C:\workspace\git\xinbenwei\XBW-pay\src\main\java\com\github\wxpay\sdk\WXPay.java
+C:\workspace\git\xinbenwei\XBW-pay\src\main\java\com\github\wxpay\sdk\WXPayReport.java
+C:\workspace\git\xinbenwei\XBW-pay\src\main\java\com\github\wxpay\sdk\WXPayRequest.java
+C:\workspace\git\xinbenwei\XBW-pay\src\main\java\com\github\wxpay\sdk\WXPayConfig.java
+C:\workspace\git\xinbenwei\XBW-pay\src\main\java\com\github\wxpay\sdk\WXPayConstants.java
+C:\workspace\git\xinbenwei\XBW-pay\src\main\java\com\github\wxpay\sdk\WXPayUtil.java
