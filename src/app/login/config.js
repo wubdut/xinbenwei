@@ -26,22 +26,6 @@ requirejs.config({
             'vendor/dist/js/sb-admin-2'
         ],
 
-        datatables: [
-            'vendor/datatables/js/jquery.dataTables.min'
-        ],
-
-        dataTablesBootstrap: [
-            'vendor/datatables-plugins/dataTables.bootstrap.min'
-        ],
-
-        dataTablesResponsive: [
-            'vendor/datatables-responsive/dataTables.responsive'
-        ],
-
-        account: [
-            'app/account/account'
-        ],
-
         html5shiv: [
             // 'https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv',
             'vendor/ie/html5shiv'
@@ -52,8 +36,16 @@ requirejs.config({
             'vendor/ie/respond.min'
         ],
 
-        accountModule: [
-            'app/account/accountModule'
+        login: [
+            'app/login/login'
+        ],
+
+        loginModule: [
+            'app/login/loginModule'
+        ],
+
+        authService: [
+            'app/service/authService'
         ]
 
     },
@@ -65,26 +57,23 @@ requirejs.config({
     },
 
     shim: {
-        'account': {
+        'login': {
             deps: [
-                'accountModule',
+                'loginModule',
                 'html5shiv',
                 'respond',
+                // 'jquery',
                 'bootstrap',
-                // 'jqueryDataTables',
-                'dataTablesBootstrap',
-                'dataTablesResponsive',
+                // 'metisMenu',
                 'sb',
                 'css!vendor/bootstrap/css/bootstrap.min.css',
                 'css!vendor/metisMenu/metisMenu.min.css',
-                'css!vendor/datatables-plugins/dataTables.bootstrap.css',
-                'css!vendor/datatables-responsive/dataTables.responsive.css',
                 'css!vendor/dist/css/sb-admin-2.css',
                 'css!vendor/font-awesome/css/font-awesome.min.css'
             ]
         },
 
-        'accountModule': {
+        'loginModule': {
             deps: ['angular']
         },
 
@@ -96,20 +85,21 @@ requirejs.config({
             deps: ['jquery']
         },
 
-        'datatables': {
-            deps: ['jquery']
-        },
-
         'sb': {
             deps: ['metisMenu']
+        },
+
+        'authService': {
+            deps: ['angular']
         }
 
     },
+
     urlArgs: "bust=" +  (new Date()).getTime()
 
 });
 
-require(['account'], function() {
-    angular.bootstrap(document, ['account']);
+require(['login'], function() {
+    angular.bootstrap(document, ['login']);
 });
 
