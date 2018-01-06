@@ -6,10 +6,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
 
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
-import ch.qos.logback.classic.Level;
-import ch.qos.logback.classic.Logger;
 import hlqs.westworld.server.application.RecommendApplication;
 import hlqs.westworld.server.application.UpdateApplication;
 import hlqs.westworld.server.lib.config.RedisConfig;
@@ -27,11 +25,8 @@ public class XBWServers {
 	private String TIME_ZONE = "GMT+8:00";
 	private String RECOMMEND_DAYS_OF_WEEK = "2,3,4,5,6";
 	private int EPOCH = 10;
-	private static Logger logger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 	
-	static {
-		logger.setLevel(Level.WARN);
-	}
+	private static final Logger logger = Logger.getLogger(XBWServers.class);
 	
 	public void run() {
 		initialize();
@@ -53,6 +48,9 @@ public class XBWServers {
 	}
 	
 	public void initialize() {
+		
+		logger.info("Start Initialize.");
+		
 		Path root = Paths.get(System.getProperty("user.dir")).getParent();
 		Path propertyPath = Paths.get(root.toString(), 
 				"config",
@@ -68,78 +66,97 @@ public class XBWServers {
         if (property.containsKey("redis_url")){
         	RedisConfig.setRedisURL(property.getProperty("redis_url").trim());
         }
+		logger.info("CONFIG : redis_url = " + RedisConfig.redisURL);
         
         if (property.containsKey("redis_port")){
         	RedisConfig.setPort(Integer.parseInt(property.getProperty("redis_port").trim()));
         }
+		logger.info("CONFIG : redis_port = " + RedisConfig.port);
         
         if (property.containsKey("redis_timeout")){
         	RedisConfig.setTimeOut(Integer.parseInt(property.getProperty("redis_timeout").trim()));
         }
+		logger.info("CONFIG : redis_timeout = " + RedisConfig.timeOut);
         
         if (property.containsKey("redis_password")){
         	RedisConfig.setRedisPassword(property.getProperty("redis_password").trim());
         }
+		logger.info("CONFIG : redis_password = " + RedisConfig.redisPassword);
         
         if (property.containsKey("update_flag")) {
         	UPDATE_FLAG = property.getProperty("update_flag").trim().toLowerCase().equals("true");
         }
+		logger.info("CONFIG : update_flag = " + UPDATE_FLAG);
 
         if (property.containsKey("recommend_flag")) {
         	RECOMMEND_FLAG = property.getProperty("recommend_flag").trim().toLowerCase().equals("true");
         }
+		logger.info("CONFIG : recommend_flag = " + RECOMMEND_FLAG);
         
         if (property.containsKey("disposition")) {
         	DISPOSITION = Double.parseDouble(property.getProperty("disposition").trim());
         }
+		logger.info("CONFIG : disposition = " + DISPOSITION);
         
         if (property.containsKey("attenuation")) {
         	ATTENUATION = Double.parseDouble(property.getProperty("attenuation").trim());
         }
+		logger.info("CONFIG : attenuation = " + ATTENUATION);
         
         if (property.containsKey("C")) {
         	C = Double.parseDouble(property.getProperty("C").trim());
         }
+		logger.info("CONFIG : C = " + C);
         
         if (property.containsKey("transaction_period")) {
         	TRANSACTION_PERIOD = Integer.parseInt(property.getProperty("transaction_period").trim());
         }
+		logger.info("CONFIG : transaction_period = " + TRANSACTION_PERIOD);
         
         if (property.containsKey("terminate_timestamp")) {
         	TERMINATE_TIMESTAMP = Long.parseLong(property.getProperty("terminate_timestamp").trim());
         }
+		logger.info("CONFIG : terminate_timestamp = " + TERMINATE_TIMESTAMP);
         
         if (property.containsKey("recommend_days_of_week")) {
         	RECOMMEND_DAYS_OF_WEEK = property.getProperty("recommend_days_of_week").trim();
         }
+		logger.info("CONFIG : recommend_days_of_week = " + RECOMMEND_DAYS_OF_WEEK);
         
         if (property.containsKey("time_zone")) {
         	TIME_ZONE = property.getProperty("time_zone").trim();
         }
+		logger.info("CONFIG : time_zone = " + TIME_ZONE);
         
         if (property.containsKey("recommend_time")) {
         	RECOMMEND_TIME = property.getProperty("recommend_time").trim();
         }
+		logger.info("CONFIG : recommend_time = " + RECOMMEND_TIME);
         
         if (property.containsKey("epoch")) {
         	EPOCH = Integer.parseInt(property.getProperty("epoch").trim());
         }
+		logger.info("CONFIG : epoch = " + EPOCH);
         
         if (property.containsKey("core_pool_size")) {
         	ThreadConfig.setCorePoolSize(Integer.parseInt(property.getProperty("core_pool_size").trim()));
         }
+		logger.info("CONFIG : core_pool_size = " + ThreadConfig.corePoolSize);
         
         if (property.containsKey("maximum_pool_size")) {
         	ThreadConfig.setMaximumPoolSize(Integer.parseInt(property.getProperty("maximum_pool_size").trim()));
         }
+		logger.info("CONFIG : maximum_pool_size = " + ThreadConfig.maximumPoolSize);
         
         if (property.containsKey("keep_alive_time")) {
         	ThreadConfig.setKeepAliveTime(Integer.parseInt(property.getProperty("keep_alive_time").trim()));
         }
+		logger.info("CONFIG : keep_alive_time = " + ThreadConfig.keepAliveTime);
         
         if (property.containsKey("sleep_mill_time")) {
         	ThreadConfig.setSleepMillTime(Integer.parseInt(property.getProperty("sleep_mill_time").trim()));
         }
+		logger.info("CONFIG : sleep_mill_time = " + ThreadConfig.sleepMillTime);
 	}
 	
 	public static void main(String[] args) throws IOException {

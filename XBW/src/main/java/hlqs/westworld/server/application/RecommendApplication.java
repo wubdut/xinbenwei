@@ -9,6 +9,8 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.Logger;
+
 import com.google.gson.Gson;
 import com.realsight.westworld.tsp.api.OnlineStockStrategyAPI;
 import com.realsight.westworld.tsp.lib.redis.RedisUtil;
@@ -25,6 +27,9 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Transaction;
 
 public class RecommendApplication implements Runnable{
+	
+	private static final Logger logger = Logger.getLogger(RecommendApplication.class);
+	
 	private boolean stopflag = false;
 	private static final MultipleStringSeries mSeries = new StockData().stockidset();
 	private static final String LIST_KEY = "Recommend";
@@ -85,13 +90,13 @@ public class RecommendApplication implements Runnable{
 		@Override 
 		public void run() {
 			Calendar now_cal = Calendar.getInstance();
-			System.out.println(now_cal.getTime() + " RecommendApplication " + stockid);
+			logger.info(" RecommendApplication " + stockid);
 			
 			try {
 				Double today_price = new StockData().price(stockid);
 				OnlineStockStrategyAPI ossAPI = Util.open(stockid);
 				if (ossAPI == null) {
-					System.out.println(stockid + " RecommendApplication result is error");
+					logger.info(stockid + " RecommendApplication result is error");
 					return ;
 				}
 				recommends.add(stockid);
@@ -113,7 +118,7 @@ public class RecommendApplication implements Runnable{
 						today_price,
 						timestamp));
 				if (triple.getFirst().equals("b")) {
-					System.out.println(stockid + " RecommendApplication result is not recommend");
+					logger.info(stockid + " RecommendApplication result is not recommend");
 					return ;
 				}
 				Jedis jedis = ru.getJedis();
@@ -121,7 +126,7 @@ public class RecommendApplication implements Runnable{
 				transaction.rpush(LIST_KEY, context);
 				transaction.exec();
 				jedis.close();
-				System.out.println(stockid + " RecommendApplication result is " + context);
+				logger.info(stockid + " RecommendApplication result is " + context);
 			} catch (ArrayIndexOutOfBoundsException | IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

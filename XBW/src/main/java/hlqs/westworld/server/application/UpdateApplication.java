@@ -5,6 +5,8 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.Logger;
+
 import com.realsight.westworld.tsp.api.OnlineStockStrategyAPI;
 import com.realsight.westworld.tsp.lib.series.MultipleDoubleSeries;
 import com.realsight.westworld.tsp.lib.series.MultipleStringSeries;
@@ -15,6 +17,8 @@ import hlqs.westworld.server.lib.config.ThreadConfig;
 
 public class UpdateApplication extends Thread{
 	
+	private static final Logger logger = Logger.getLogger(UpdateApplication.class);
+
 	private static final MultipleStringSeries mSeries = new StockData().stockidset();
 	private boolean stopflag = false;
 	private final int EPOCH;
@@ -64,8 +68,7 @@ public class UpdateApplication extends Thread{
 			// TODO Auto-generated method stub
 			if (!Util.modifyAccess(stockid)) return ;
 			try {
-				Calendar now_cal = Calendar.getInstance();
-				System.out.println(now_cal.getTime() + " UpdateApplication " + stockid);
+				logger.info("UpdateApplication " + stockid);
 				MultipleDoubleSeries data = (new StockData()).history_data(stockid);
 				OnlineStockStrategyAPI ossAPI = new OnlineStockStrategyAPI(disposition, ATTENUATION, C);
 				for (int i = 0; i+TRANSACTION_PERIOD < data.size(); i++) {
