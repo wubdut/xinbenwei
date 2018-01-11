@@ -42,6 +42,10 @@ requirejs.config({
 
         registerModule: [
             'app/register/registerModule'
+        ],
+
+        authService: [
+            'app/service/authService'
         ]
 
     },
@@ -83,6 +87,10 @@ requirejs.config({
 
         'sb': {
             deps: ['metisMenu']
+        },
+
+        'authService': {
+            deps: ['angular']
         }
 
     },

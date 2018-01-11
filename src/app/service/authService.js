@@ -3,6 +3,10 @@ define(function() {
     var user = null;
     var TOKEN_KEY = 'jwtToken';
 
+    var getURL = function () {
+        return "localhost";
+    };
+
     var getJwtToken = function() {
         return localStorage.getItem(TOKEN_KEY);
     };
@@ -27,7 +31,7 @@ define(function() {
                 'Content-Type': 'application/json'
             };
         }
-    }
+    };
 
     var getUser = function() {
         return $http({
@@ -42,6 +46,7 @@ define(function() {
         getJwtToken: getJwtToken,
         setJwtToken: setJwtToken,
         removeJwtToken: removeJwtToken,
-        createAuthorizationTokenHeader: createAuthorizationTokenHeader
+        createAuthorizationTokenHeader: createAuthorizationTokenHeader,
+        getURL: getURL
     };
 });

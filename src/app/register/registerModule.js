@@ -1,5 +1,5 @@
 
-define(['jquery'], function(jquery) {
+define(['authService'], function(authService) {
 
     var app = angular.module('registerModule', []);
 
@@ -20,14 +20,14 @@ define(['jquery'], function(jquery) {
             };
 
             if (password === firmpassword) {
-                $http.post('http://localhost:8080/auth/register', data).then(
+                $http.post("http://" + authService.getURL() + ":8000/auth/register", data).then(
                     function(response) {
                         $scope.mytemplate = "template/register_success.html";
                         $scope.error = false;
                     },
                     function() {
                         $scope.error = true;
-                        alert("注册失败");
+                        alert("注册失败，该邮箱已经注册");
                     }
                 );
             } else {

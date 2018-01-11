@@ -54,8 +54,11 @@ requirejs.config({
 
         accountModule: [
             'app/account/accountModule'
-        ]
+        ],
 
+        authService: [
+            'app/service/authService'
+        ]
     },
 
     map: {
@@ -82,6 +85,10 @@ requirejs.config({
                 'css!vendor/dist/css/sb-admin-2.css',
                 'css!vendor/font-awesome/css/font-awesome.min.css'
             ]
+        },
+
+        'authService': {
+            deps: ['angular']
         },
 
         'accountModule': {

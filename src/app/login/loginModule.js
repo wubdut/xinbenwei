@@ -11,11 +11,12 @@ define(['authService'], function(authService) {
                 password : $scope.formData.password
             };
             // alert(data.email);
-            $http.post('http://localhost:8080/auth/login', data).then(
+            $http.post("http://" + authService.getURL() + ":8000/auth/login", data).then(
                 function(response) {
                     authService.setJwtToken(response.data.access_token);
-                    alert(authService.getJwtToken());
+                    // alert(authService.getJwtToken());
                     $scope.error = false;
+                    window.location.href = "../account/account.html"
                 },
                 function() {
                     $scope.error = true;
