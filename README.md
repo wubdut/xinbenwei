@@ -1,5 +1,5 @@
 # xinbenwei
 
-前端：
+后台：
 
-采用requireJs+angularJs框架
+采用springboot+jwt+jpa+hibernate框架
