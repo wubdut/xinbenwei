@@ -1,48 +1,40 @@
 #!/usr/bin/env python -u
 # -*- coding: utf-8 -*-
 
-import json
-from basic.redisServer import server
-from basic import mail
+from peewee import *
+from basic.mysqlSever import MySQLModel
+import datetime
+import time
 
-class ShortSwing(object):
-    @staticmethod
-    def add(item):
-        server.rpush('ShortSwing', json.dumps(item))
-        
-    @staticmethod
-    def getById(id):
-        it = server.lrange('ShortSwing', id, id)
-        return it[0]
-        
-    @staticmethod 
-    def alert(index, item):
-        server.lset('ShortSwing', index, json.dumps(item))
-    
-    @staticmethod
-    def queryAll():
-        llen = server.llen('ShortSwing')
-        return server.lrange('ShortSwing', 0, llen-1)
-    
-    @staticmethod
-    def getLlen():
-        return server.llen('ShortSwing')
-    
-    @staticmethod
-    def queryAllOut():
-        for item in ShortSwing.queryAll():
-            print item
-    
-    @staticmethod
-    def clear():
-        return server.delete('ShortSwing')
+class ShortSwing(MySQLModel):
+    stock_id = CharField()
+    stock_name = CharField()
+    time_rec = DateTimeField()
+    price_rec = FloatField()
+    price_real = FloatField()
+    increase = FloatField()
+    stop_profit = FloatField()
+    stop_loss = FloatField()
+    status = CharField()
+    score = FloatField()
+    sale = BooleanField()
         
 if __name__ == "__main__":
-#     user = ['wub-neu@neusoft.com']            # 收件人邮箱账号，我这边发送给自己
-#     userList = ['981128587@qq.com', '1397677607@qq.com']
-#     list = ShortSwing.queryAll()
-#     for index in range(2):
-#         item = json.loads(list[index])
-#         print item['stockId'] + "  " + item['stockName']
-#         print mail.sendToAll(userList, item)
-    print ShortSwing.clear()
+#     ShortSwing.create_table()
+
+#     shortSwing = ShortSwing()
+#     shortSwing.stock_id = '600718'
+#     shortSwing.stock_name = '东软集团'
+#     shortSwing.time_rec = datetime.datetime.now()
+#     shortSwing.price_rec = 14.56
+#     shortSwing.price_real = 14.89
+#     shortSwing.increase = 0.01
+#     shortSwing.stop_profit = 15.00
+#     shortSwing.stop_loss = 14.00
+#     shortSwing.status = '进行'
+#     shortSwing.score = 0.1234
+#     shortSwing.sale = True
+#       
+#     shortSwing.save()
+    
+    print "haha"

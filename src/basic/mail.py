@@ -35,4 +35,6 @@ def sendToAll(userList, item):
         if send(user, item):
             cnt = cnt+1;
     return cnt == len(userList)
-        
+
+if __name__ == "__main__":
+    print "haha"

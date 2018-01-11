@@ -11,6 +11,10 @@ class Recommend(object):
         return server.lpop('Recommend')
     
     @staticmethod
+    def lpush(item):
+        return server.lpush('Recommend', item)
+    
+    @staticmethod
     def queryAll():
         llen = server.llen('Recommend')
         return server.lrange('Recommend', 0, llen-1)

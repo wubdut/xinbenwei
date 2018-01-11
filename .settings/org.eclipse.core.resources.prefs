@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/basic/__init__.py=utf-8
+encoding//src/basic/mysqlSever.py=utf-8
 encoding//src/basic/redisServer.py=utf-8
 encoding//src/basic/timeDate.py=utf-8
 encoding//src/model/__init__.py=utf-8
