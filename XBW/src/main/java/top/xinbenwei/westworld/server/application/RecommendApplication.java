@@ -1,4 +1,4 @@
-package hlqs.westworld.server.application;
+package top.xinbenwei.westworld.server.application;
 
 import java.io.IOException;
 import java.util.Calendar;
@@ -9,7 +9,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.log4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
 import com.realsight.westworld.tsp.api.OnlineStockStrategyAPI;
@@ -19,16 +19,17 @@ import com.realsight.westworld.tsp.lib.series.MultipleStringSeries;
 import com.realsight.westworld.tsp.lib.util.Triple;
 import com.realsight.westworld.tsp.lib.util.data.StockData;
 
-import hlqs.westworld.server.lib.Util;
-import hlqs.westworld.server.lib.config.RedisConfig;
-import hlqs.westworld.server.lib.config.ThreadConfig;
-import hlqs.westworld.server.response.RecommendData;
+import ch.qos.logback.classic.Logger;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Transaction;
+import top.xinbenwei.westworld.server.lib.Util;
+import top.xinbenwei.westworld.server.lib.config.RedisConfig;
+import top.xinbenwei.westworld.server.lib.config.ThreadConfig;
+import top.xinbenwei.westworld.server.response.RecommendData;
 
 public class RecommendApplication implements Runnable{
 	
-	private static final Logger logger = Logger.getLogger(RecommendApplication.class);
+	private static final Logger logger = (Logger) LoggerFactory.getLogger(RecommendApplication.class);
 	
 	private boolean stopflag = false;
 	private static final MultipleStringSeries mSeries = new StockData().stockidset();
@@ -89,7 +90,6 @@ public class RecommendApplication implements Runnable{
 		
 		@Override 
 		public void run() {
-			Calendar now_cal = Calendar.getInstance();
 			logger.info(" RecommendApplication " + stockid);
 			
 			try {

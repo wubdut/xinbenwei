@@ -1,4 +1,4 @@
-package hlqs.westworld.server.response;
+package top.xinbenwei.westworld.server.response;
 
 import java.util.List;
 

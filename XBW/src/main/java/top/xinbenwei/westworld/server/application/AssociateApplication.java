@@ -1,4 +1,4 @@
-package hlqs.westworld.server.application;
+package top.xinbenwei.westworld.server.application;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -18,10 +18,10 @@ import com.realsight.westworld.tsp.lib.util.Triple;
 import com.realsight.westworld.tsp.lib.util.data.StockData;
 
 import ch.qos.logback.classic.Logger;
-import hlqs.westworld.server.lib.Util;
-import hlqs.westworld.server.response.AssociateData;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Transaction;
+import top.xinbenwei.westworld.server.lib.Util;
+import top.xinbenwei.westworld.server.response.AssociateData;
 
 public class AssociateApplication extends Thread{
 	private boolean stopflag = false;

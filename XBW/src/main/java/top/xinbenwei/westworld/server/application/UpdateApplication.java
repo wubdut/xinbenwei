@@ -1,23 +1,23 @@
-package hlqs.westworld.server.application;
+package top.xinbenwei.westworld.server.application;
 
-import java.util.Calendar;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.log4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.realsight.westworld.tsp.api.OnlineStockStrategyAPI;
 import com.realsight.westworld.tsp.lib.series.MultipleDoubleSeries;
 import com.realsight.westworld.tsp.lib.series.MultipleStringSeries;
 import com.realsight.westworld.tsp.lib.util.data.StockData;
 
-import hlqs.westworld.server.lib.Util;
-import hlqs.westworld.server.lib.config.ThreadConfig;
+import ch.qos.logback.classic.Logger;
+import top.xinbenwei.westworld.server.lib.Util;
+import top.xinbenwei.westworld.server.lib.config.ThreadConfig;
 
 public class UpdateApplication extends Thread{
 	
-	private static final Logger logger = Logger.getLogger(UpdateApplication.class);
+	private static final Logger logger = (Logger) LoggerFactory.getLogger(UpdateApplication.class);
 
 	private static final MultipleStringSeries mSeries = new StockData().stockidset();
 	private boolean stopflag = false;

@@ -1,4 +1,4 @@
-package hlqs.westworld.server.response;
+package top.xinbenwei.westworld.server.response;
 
 import com.realsight.westworld.tsp.lib.series.DoubleSeries;
 import com.realsight.westworld.tsp.lib.util.Triple;

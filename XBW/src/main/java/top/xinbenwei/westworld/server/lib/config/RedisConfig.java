@@ -1,4 +1,4 @@
-package hlqs.westworld.server.lib.config;
+package top.xinbenwei.westworld.server.lib.config;
 
 public class RedisConfig {
 	public static String redisURL = "localhost";
