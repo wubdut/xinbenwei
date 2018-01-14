@@ -4,7 +4,7 @@ define(function() {
     var TOKEN_KEY = 'jwtToken';
 
     var getURL = function () {
-        return "localhost";
+        return "www.xinbenwei.top";
     };
 
     var getJwtToken = function() {

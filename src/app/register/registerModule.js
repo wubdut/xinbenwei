@@ -11,11 +11,13 @@ define(['authService'], function(authService) {
         $scope.registerSubmit = function () {
 
             var email = $scope.formData.email;
+            var mobile = $scope.formData.mobile;
             var password = $scope.formData.password;
             var firmpassword = $scope.formData.firmpassword;
 
             var data = {
                 username : $scope.formData.email,
+                mobile: $scope.formData.mobile,
                 password : $scope.formData.password
             };
 

@@ -1,0 +1,193 @@
+
+
+/* Pricing Specific */
+#pricing .price-plan {
+	position: relative;
+	background: #1f1f1f;
+}
+#pricing .price-plan.most-popular {
+	background: #57CA8E;
+}
+#pricing .price-plan h2 {
+	font-size: 22px;
+	color: #fff;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 8px;
+	text-align: center;
+	padding: 1em 0;
+	margin: 0;
+}
+#pricing .price-plan h2:after {
+	content: ' ';
+	display: block;
+	width: 222px;
+	margin: 20px auto 0;
+	height: 2px;
+	background: white;
+}
+#pricing .price-plan .price {
+	padding: 8px 0 30px 0;
+}
+#pricing .price-plan .price .inside {
+	font-weight: 100;
+	color: white;
+	text-align: center;
+	line-height: 100px;
+	height: 100px;
+}
+#pricing .price-plan .price .inside .super {
+	font-size: 24px;
+	position: relative;
+	top: -60px;
+	left: -7px;
+}
+#pricing .price-plan .price .inside .amt {
+	letter-spacing: -4px;
+	font-size: 116px;
+	margin-right: 6px;
+	font-weight: 300;
+	margin-left: -5px;
+}
+#pricing .price-plan .price .inside .sub {
+	text-transform: uppercase;
+	font-size: 17px;
+	letter-spacing: 2px;
+	margin-left: -5px;
+}
+#pricing .price-plan .info {
+	text-align: center;
+}
+#pricing .price-plan .info p {
+	font-size: 12px;
+}
+#pricing .price-plan .info ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-align: left;
+}
+#pricing .price-plan .info ul li {
+	font-size: 15px;
+	line-height: 50px;
+	color: #696969;
+	background: #f7f7f7;
+	border-bottom: solid 1px #e9e9e9;
+	text-align: center;
+}
+#pricing .price-plan .info ul li .free {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+	background: #57ca8e;
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	line-height: 40px;
+	text-align: center;
+	color: white;
+	font-weight: 500;
+	margin-left: 10px;
+	position: relative;
+	top: -2px;
+}
+#pricing .price-plan .info ul li.feature-pages, #pricing .price-plan .info ul li.feature-bandwidth, #pricing .price-plan .info ul li.feature-storage, #pricing .price-plan .info ul li.feature-contributors {
+	font-weight: bold;
+	color: #222;
+}
+#pricing .price-plan .info ul li:first-child {
+	padding-top: 10px;
+}
+#pricing .price-plan .info ul li:last-child {
+	padding-bottom: 10px;
+}
+#pricing .price-plan-standard {
+	margin-left: 0;
+}
+#pricing .price-plan-standard .bubble .inside {
+	text-indent: 12px;
+}
+#pricing .price-plan-standard .bubble .inside .amt {
+	margin-left: 3px;
+}
+#pricing .price-plan-unlimited {
+	margin-left: 30px;
+}
+#pricing .price-plan-unlimited .bubble .inside {
+	text-indent: 8px;
+}
+#pricing .get-started {
+	padding-left: 60px;
+	padding-top: 115px;
+}
+#pricing .get-started h2, #pricing .get-started p {
+	font-size: 26px;
+	font-weight: 300;
+	line-height: 1.5em;
+	margin: 0;
+}
+#pricing .get-started h2 {
+	color: #1d1d1d;
+}
+#pricing .get-started p {
+	color: #888;
+}
+#pricing .get-started a.get-started-button {
+	margin-top: 88px;
+	background-color: #F5E78B;
+	-webkit-transition: background-color 0.1s ease-out, color 0.1s ease-out;
+	-moz-transition: background-color 0.1s ease-out, color 0.1s ease-out;
+	-o-transition: background-color 0.1s ease-out, color 0.1s ease-out;
+	transition: background-color 0.1s ease-out, color 0.1s ease-out;
+	padding: 12px 40px 11px;
+	color: black;
+	text-transform: uppercase;
+	font-size: 15px;
+	font-weight: 600;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+}
+#pricing .get-started a.get-started-button:hover {
+	background-color: #f2e9ad;
+}
+#pricing .questions {
+	padding: 90px 0 0 0;
+	clear: both;
+}
+#pricing .questions .header h2 {
+	background: #1d1d1d;
+	padding: 30px 20px;
+	color: white;
+	font-weight: 100;
+	font-size: 36px;
+	display: block;
+	width: auto;
+	display: inline-block;
+}
+#pricing .questions h3 {
+	color: #222;
+	font-size: 16px;
+	margin-top: 2em;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	line-height: 24px;
+	border-bottom: 2px solid;
+	padding-bottom: 10px;
+	margin-bottom: 0;
+	display: inline-block;
+}
+#pricing .questions p {
+	font-size: 14px;
+	line-height: 24px;
+	color: #777;
+}
+#pricing .questions .column {
+	width: 450px;
+	float: left;
+}
+#pricing .questions .column-first {
+	margin-right: 60px;
+}
