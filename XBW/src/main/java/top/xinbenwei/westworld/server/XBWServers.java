@@ -35,6 +35,7 @@ public class XBWServers {
 	private String TIME_ZONE = "GMT+8:00";
 	private String RECOMMEND_DAYS_OF_WEEK = "2,3,4,5,6";
 	private int EPOCH = 10;
+	private static final long sleep_time_mill = 1000 * 10;
 
 	private static Logger logger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
@@ -76,7 +77,7 @@ public class XBWServers {
 			if (this.WEIXIN_FLAG)
 				sma.status(false);
 			try {
-				Thread.sleep(1000L * 60);
+				Thread.sleep(sleep_time_mill);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

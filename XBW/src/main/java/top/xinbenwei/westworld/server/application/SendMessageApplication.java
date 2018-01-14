@@ -15,6 +15,7 @@ import com.realsight.westworld.tsp.lib.redis.RedisUtil;
 
 import ch.qos.logback.classic.Logger;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.exceptions.JedisException;
 import top.xinbenwei.westworld.server.lib.WinXinUtil;
 import top.xinbenwei.westworld.server.lib.config.RedisConfig;
 import top.xinbenwei.westworld.server.lib.config.ThreadConfig;
@@ -77,16 +78,17 @@ public class SendMessageApplication implements Runnable{
 			try {
 				Jedis jedis = ru.getJedis();
 				String json = jedis.lpop(LIST_KEY);
+				jedis.close();
 				if (json == null) {
 					logger.info("Task SendMessage is null.");
 					break;
 				}
-				jedis.close();
+				logger.info("json : " + json);
 				executor.execute(new Send(new Gson().fromJson(json, new TypeToken<JsonObject>() {
 					private static final long serialVersionUID = -699231746661823833L;}.getType())));
 				logger.info(json);
 				Thread.sleep(sleepMillTime);
-			} catch (ArrayIndexOutOfBoundsException | InterruptedException e) {
+			} catch (ArrayIndexOutOfBoundsException | InterruptedException | JedisException e) {
 				// TODO Auto-generated catch block
 				logger.error(e.getMessage());
 			}
