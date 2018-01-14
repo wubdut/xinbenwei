@@ -28,7 +28,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">{{username}}</a>
+            <a class="navbar-brand" href="#">{{username}}</a>
         </div>
         <!-- /.navbar-header -->
 
@@ -99,12 +99,14 @@
                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a ng-click="userProfile()" href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <li><a ng-click="userProfile()" href="#"><i class="fa fa-user fa-fw"></i> 基本信息</a>
                     </li>
-                    <li><a ng-click="settings()" href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    <li><a ng-click="myOrders()" href="#"><i class="fa fa-gear fa-fw"></i> 我的订单</a>
+                    </li>
+                    <li><a ng-click="settings()" href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="../../index.html" ng-click="logout()"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><a href="../../index.html" ng-click="logout()"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
@@ -116,17 +118,6 @@
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-                    <li class="sidebar-search">
-                        <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
-                        <!-- /input-group -->
-                    </li>
                     <li>
                         <a ng-click="recommendToday()" href="#"><i class="fa fa-dashboard fa-fw"></i> 今日推荐</a>
                     </li>
@@ -138,6 +129,21 @@
                             </li>
                             <li>
                                 <a ng-click="recommendMonth()" href="#">本月</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i> 增值服务<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a ng-click="shortSwingService()" href="#">短线通</a>
+                            </li>
+                            <li>
+                                <a ng-click="diagnoseService()" href="#">个股推断</a>
+                            </li>
+                            <li>
+                                <a ng-click="assistService()" href="#">散户助手</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->

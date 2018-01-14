@@ -6,15 +6,17 @@ requirejs.config({
 
     paths: {
         angular: [
-            // 'http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min',
+            'http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min',
             'js/lib/angular.min'
         ],
 
         jquery: [
+            'http://libs.baidu.com/jquery/2.1.1/jquery.min',
             'vendor/jquery/jquery.min'
         ],
 
         bootstrap: [
+            'https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min',
             'vendor/bootstrap/js/bootstrap.min'
         ],
 
@@ -43,12 +45,12 @@ requirejs.config({
         ],
 
         html5shiv: [
-            // 'https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv',
+            'https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv',
             'vendor/ie/html5shiv'
         ],
 
         respond: [
-            // 'https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min',
+            'https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min',
             'vendor/ie/respond.min'
         ],
 
@@ -82,8 +84,10 @@ requirejs.config({
                 'css!vendor/metisMenu/metisMenu.min.css',
                 'css!vendor/datatables-plugins/dataTables.bootstrap.css',
                 'css!vendor/datatables-responsive/dataTables.responsive.css',
+                'css!vendor/datatables/css/jquery.dataTables.css',
                 'css!vendor/dist/css/sb-admin-2.css',
-                'css!vendor/font-awesome/css/font-awesome.min.css'
+                'css!vendor/font-awesome/css/font-awesome.min.css',
+                'css!vendor/js/price.css'
             ]
         },
 
