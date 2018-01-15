@@ -11,7 +11,7 @@ requirejs.config({
         ],
 
         angularDatatables: [
-            'vendor/datatables/js/angular-dataTables'
+            'vendor/datatables/js/angular-datatables'
         ],
 
         jquery: [
