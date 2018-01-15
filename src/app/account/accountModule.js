@@ -1,9 +1,9 @@
 
 define(['authService', 'jquery'], function(authService,jquery) {
 
-    var app = angular.module('accountModule', []);
+    var app = angular.module('accountModule', ['datatables']);
 
-    app.controller('accountCtl', function($scope, $http) {
+    app.controller('accountCtl', function($scope, $http, DTOptionsBuilder, DTColumnDefBuilder) {
 
         /**************************** 默认显示 ****************************/
         $http.get(
@@ -70,23 +70,23 @@ define(['authService', 'jquery'], function(authService,jquery) {
 
         /************************ 模板加载完成之后的操作 ************************/
 
-        $scope.$on('$includeContentLoaded', function (event, target) {
-            // it has loaded!
-            switch(target) {
-                case 'template/recommend.html':
-                    datatablesLoad();
-                break;
-            }
-
-        });
-
-        function datatablesLoad() {
-            // console.log('datatableload', $('#dataTablesExample'));
-            $(dataTablesExample).DataTable({
-                responsive: true,
-                bRetrieve: true
-            });
-        }
+        // $scope.$on('$includeContentLoaded', function (event, target) {
+        //     // it has loaded!
+        //     switch(target) {
+        //         case 'template/recommend.html':
+        //             datatablesLoad();
+        //         break;
+        //     }
+        //
+        // });
+        //
+        // function datatablesLoad() {
+        //     // console.log('datatableload', $('#dataTablesExample'));
+        //     // $('#dataTablesExample').DataTable({
+        //     //     responsive: true,
+        //     //     bRetrieve: true
+        //     // });
+        // }
 
         function todayLoad() {
             $http.get(
@@ -104,6 +104,18 @@ define(['authService', 'jquery'], function(authService,jquery) {
         }
 
         function weekLoad() {
+            $scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers');
+            $scope.dtColumnDefs = [
+                DTColumnDefBuilder.newColumnDef(0),
+                DTColumnDefBuilder.newColumnDef(1),
+                DTColumnDefBuilder.newColumnDef(2),
+                DTColumnDefBuilder.newColumnDef(3),
+                DTColumnDefBuilder.newColumnDef(4),
+                DTColumnDefBuilder.newColumnDef(5),
+                DTColumnDefBuilder.newColumnDef(6),
+                DTColumnDefBuilder.newColumnDef(7),
+                DTColumnDefBuilder.newColumnDef(8)
+            ];
             $http.get(
                 "http://" + authService.getURL() + ":8000/api/shortswing",
                 {headers : authService.createAuthorizationTokenHeader()}
@@ -121,6 +133,18 @@ define(['authService', 'jquery'], function(authService,jquery) {
         }
 
         function monthLoad() {
+            $scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers');
+            $scope.dtColumnDefs = [
+                DTColumnDefBuilder.newColumnDef(0),
+                DTColumnDefBuilder.newColumnDef(1),
+                DTColumnDefBuilder.newColumnDef(2),
+                DTColumnDefBuilder.newColumnDef(3),
+                DTColumnDefBuilder.newColumnDef(4),
+                DTColumnDefBuilder.newColumnDef(5),
+                DTColumnDefBuilder.newColumnDef(6),
+                DTColumnDefBuilder.newColumnDef(7),
+                DTColumnDefBuilder.newColumnDef(8)
+            ];
             $http.get(
                 "http://" + authService.getURL() + ":8000/api/shortswing",
                 {headers : authService.createAuthorizationTokenHeader()}

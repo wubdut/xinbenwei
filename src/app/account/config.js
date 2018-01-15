@@ -10,8 +10,12 @@ requirejs.config({
             'js/lib/angular.min'
         ],
 
+        angularDatatables: [
+            'vendor/datatables/js/angular-dataTables.min'
+        ],
+
         jquery: [
-            'http://libs.baidu.com/jquery/2.1.1/jquery.min',
+            // 'http://libs.baidu.com/jquery/2.1.1/jquery.min',
             'vendor/jquery/jquery.min'
         ],
 
@@ -72,13 +76,14 @@ requirejs.config({
     shim: {
         'account': {
             deps: [
+                'datatables',
+                'angularDatatables',
                 'accountModule',
                 'html5shiv',
                 'respond',
                 'bootstrap',
-                // 'jqueryDataTables',
-                'dataTablesBootstrap',
-                'dataTablesResponsive',
+                // 'dataTablesBootstrap',
+                // 'dataTablesResponsive',
                 'sb',
                 'css!vendor/bootstrap/css/bootstrap.min.css',
                 'css!vendor/metisMenu/metisMenu.min.css',
@@ -91,12 +96,16 @@ requirejs.config({
             ]
         },
 
+        'angularDatatables': {
+            deps: ['angular', 'jquery']
+        },
+
         'authService': {
             deps: ['angular']
         },
 
         'accountModule': {
-            deps: ['angular']
+            deps: []
         },
 
         'bootstrap': {
