@@ -9,4 +9,4 @@ encoding//src/model/shortSwing.py=utf-8
 encoding//src/service/__init__.py=utf-8
 encoding//src/service/shortSwingService.py=utf-8
 encoding//src/shortSwingServer.py=utf-8
-encoding//src/tornadoServer.py=utf-8
+encoding//src/toolbox/copyData.py=utf-8

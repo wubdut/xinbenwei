@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import json
+import time
 from basic.redisServer import server
 
 class Recommend(object):
@@ -29,7 +30,15 @@ class Recommend(object):
             print item
         
 if __name__ == "__main__":
-    list = Recommend.queryAll()
-    for index in range(len(list)):
-        it = json.loads(list[index])
-        print it['priceRec']
+#     list = Recommend.queryAll()
+#     for index in range(len(list)):
+#         it = json.loads(list[index])
+#         print it['priceRec']
+    item = {}
+    item['stockId'] = u'600718'
+    item['priceRec'] = 14.08
+    item['timeRec'] = time.time()
+    item['score'] = -0.8902938402
+    item_str = json.dumps(item)
+    Recommend.lpush(item_str)
+    print "haha"

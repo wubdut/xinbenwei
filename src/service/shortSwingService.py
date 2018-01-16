@@ -5,169 +5,102 @@ import json
 import tushare as ts
 from model.shortSwing import ShortSwing
 from model.recommend import Recommend
-from model.user import User
-from basic import timeDate,mail
-from model import recommend
+from basic import timeDate
 
 def getNewStock():
     while Recommend.getLlen() > 0:
-        item_str = Recommend.lpop()
-        item = json.loads(item_str)
-        stockId = item['stockId']
-        priceRec = item['priceRec']
-        item['timeRec'] = timeDate.getDate(item['timeRec'])
-        
-        df = ts.get_realtime_quotes(stockId)
-        priceReal = float(df.at[0,'price'].encode('utf-8'))
-        
-        item['stockName'] = df.at[0,'name']
-        inc_f = 0
-        if priceRec > 0.01:
-            inc_f = (priceReal - priceRec)/priceRec
-        item['increase'] = round(inc_f, 4)
-        item['priceReal'] = priceReal
-        item['stopProfit'] = round(priceRec*(1+0.01), 2)
-        item['stopLoss'] = round(priceRec*(1-0.05), 2)
-        item['status'] = u'进行'
-        item['sale'] = False
-        mail.sendToAll(User.getMailList(), item)
-        ShortSwing.add(item)
+        getOneStock()
         
 def getOneStock():
-    if Recommend.getLlen() > 0:
-        
-        item_str = Recommend.lpop()
-        Recommend.lpush(item_str)
-        item = json.loads(item_str)
-        stockId = item['stockId']
-        priceRec = item['priceRec']
-        timeRec = timeDate.timestamp_datetime(item['timeRec'])
-        score = item['score']
-        try:
-            df = ts.get_realtime_quotes(stockId)
-        except Exception as e:
-            print "tushare 网络连接错误"
-            return
-        
-        if df is None:
-            return
-        
-        priceReal = float(df.at[0,'price'].encode('utf-8'))
-        
-        
-        inc_f = 0
-        if priceRec > 0.01:
-            inc_f = (priceReal - priceRec)/priceRec
-        
-        shortSwing = ShortSwing()
-        print stockId
-        shortSwing.stock_id = stockId
-        shortSwing.stock_name = df.at[0,'name']
-        shortSwing.time_rec = timeRec
-        shortSwing.price_rec = priceRec
-        shortSwing.price_real = priceReal
-        shortSwing.increase = round(inc_f, 4)
-        shortSwing.stop_profit = round(priceRec*(1+0.01), 2)
-        shortSwing.stop_loss = round(priceRec*(1-0.05), 2)
-        shortSwing.status = u'进行'
-        shortSwing.score = score
-        shortSwing.sale = False
-        
-        shortSwing.save()
-    else:
+    print "get stock"
+    item_str = Recommend.lpop()
+    item = json.loads(item_str)
+    stockId = item['stockId']
+    priceRec = item['priceRec']
+    if priceRec < 0.01:
         return
-
-
+    timeRec = timeDate.timestamp_datetime(item['timeRec'])
+    score = item['score']
+    try:
+        df = ts.get_realtime_quotes(stockId)
+    except Exception as e:
+        print "tushare connection error"
+        return
+    if df is None:
+        return
+    priceReal = float(df.at[0,'price'].encode('utf-8'))
+    increase = (priceReal - priceRec)/priceRec
+    
+    shortSwing = ShortSwing()
+    shortSwing.stock_id = stockId
+    shortSwing.stock_name = df.at[0,'name']
+    shortSwing.time_rec = timeRec
+    shortSwing.price_rec = priceRec
+    shortSwing.price_real = priceReal
+    shortSwing.increase = round(increase, 4)
+    shortSwing.stop_profit = round(priceRec*(1+0.02), 2)
+    shortSwing.stop_loss = round(priceRec*(1-0.03), 2)
+    shortSwing.status = u'进行'
+    shortSwing.score = score
+    shortSwing.sale = 0
+        
+    shortSwing.save()
         
 def updatePrice():
-    list = ShortSwing.queryAll()
-    for index in range(len(list)):
-        it = list[index]
-        item = json.loads(it)
-        if item['status'] != u'进行':
+    print "update price"
+    for item in ShortSwing.select():
+        if item.status != u'进行':
             continue
         try:
-            df = ts.get_realtime_quotes(item['stockId'])
+            df = ts.get_realtime_quotes(item.stock_id)
         except Exception as e:
-            print "tushare 网络连接错误"
+            print "tushare connection error"
             return
-        
         if df is None:
             continue
-        priceReal = float(df.at[0,'price'].encode('utf-8'))
-#         priceHigh = float(df.at[0,'high'].encode('utf-8'))
-        item['priceReal'] = priceReal
-        setPriceReal(item)
-        setStatus(item)
-        ShortSwing.alert(index, item)
-        
-def closeMarket():
-    if not timeDate.isCloseMarketTime():
-        return
-    list = ShortSwing.queryAll()
-    for index in range(len(list)):
-        it = list[index]
-        item = json.loads(it)
-        if item['status'] != u'进行':
-            continue
-#         df = ts.get_realtime_quotes(item['stockId'])
-#         priceReal = float(df.at[0,'price'].encode('utf-8'))
-#         item['priceReal'] = priceReal
-        setCloseStatus(item)
-        ShortSwing.alert(index, item)
-        
+        item.price_real = float(df.at[0,'price'].encode('utf-8'))
+        item.increase = round((item.price_real-item.price_rec)/item.price_rec, 4)
+         
+         
+        if item.sale == 1:
+            if item.price_real > item.stop_profit:
+                item.status = u'止盈'
+#                 item.price_real = 0
+                item.increase = round((item.stop_profit-item.price_rec)/item.price_rec, 4)
+            elif item.price_real < item.stop_loss:
+                item.status = u'止损'
+#                 item.price_real = 0
+                item.increase = round((item.stop_loss-item.price_rec)/item.price_rec, 4)
+        item.save()
+
 def openMarket():
     if not timeDate.isOpenMarketTime():
         return
-    list = ShortSwing.queryAll()
-    for index in range(len(list)):
-        it = list[index]
-        item = json.loads(it)
-        if item['sale']:
+    print "open market"
+    for item in ShortSwing.select():
+        if item.sale == 1:
             continue
-        setOpenStatus(item)
-        ShortSwing.alert(index, item)
-    
-def setStatus(item):
-    priceRec = item['priceRec']
-    priceReal = item['priceReal']
-    if not item['sale']:
+        item.sale = 1
+        item.save()
+
+def closeMarket():
+    if not timeDate.isCloseMarketTime():
         return
-    if priceReal > item['stopProfit']:
-        item['status'] = u'止盈'
-        item['priceReal'] = "----"
-        if priceRec > 0.01:
-            item['increase'] = round((item['stopProfit']-priceRec)/priceRec, 4)
-    elif priceReal < item['stopLoss']:
-        item['status'] = u'止损'
-        item['priceReal'] = "----"
-        if priceRec > 0.01:
-            item['increase'] = round((item['stopLoss']-priceRec)/priceRec, 4)
-        
-def setPriceReal(item):
-    priceRec = item['priceRec']
-    priceReal = item['priceReal']
-    if priceRec > 0.01:
-        item['increase'] = round((priceReal-priceRec)/priceRec, 4)
-    
-def setCloseStatus(item):
-    if item['sale']:
-        if item['increase'] > 0:
-            item['status'] = u'止盈'
-
-def setOpenStatus(item):
-    item['sale'] = True
-    
-
-
-
-
-
+    print "close market"
+    for item in ShortSwing.select():
+        if item.status != u'进行':
+            continue
+        if item.sale == 1:
+            if item.increase > 0.015:
+                item.status = u'止盈'
+                item.save()
 
 if __name__ == "__main__":
 #     getNewStock()
-    getOneStock()
-    print "haha"
+#     getOneStock()
+#     getNewStock()
+#     updatePrice()    
 #     openMarket()
-#     print User.getMailList()
+    print "haha"
+
     
