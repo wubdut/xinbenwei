@@ -7,7 +7,7 @@ define(['authService'], function(authService) {
 
         $scope.loginSubmit = function () {
             var data = {
-                username : $scope.formData.email,
+                username : $scope.formData.username,
                 password : $scope.formData.password
             };
             // alert(data.email);

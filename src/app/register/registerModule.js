@@ -10,18 +10,13 @@ define(['authService'], function(authService) {
 
         $scope.registerSubmit = function () {
 
-            var email = $scope.formData.email;
-            var mobile = $scope.formData.mobile;
-            var password = $scope.formData.password;
-            var firmpassword = $scope.formData.firmpassword;
-
             var data = {
-                username : $scope.formData.email,
-                mobile: $scope.formData.mobile,
+                username : $scope.formData.username,
+                mobile : $scope.formData.mobile,
                 password : $scope.formData.password
             };
 
-            if (password === firmpassword) {
+            if ($scope.formData.password === $scope.formData.firmpassword) {
                 $http.post("http://" + authService.getURL() + ":8000/auth/register", data).then(
                     function(response) {
                         $scope.mytemplate = "template/register_success.html";
