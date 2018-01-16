@@ -6,16 +6,16 @@ requirejs.config({
 
     paths: {
         angular: [
-            // 'http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min',
+            'http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min',
             'js/lib/angular.min'
         ],
 
         angularDatatables: [
-            'vendor/datatables/js/angular-datatables'
+            'vendor/datatables/js/angular-datatables.min'
         ],
 
         jquery: [
-            // 'http://libs.baidu.com/jquery/2.1.1/jquery.min',
+            'https://cdn.bootcss.com/jquery/3.1.1/jquery.min',
             'vendor/jquery/jquery.min'
         ],
 
@@ -33,6 +33,7 @@ requirejs.config({
         ],
 
         datatables: [
+            // 'http://cdn.datatables.net/1.10.15/js/jquery.dataTables.min',
             'vendor/datatables/js/jquery.dataTables.min'
         ],
 
@@ -40,23 +41,23 @@ requirejs.config({
             'vendor/datatables-plugins/dataTables.bootstrap.min'
         ],
 
-        dataTablesResponsive: [
-            'vendor/datatables-responsive/dataTables.responsive'
-        ],
+        // dataTablesResponsive: [
+        //     'vendor/datatables-responsive/dataTables.responsive'
+        // ],
 
         account: [
             'app/account/account'
         ],
 
-        html5shiv: [
-            'https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv',
-            'vendor/ie/html5shiv'
-        ],
-
-        respond: [
-            'https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min',
-            'vendor/ie/respond.min'
-        ],
+        // html5shiv: [
+        //     'https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv',
+        //     'vendor/ie/html5shiv'
+        // ],
+        //
+        // respond: [
+        //     'https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min',
+        //     'vendor/ie/respond.min'
+        // ],
 
         accountModule: [
             'app/account/accountModule'
@@ -79,20 +80,19 @@ requirejs.config({
                 'datatables',
                 'angularDatatables',
                 'accountModule',
-                'html5shiv',
-                'respond',
                 'bootstrap',
                 'dataTablesBootstrap',
-                'dataTablesResponsive',
+                // 'dataTablesResponsive',
                 'sb',
                 'css!vendor/bootstrap/css/bootstrap.min.css',
                 'css!vendor/metisMenu/metisMenu.min.css',
                 'css!vendor/datatables-plugins/dataTables.bootstrap.css',
-                'css!vendor/datatables-responsive/dataTables.responsive.css',
+                // 'css!vendor/datatables-responsive/dataTables.responsive.css',
                 'css!vendor/datatables/css/jquery.dataTables.css',
+                // 'css!http://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css',
                 'css!vendor/dist/css/sb-admin-2.css',
                 'css!vendor/font-awesome/css/font-awesome.min.css',
-                'css!vendor/js/price.css'
+                'css!vendor/css/price.css'
             ]
         },
 

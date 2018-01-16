@@ -6,12 +6,12 @@ requirejs.config({
 
     paths: {
         angular: [
-            // 'http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min',
+            'http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min',
             'js/lib/angular.min'
         ],
 
         jquery: [
-            'http://libs.baidu.com/jquery/2.1.1/jquery.min',
+            'https://cdn.bootcss.com/jquery/3.1.1/jquery.min',
             'vendor/jquery/jquery.min'
         ],
 
@@ -28,15 +28,15 @@ requirejs.config({
             'vendor/dist/js/sb-admin-2'
         ],
 
-        html5shiv: [
-            'https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv',
-            'vendor/ie/html5shiv'
-        ],
-
-        respond: [
-            'https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min',
-            'vendor/ie/respond.min'
-        ],
+        // html5shiv: [
+        //     'https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv',
+        //     'vendor/ie/html5shiv'
+        // ],
+        //
+        // respond: [
+        //     'https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min',
+        //     'vendor/ie/respond.min'
+        // ],
 
         register: [
             'app/register/register'
@@ -62,8 +62,6 @@ requirejs.config({
         'register': {
             deps: [
                 'registerModule',
-                'html5shiv',
-                'respond',
                 'bootstrap',
                 'sb',
                 'css!vendor/bootstrap/css/bootstrap.min.css',
