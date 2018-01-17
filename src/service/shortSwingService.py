@@ -93,7 +93,7 @@ def closeMarket():
         if item.status != u'进行':
             continue
         if item.sale == 1:
-            if item.increase > 0.015:
+            if item.increase > 0.0015:
                 item.status = u'止盈'
                 item.save()
 
