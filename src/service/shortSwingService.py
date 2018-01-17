@@ -60,7 +60,9 @@ def updatePrice():
             continue
         item.price_real = float(df.at[0,'price'].encode('utf-8'))
         item.increase = round((item.price_real-item.price_rec)/item.price_rec, 4)
-         
+        
+        if item.price_real < 0.01:
+            continue
          
         if item.sale == 1:
             if item.price_real > item.stop_profit:
