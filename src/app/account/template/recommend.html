@@ -13,38 +13,40 @@
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
-                <table datatable="ng" dt-options="dtOptions" dt-column-defs="dtColumnDefs" width="100%" class="table table-striped table-bordered table-hover">
-                    <thead>
-                    <tr>
-                        <td>代码</td>
-                        <td>名称</td>
-                        <td>推荐时间</td>
-                        <td>推荐价格</td>
+                <div class="table-responsive">
+                    <table datatable="ng" dt-options="dtOptions" dt-column-defs="dtColumnDefs" width="100%" class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <td>代码</td>
+                            <td>名称</td>
+                            <td>推荐时间</td>
+                            <td>推荐价格</td>
 
-                        <td>当前价格</td>
-                        <td>止损</td>
-                        <td>止盈</td>
-                        <td>状态</td>
-                        <td>涨幅</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="it in shortSwing" ng-class="{true:'success',false:'danger'}[it.increase < 0]">
-                        <td>{{it.stockId}}</td>
-                        <td>
-                            <a ng-href="{{'http://www.iwencai.com/stockpick/search?tid=stockpick&qs=box_main_ths&w=' + it.stockId}}">{{it.stockName}}</a>
-                        </td>
-                        <td>{{it.timeRec | date:"yyyy-MM-dd HH:mm:ss"}}</td>
-                        <td>{{it.priceRec}}</td>
+                            <td>当前价格</td>
+                            <td>止损</td>
+                            <td>止盈</td>
+                            <td>状态</td>
+                            <td>涨幅</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="it in shortSwing" ng-class="{true:'success',false:'danger'}[it.increase < 0]">
+                            <td>{{it.stockId}}</td>
+                            <td>
+                                <a ng-href="{{'http://www.iwencai.com/stockpick/search?tid=stockpick&qs=box_main_ths&w=' + it.stockId}}">{{it.stockName}}</a>
+                            </td>
+                            <td>{{it.timeRec | date:"yyyy-MM-dd HH:mm:ss"}}</td>
+                            <td>{{it.priceRec}}</td>
 
-                        <td>{{it.priceReal}}</td>
-                        <td>{{it.stopLoss}}</td>
-                        <td>{{it.stopProfit}}</td>
-                        <td ng-style="{color: (it.status === '止盈' ? 'red' : (it.status === '止损' ? 'green' : 'black'))}">{{it.status}}</td>
-                        <td>{{it.increase | PercentValue}}</td>
-                    </tr>
-                    </tbody>
-                </table>
+                            <td>{{it.priceReal}}</td>
+                            <td>{{it.stopLoss}}</td>
+                            <td>{{it.stopProfit}}</td>
+                            <td ng-style="{color: (it.status === '止盈' ? 'red' : (it.status === '止损' ? 'green' : 'black'))}">{{it.status}}</td>
+                            <td>{{it.increase | PercentValue}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <!-- /.panel-body -->
         </div>

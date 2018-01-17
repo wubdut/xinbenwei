@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5ba4945-19f0-4615-a1c5-de399b11ff7e" name="Default" comment="v4">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/register/template/register_action.html" afterPath="$PROJECT_DIR$/src/app/register/template/register_action.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/account/template/recommend.html" afterPath="$PROJECT_DIR$/src/app/account/template/recommend.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,26 +17,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/login/config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1794">
-              <caret line="78" column="28" lean-forward="true" selection-start-line="78" selection-start-column="28" selection-end-line="78" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/login/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="30" column="142" lean-forward="false" selection-start-line="30" selection-start-column="142" selection-end-line="30" selection-end-column="142" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -66,21 +47,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register_action.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/register/template/register_action.html">
+      <file leaf-file-name="accountModule.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/account/accountModule.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+            <state relative-caret-position="253">
+              <caret line="113" column="51" lean-forward="true" selection-start-line="113" selection-start-column="51" selection-end-line="113" selection-end-column="51" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registerModule.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/register/registerModule.js">
+      <file leaf-file-name="recommend_today.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/account/template/recommend_today.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="368">
+              <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="recommend.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/account/template/recommend.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="667">
+              <caret line="29" column="29" lean-forward="true" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -173,7 +164,6 @@
         <option value="$PROJECT_DIR$/src/app/test/test.js" />
         <option value="$PROJECT_DIR$/src/app/test/testModule.js" />
         <option value="$PROJECT_DIR$/src/app/test/test.html" />
-        <option value="$PROJECT_DIR$/src/app/account/template/recommend.html" />
         <option value="$PROJECT_DIR$/src/app/test/config.js" />
         <option value="$PROJECT_DIR$/src/app/account/accountModule.js" />
         <option value="$PROJECT_DIR$/src/app/register/config.js" />
@@ -183,6 +173,7 @@
         <option value="$PROJECT_DIR$/src/app/login/login.html" />
         <option value="$PROJECT_DIR$/src/app/login/loginModule.js" />
         <option value="$PROJECT_DIR$/src/app/register/template/register_action.html" />
+        <option value="$PROJECT_DIR$/src/app/account/template/recommend.html" />
       </list>
     </option>
   </component>
@@ -192,9 +183,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="99" />
-    <option name="y" value="9" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="602" />
+    <option name="y" value="40" />
     <option name="width" value="1938" />
     <option name="height" value="1048" />
   </component>
@@ -237,6 +228,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="account" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="xinbenwei" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xinbenwei" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="xinbenwei" type="b2602c69:ProjectViewProjectNode" />
@@ -355,7 +354,8 @@
       <workItem from="1516000801993" duration="8940000" />
       <workItem from="1516010632261" duration="1642000" />
       <workItem from="1516066011704" duration="6203000" />
-      <workItem from="1516078225735" duration="3306000" />
+      <workItem from="1516078225735" duration="5172000" />
+      <workItem from="1516150476512" duration="572000" />
     </task>
     <task id="LOCAL-00001" summary="v2">
       <created>1514780592486</created>
@@ -382,10 +382,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="217378000" />
+    <option name="totallyTimeSpent" value="219816000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.221875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -481,13 +481,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/account/template/recommend_today.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="45" column="67" lean-forward="false" selection-start-line="45" selection-start-column="67" selection-end-line="45" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vendor/datatables/js/angular-datatables.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -556,20 +549,6 @@
     <entry file="file://$PROJECT_DIR$/src/app/test/test.html" />
     <entry file="file://$PROJECT_DIR$/src/app/test/config.js" />
     <entry file="file://$PROJECT_DIR$/src/app/test/testModule.js" />
-    <entry file="file://$PROJECT_DIR$/src/app/account/accountModule.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/account/template/recommend.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/account/account.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
@@ -622,7 +601,7 @@
     <entry file="file://$PROJECT_DIR$/src/app/login/config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1794">
-          <caret line="78" column="28" lean-forward="true" selection-start-line="78" selection-start-column="28" selection-end-line="78" selection-end-column="28" />
+          <caret line="78" column="28" lean-forward="false" selection-start-line="78" selection-start-column="28" selection-end-line="78" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -631,14 +610,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="923">
           <caret line="432" column="22" lean-forward="false" selection-start-line="432" selection-start-column="22" selection-end-line="432" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/register/registerModule.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -667,6 +638,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/register/template/register_action.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="21" column="15" lean-forward="true" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/register/register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -675,10 +654,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/register/template/register_action.html">
+    <entry file="file://$PROJECT_DIR$/src/app/register/registerModule.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+        <state relative-caret-position="138">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/account/accountModule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="113" column="51" lean-forward="true" selection-start-line="113" selection-start-column="51" selection-end-line="113" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/account/template/recommend_today.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/account/template/recommend.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="29" column="29" lean-forward="true" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
           <folding />
         </state>
       </provider>
