@@ -5,6 +5,7 @@ import json
 import tushare as ts
 from model.shortSwing import ShortSwing
 from model.recommend import Recommend
+from model.sendMessage import SendMessage
 from basic import timeDate
 
 def getNewStock():
@@ -43,8 +44,11 @@ def getOneStock():
     shortSwing.status = u'进行'
     shortSwing.score = score
     shortSwing.sale = 0
-        
+    
     shortSwing.save()
+    
+    text = "代码：" + stockId + "\n名称：" + shortSwing.stock_name
+    SendMessage.lpush(text)
         
 def updatePrice():
     print "update price"
@@ -68,11 +72,11 @@ def updatePrice():
             if item.price_real > item.stop_profit:
                 item.status = u'止盈'
 #                 item.price_real = 0
-                item.increase = round((item.stop_profit-item.price_rec)/item.price_rec, 4)
+                item.increase = round((item.price_real-item.price_rec)/item.price_rec, 4)
             elif item.price_real < item.stop_loss:
                 item.status = u'止损'
 #                 item.price_real = 0
-                item.increase = round((item.stop_loss-item.price_rec)/item.price_rec, 4)
+                item.increase = round((item.price_real-item.price_rec)/item.price_rec, 4)
         item.save()
 
 def openMarket():
