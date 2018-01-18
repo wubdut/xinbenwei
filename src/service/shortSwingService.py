@@ -47,7 +47,7 @@ def getOneStock():
     
     shortSwing.save() 
     
-    text = "代码：" + stockId + "\n名称：" + shortSwing.stock_name
+    text = u"代码：" + stockId + u"\n名称：" + shortSwing.stock_name
     SendMessage.lpush(text)
         
 def updatePrice():
