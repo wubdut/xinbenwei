@@ -45,7 +45,7 @@ def getOneStock():
     shortSwing.score = score
     shortSwing.sale = 0
     
-    shortSwing.save()
+    shortSwing.save() 
     
     text = "代码：" + stockId + "\n名称：" + shortSwing.stock_name
     SendMessage.lpush(text)
