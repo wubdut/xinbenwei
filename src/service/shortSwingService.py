@@ -51,7 +51,7 @@ def getOneStock():
     SendMessage.lpush(text)
         
 def updatePrice():
-    print "update price"
+#     print "update price"
     for item in ShortSwing.select():
         if item.status != u'进行':
             continue
@@ -67,7 +67,7 @@ def updatePrice():
         
         if item.price_real < 0.01:
             continue
-         
+        
         if item.sale == 1:
             if item.price_real > item.stop_profit:
                 item.status = u'止盈'
@@ -105,8 +105,7 @@ if __name__ == "__main__":
 #     getNewStock()
 #     getOneStock()
 #     getNewStock()
-#     updatePrice()    
+#     updatePrice()
 #     openMarket()
     print "haha"
 
-    
