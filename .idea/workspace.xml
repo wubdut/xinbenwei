@@ -61,8 +61,8 @@
       <file leaf-file-name="recommend_today.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/account/template/recommend_today.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="22" column="41" lean-forward="true" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+            <state relative-caret-position="437">
+              <caret line="37" column="50" lean-forward="false" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -72,7 +72,7 @@
         <entry file="file://$PROJECT_DIR$/src/app/account/template/recommend.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="536">
-              <caret line="36" column="50" lean-forward="false" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
+              <caret line="36" column="51" lean-forward="false" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -358,7 +358,7 @@
       <workItem from="1516078225735" duration="5172000" />
       <workItem from="1516150476512" duration="2504000" />
       <workItem from="1516330158430" duration="658000" />
-      <workItem from="1516613886249" duration="1029000" />
+      <workItem from="1516613886249" duration="1329000" />
     </task>
     <task id="LOCAL-00001" summary="v2">
       <created>1514780592486</created>
@@ -385,7 +385,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223435000" />
+    <option name="totallyTimeSpent" value="223735000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -672,15 +672,15 @@
     <entry file="file://$PROJECT_DIR$/src/app/account/template/recommend.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="536">
-          <caret line="36" column="50" lean-forward="false" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
+          <caret line="36" column="51" lean-forward="false" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/account/template/recommend_today.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="22" column="41" lean-forward="true" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+        <state relative-caret-position="437">
+          <caret line="37" column="50" lean-forward="false" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
           <folding />
         </state>
       </provider>
