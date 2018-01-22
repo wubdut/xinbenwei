@@ -31,7 +31,7 @@ class CloseMarket(threading.Thread):
             if lock.acquire():
                 shortSwingService.closeMarket()
                 lock.release()
-            time.sleep(5)
+            time.sleep(50)
     
     def __init__(self):
         threading.Thread.__init__(self)
