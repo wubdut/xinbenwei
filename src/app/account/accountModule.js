@@ -11,6 +11,8 @@ define(['authService', 'jquery'], function(authService,jquery) {
             {headers : authService.createAuthorizationTokenHeader()}
         ).then(function (response) {
             $scope.username = response.data.username;
+        }, function () {
+            window.location.href = "../login/login.html";
         });
         $scope.mytemplate = "template/recommend_today.html";
         $scope.afterLoad = todayLoad();
@@ -100,6 +102,8 @@ define(['authService', 'jquery'], function(authService,jquery) {
                         $scope.shortSwingToday.push(item);
                     }
                 }
+            }, function () {
+                window.location.href = "../login/login.html";
             });
         }
 
