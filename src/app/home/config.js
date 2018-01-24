@@ -10,11 +10,6 @@ requirejs.config({
             'js/lib/angular.min'
         ],
 
-        jquery: [
-            'https://cdn.bootcss.com/jquery/3.1.1/jquery.min',
-            'vendor/jquery/jquery.min'
-        ],
-
         home: [
             'app/home/home'
         ],
