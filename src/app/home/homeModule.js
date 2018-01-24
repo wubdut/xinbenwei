@@ -17,6 +17,7 @@ define(['authService'], function(authService) {
 
         $scope.logout = function () {
             authService.removeJwtToken();
+            $scope.mytemplate = 'template/unloged.html';
         };
 
     });
