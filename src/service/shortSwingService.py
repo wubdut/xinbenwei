@@ -15,6 +15,8 @@ def getNewStock():
 def getOneStock():
     print "get stock"
     item_str = Recommend.lpop()
+    if item_str is None:
+        return
     item = json.loads(item_str)
     stockId = item['stockId']
     priceRec = item['priceRec']
@@ -44,15 +46,23 @@ def getOneStock():
     shortSwing.status = u'进行'
     shortSwing.score = score
     shortSwing.sale = 0
-    
-    shortSwing.save() 
-    
+    try:
+        shortSwing.save()
+    except:
+        print "mysql connection error" 
+        return
     text = u"代码：" + stockId + u"\n名称：" + shortSwing.stock_name
     SendMessage.lpush(text)
         
 def updatePrice():
 #     print "update price"
-    for item in ShortSwing.select():
+    list = []
+    try:
+        list = ShortSwing.select()
+    except:
+        print "mysql connection error" 
+        return
+    for item in list:
         if item.status != u'进行':
             continue
         try:
@@ -77,29 +87,50 @@ def updatePrice():
                 item.status = u'止损'
 #                 item.price_real = 0
                 item.increase = round((item.price_real-item.price_rec)/item.price_rec, 4)
-        item.save()
+        try:
+            item.save()
+        except:
+            print "mysql connection error"
 
 def openMarket():
     if not timeDate.isOpenMarketTime():
         return
     print "open market"
-    for item in ShortSwing.select():
+    list = []
+    try:
+        list = ShortSwing.select()
+    except:
+        print "mysql connection error" 
+        return
+    for item in list:
         if item.sale == 1:
             continue
         item.sale = 1
-        item.save()
+        try:
+            item.save()
+        except:
+            print "mysql connection error"
 
 def closeMarket():
     if not timeDate.isCloseMarketTime():
         return
     print "close market"
-    for item in ShortSwing.select():
+    list = []
+    try:
+        list = ShortSwing.select()
+    except:
+        print "mysql connection error" 
+        return
+    for item in list:
         if item.status != u'进行':
             continue
         if item.sale == 1:
             if item.increase > 0.0015:
                 item.status = u'止盈'
-                item.save()
+                try:
+                    item.save()
+                except:
+                    print "mysql connection error"
 
 if __name__ == "__main__":
 #     getNewStock()

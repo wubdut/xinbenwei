@@ -15,7 +15,10 @@ class SendMessage(object):
             list.append(user.mobile)
         dict['mobiles'] = list
         
-        return server.lpush('SendMessage', json.dumps(dict))
+        try:
+            return server.lpush('SendMessage', json.dumps(dict))
+        except:
+            return 0
     
 if __name__ == "__main__":
     text = """

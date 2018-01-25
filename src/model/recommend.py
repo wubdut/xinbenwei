@@ -9,7 +9,10 @@ class Recommend(object):
     
     @staticmethod
     def lpop():
-        return server.lpop('Recommend')
+        try:
+            return server.lpop('Recommend')
+        except:
+            return None
     
     @staticmethod
     def lpush(item):
@@ -22,7 +25,10 @@ class Recommend(object):
     
     @staticmethod
     def getLlen():
-        return server.llen('Recommend')
+        try:
+            return server.llen('Recommend')
+        except:
+            return 0
     
     @staticmethod
     def queryAllOut():
