@@ -49,7 +49,8 @@ def getOneStock():
     try:
         shortSwing.save()
     except:
-        print "mysql connection error" 
+        print "mysql connection error when getOneStock"
+        print shortSwing.stock_name 
         return
     text = u"代码：" + stockId + u"\n名称：" + shortSwing.stock_name
     SendMessage.lpush(text)
