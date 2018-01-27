@@ -35,7 +35,7 @@ requirejs.config({
             deps: [
                 'homeModule',
                 'css!assets/css/bootstrap.css',
-                'css!assets/css/bootstrap-responsive.css',
+                'css!assets/css/bootstrap-responsive.min.css',
                 'css!assets/css/docs.css'
             ]
         },

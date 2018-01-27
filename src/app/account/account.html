@@ -22,13 +22,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">{{username}}</a>
+            <a class="navbar-brand fa fa-home" href="../home/home.html">{{username}}</a>
+            <!--<a class="navbar-brand" href="#">{{username}}</a>-->
         </div>
         <!-- /.navbar-header -->
 
@@ -101,7 +96,7 @@
                 <ul class="dropdown-menu dropdown-user">
                     <li><a ng-click="userProfile()" href="#"><i class="fa fa-user fa-fw"></i> 基本信息</a>
                     </li>
-                    <li><a ng-click="myOrders()" href="#"><i class="fa fa-gear fa-fw"></i> 我的订单</a>
+                    <li><a ng-click="myOrders()" href="#"><i class="fa fa-file-text-o fa-fw"></i> 我的订单</a>
                     </li>
                     <li><a ng-click="settings()" href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
                     </li>
