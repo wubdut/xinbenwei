@@ -15,34 +15,44 @@
             <div class="panel-body">
                 <div class="table-responsive">
                     <table class="table table-striped">
-                        <!--<thead>-->
-                        <!--<tr>-->
-                            <!--<th>#</th>-->
-                            <!--<th>First Name</th>-->
-                            <!--<th>Last Name</th>-->
-                            <!--<th>Username</th>-->
-                        <!--</tr>-->
-                        <!--</thead>-->
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>名称</th>
+                            <th>内容</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
                         <tbody>
                         <tr>
                             <td>1</td>
                             <td>ID：</td>
                             <td>{{'GB_' + userInfo.id}}</td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td>2</td>
                             <td>用户名：</td>
                             <td>{{userInfo.username}}</td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td>3</td>
-                            <td>手机：</td>
-                            <td>{{userInfo.mobile}}</td>
+                            <td>密码</td>
+                            <td>******</td>
+                            <td><button type="button" class="btn btn-primary btn-xs">修改</button></td>
                         </tr>
                         <tr>
                             <td>4</td>
+                            <td>手机：</td>
+                            <td>{{userInfo.mobile}}</td>
+                            <td><button type="button" class="btn btn-primary btn-xs">修改</button></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
                             <td>邀请码：</td>
                             <td>{{userInfo.inviteCode}}</td>
+                            <td></td>
                         </tr>
                         </tbody>
                     </table>
