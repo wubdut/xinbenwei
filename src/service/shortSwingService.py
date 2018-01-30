@@ -61,7 +61,7 @@ def updatePrice():
     try:
         list = ShortSwing.select()
     except:
-        print "mysql connection error" 
+        print "mysql connection error when update price" 
         return
     for item in list:
         if item.status != u'进行':
@@ -91,7 +91,7 @@ def updatePrice():
         try:
             item.save()
         except:
-            print "mysql connection error"
+            print "mysql connection error when update price"
 
 def openMarket():
     if not timeDate.isOpenMarketTime():
@@ -101,7 +101,7 @@ def openMarket():
     try:
         list = ShortSwing.select()
     except:
-        print "mysql connection error" 
+        print "mysql connection error when open market" 
         return
     for item in list:
         if item.sale == 1:
@@ -110,7 +110,7 @@ def openMarket():
         try:
             item.save()
         except:
-            print "mysql connection error"
+            print "mysql connection error when open market"
 
 def closeMarket():
     if not timeDate.isCloseMarketTime():
@@ -120,7 +120,7 @@ def closeMarket():
     try:
         list = ShortSwing.select()
     except:
-        print "mysql connection error" 
+        print "mysql connection error when close market" 
         return
     for item in list:
         if item.status != u'进行':
@@ -131,7 +131,7 @@ def closeMarket():
                 try:
                     item.save()
                 except:
-                    print "mysql connection error"
+                    print "mysql connection error when close market"
 
 if __name__ == "__main__":
 #     getNewStock()

@@ -11,7 +11,13 @@ class SendMessage(object):
         dict = {}
         dict['message'] = message
         list = []
-        for user in User.select():
+        users = []
+        try:
+            users = User.select()
+        except:
+            print "mysql user connection error" 
+            return
+        for user in users:
             list.append(user.mobile)
         dict['mobiles'] = list
         
