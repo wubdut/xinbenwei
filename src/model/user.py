@@ -15,7 +15,11 @@ class User(MySQLModel):
 if __name__ == "__main__":
 #     user = User.get(User.id == 1)
 #     user.delete_instance()
+    User.db_connect()
+    print User.db_status()
     for user in User.select():
         print type(user.mobile)
         print user.mobile
+    User.db_close()
+    print User.db_status()
     print "haha"

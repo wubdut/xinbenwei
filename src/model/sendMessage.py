@@ -15,6 +15,8 @@ class SendMessage(object):
         try:
             users = User.select()
         except:
+            if User.db_status():
+                User.db_close()
             print "mysql user connection error" 
             return
         for user in users:
