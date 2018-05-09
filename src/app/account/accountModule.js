@@ -10,7 +10,16 @@ define(['authService', 'jquery'], function(authService,jquery) {
             "http://" + authService.getURL() + ":8000/api/whoami",
             {headers : authService.createAuthorizationTokenHeader()}
         ).then(function (response) {
+            $scope.userId = response.data.id;
+            $scope.authorities = response.data.authorities;
             $scope.username = response.data.username;
+            $scope.administrator = true;
+            for (var i = 0; i < $scope.authorities.length; i++) {
+                if ($scope.authorities[i].authority === "ROLE_ADMIN") {
+                    $scope.administrator = false;
+                }
+            }
+
         }, function () {
             window.location.href = "../login/login.html";
         });
@@ -54,6 +63,11 @@ define(['authService', 'jquery'], function(authService,jquery) {
             $scope.afterLoad = function () {};
         };
 
+        $scope.sendMessage = function () {
+            $scope.mytemplate = "template/send_message.html";
+            $scope.afterLoad = sendMessageLoad();
+        };
+
         $scope.userProfile = function () {
             $scope.mytemplate = "template/user_profile.html";
             $scope.afterLoad = userProfileLoad();
@@ -67,6 +81,26 @@ define(['authService', 'jquery'], function(authService,jquery) {
         $scope.settings = function () {
             $scope.mytemplate = "template/settings.html";
             $scope.afterLoad = function () {};
+        };
+
+        $scope.sendMessageSubmit = function (stockMessage) {
+            var data = {
+              message : stockMessage,
+              userId : $scope.userId
+            };
+            $http.post("http://" + authService.getURL() + ":8000/api/sendMessage", data, {headers : authService.createAuthorizationTokenHeader()}).then(
+                function(response) {
+                    if (response.data.status === "success") {
+                        alert("发送成功！");
+                    } else {
+                        alert("发送失败！");
+                    }
+                    // console.log(response);
+                },
+                function() {
+                    alert("发送失败！");
+                }
+            );
         };
 
 
@@ -174,6 +208,15 @@ define(['authService', 'jquery'], function(authService,jquery) {
             }, function () {
                 window.location.href = "../login/login.html";
             });
+        }
+
+        function sendMessageLoad() {
+            $scope.stockMessage =
+                "代码：\n" +
+                "名称：\n" +
+                "操作：\n" +
+                "价格：\n" +
+                "数量：";
         }
 
     });

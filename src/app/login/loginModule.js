@@ -5,10 +5,10 @@ define(['authService'], function(authService) {
 
     app.controller('loginCtl', function($scope, $http) {
 
-        $scope.loginSubmit = function () {
+        $scope.loginSubmit = function (formData) {
             var data = {
-                username : $scope.formData.username,
-                password : $scope.formData.password
+                username : formData.username,
+                password : formData.password
             };
             // alert(data.email);
             $http.post("http://" + authService.getURL() + ":8000/auth/login", data).then(

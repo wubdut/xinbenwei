@@ -98,8 +98,6 @@
                     </li>
                     <li><a ng-click="myOrders()" href="#"><i class="fa fa-file-text-o fa-fw"></i> 我的订单</a>
                     </li>
-                    <!--<li><a ng-click="settings()" href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>-->
-                    <!--</li>-->
                     <li class="divider"></li>
                     <li><a href="../../index.html" ng-click="logout()"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
                     </li>
@@ -119,18 +117,6 @@
                     <li>
                         <a ng-click="recommendWeek()" href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 历史推荐</a>
                     </li>
-                    <!--<li>-->
-                        <!--<a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 历史推荐<span class="fa arrow"></span></a>-->
-                        <!--<ul class="nav nav-second-level">-->
-                            <!--<li>-->
-                                <!--<a ng-click="recommendWeek()" href="#">本周</a>-->
-                            <!--</li>-->
-                            <!--<li>-->
-                                <!--<a ng-click="recommendMonth()" href="#">本月</a>-->
-                            <!--</li>-->
-                        <!--</ul>-->
-                        <!--&lt;!&ndash; /.nav-second-level &ndash;&gt;-->
-                    <!--</li>-->
                     <li>
                         <a href="#"><i class="fa fa-cubes fa-fw"></i> 增值服务<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -146,16 +132,16 @@
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
-                    <li>
-                        <!--<a href="#"><i class="fa fa-wrench fa-fw"></i> 管理员<span class="fa arrow"></span></a>-->
-                        <!--<ul class="nav nav-second-level">-->
-                            <!--<li>-->
-                                <!--<a ng-click="" href="#">发送推荐</a>-->
-                            <!--</li>-->
-                            <!--<li>-->
-                                <!--<a ng-click="recommendWeek()" href="#">历史推荐</a>-->
-                            <!--</li>-->
-                        <!--</ul>-->
+                    <li ng-hide="administrator">
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i> 管理员<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a ng-click="sendMessage()" href="#">发送推荐</a>
+                            </li>
+                            <li>
+                                <a ng-click="recommendWeek()" href="#">初始推荐</a>
+                            </li>
+                        </ul>
                         <!-- /.nav-second-level -->
                     </li>
 
