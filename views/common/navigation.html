@@ -1,0 +1,53 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul side-navigation class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+
+                <div class="profile-element" uib-dropdown>
+                    <!--<img alt="image" class="img-circle" src="img/profile_small.jpg"/>-->
+                    <a uib-dropdown-toggle href>
+                            <span class="clear">
+                                <span class="block m-t-xs">
+                                    <strong class="font-bold">{{username}}</strong>
+                             </span>
+                                <span class="text-muted text-xs block">{{role}}<b class="caret"></b></span>
+                            </span>
+                    </a>
+                    <ul uib-dropdown-menu class="animated fadeInRight m-t-xs">
+                        <li><a ui-sref="app.profile">Profile</a></li>
+                        <li><a ui-sref="app.contacts">Contacts</a></li>
+                        <li><a ui-sref="mailbox.inbox">Mailbox</a></li>
+                        <li class="divider"></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    IN+
+                </div>
+            </li>
+
+            <li ui-sref-active="active">
+                <a ui-sref="rs.topview"><i class="fa fa-diamond"></i> <span class="nav-label">全景视图</span> </a>
+            </li>
+
+
+            <li>
+                <a href=""><i class="fa fa-sitemap"></i> <span class="nav-label">探针管理</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="">探针添加</a></li>
+                    <li>
+                        <a href="">探针概览</a></li>
+                </ul>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="commerce.products_grid"><i class="fa fa-shopping-cart"></i> <span class="nav-label">报表</span></a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="css_animations"><i class="fa fa-magic"></i> <span class="nav-label">配置</span></a>
+            </li>
+            <!--<li class="landing_link">-->
+                <!--<a ui-sref="landing"><i class="fa"></i> <span class="nav-label">返回主页</span></a>-->
+            <!--</li>-->
+        </ul>
+
+    </div>
+</nav>

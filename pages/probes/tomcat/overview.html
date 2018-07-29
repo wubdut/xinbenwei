@@ -1,0 +1,94 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Tomcat</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a ui-sref="rs.topview">全景视图</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <strong>Tomcat</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="metricsCtrl as spark">
+
+    <div class="row">
+        <a ui-sref="rs.TOMCATbasicinfo">
+            <div class="col-lg-3">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <h5 class="m-b-md">基本信息</h5>
+                        <h2 class="text-navy">
+                            <i class="fa fa-play fa-rotate-270"></i> Up
+                        </h2>
+                        <small>ip: 10.4.53.229</small>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <div class="col-lg-3">
+            <div class="ibox">
+                <div class="ibox-content ">
+                    <h5 class="m-b-md">代码定位</h5>
+                    <h2 class="text-navy">
+                        <i class="fa fa-play fa-rotate-270"></i> Up
+                    </h2>
+                    <small>Last down 42 days ago</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <h5 class="m-b-md">日志分析</h5>
+                    <h2 class="text-danger">
+                        <i class="fa fa-play fa-rotate-90"></i> Down
+                    </h2>
+                    <small>Server down since 4 days</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <h5 class="m-b-md">指标预测</h5>
+                    <h2 class="text-danger">
+                        <i class="fa fa-play fa-rotate-90"></i> Down
+                    </h2>
+                    <small>Server down since 4:32 pm.</small>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <a ui-sref="rs.TOMCATalertmanagement">
+            <div class="col-lg-3">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <h5>告警管理</h5>
+                        <h2>198 009</h2>
+                        <div sparkline spark-data="spark.demo1Data" spark-options="spark.demo1Options"></div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <div class="col-lg-3">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <h5>报告生成</h5>
+                    <h2>65 000</h2>
+                    <div sparkline spark-data="spark.demo2Data" spark-options="spark.demo2Options"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
