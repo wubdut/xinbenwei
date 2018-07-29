@@ -5,6 +5,7 @@ import json
 import time
 from basic.redisServer import server
 
+
 class Recommend(object):
     
     @staticmethod
