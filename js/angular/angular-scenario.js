@@ -1488,7 +1488,7 @@ getText = Sizzle.getText = function( elem ) {
 		}
 	} else if ( nodeType === 1 || nodeType === 9 || nodeType === 11 ) {
 		// Use textContent for elements
-		// innerText usage removed for consistency of new lines (jQuery #11153)
+		// innerText usage removed for consistency of new line (jQuery #11153)
 		if ( typeof elem.textContent === "string" ) {
 			return elem.textContent;
 		} else {
@@ -4285,7 +4285,7 @@ jQuery.event = {
 			[ event ] :
 			jQuery.makeArray( data, [ event ] );
 
-		// Allow special events to draw outside the lines
+		// Allow special events to draw outside the line
 		special = jQuery.event.special[ type ] || {};
 		if ( !onlyHandlers && special.trigger && special.trigger.apply( elem, data ) === false ) {
 			return;
@@ -29600,7 +29600,7 @@ function orderByFilter($parse) {
     // distinguish between two elements.
     predicates.push({ get: function() { return {}; }, descending: reverseOrder ? -1 : 1});
 
-    // The next three lines are a version of a Swartzian Transform idiom from Perl
+    // The next three line are a version of a Swartzian Transform idiom from Perl
     // (sometimes called the Decorate-Sort-Undecorate idiom)
     // See https://en.wikipedia.org/wiki/Schwartzian_transform
     var compareValues = Array.prototype.map.call(array, getComparisonObject);
@@ -39779,7 +39779,7 @@ function asyncForEach(list, iterator, done) {
  * to a specific line length.
  *
  * @param {Object} error The exception to format, can be anything throwable
- * @param {Number=} [maxStackLines=5] max lines of the stack trace to include
+ * @param {Number=} [maxStackLines=5] max line of the stack trace to include
  *  default is 5.
  */
 function formatException(error, maxStackLines) {
@@ -39803,7 +39803,7 @@ function formatException(error, maxStackLines) {
  * Note: this returns another function because accessing .stack is very
  * expensive in Chrome.
  *
- * @param {Number} offset Number of stack lines to skip
+ * @param {Number} offset Number of stack line to skip
  */
 function callerFile(offset) {
   var error = new Error();

@@ -39626,7 +39626,7 @@ var QueueOptimizer = (function QueueOptimizerClosure() {
   function handlePaintSolidColorImageMask(iFirstSave, count, fnArray,
                                           argsArray) {
     // Handles special case of mainly LaTeX documents which use image masks to
-    // draw lines with the current fill style.
+    // draw line with the current fill style.
     // 'count' groups of (save, transform, paintImageMaskXObject, restore)+
     // have been found at iFirstSave.
     var iFirstPIMXO = iFirstSave + 2;
@@ -39684,7 +39684,7 @@ var QueueOptimizer = (function QueueOptimizerClosure() {
       }
 
       // assuming that heights of those image is too small (~1 pixel)
-      // packing as much as possible by lines
+      // packing as much as possible by line
       var maxX = 0;
       var map = [], maxLineHeight = 0;
       var currentX = IMAGE_PADDING, currentY = IMAGE_PADDING;
@@ -39713,7 +39713,7 @@ var QueueOptimizer = (function QueueOptimizerClosure() {
       var imgRowSize = imgWidth << 2;
       for (q = 0; q < count; q++) {
         var data = argsArray[iFirstPIIXO + (q << 2)][0].data;
-        // Copy image by lines and extends pixels into padding.
+        // Copy image by line and extends pixels into padding.
         var rowSize = map[q].w << 2;
         var dataOffset = 0;
         var offset = (map[q].x + map[q].y * imgWidth) << 2;

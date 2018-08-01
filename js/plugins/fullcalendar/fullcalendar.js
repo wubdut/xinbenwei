@@ -5722,7 +5722,7 @@ function TimeGrid(view) {
 TimeGrid.prototype = createObject(Grid.prototype); // define the super-class
 $.extend(TimeGrid.prototype, {
 
-	slotDuration: null, // duration of a "slot", a distinct time segment on given day, visualized by lines
+	slotDuration: null, // duration of a "slot", a distinct time segment on given day, visualized by line
 	snapDuration: null, // granularity of time for dragging and selecting
 
 	minTime: null, // Duration object that denotes the first visible time of any given day
@@ -8151,7 +8151,7 @@ $.extend(AgendaView.prototype, {
 			scrollerHeight = this.computeScrollerHeight(totalHeight);
 			if (setPotentialScroller(this.scrollerEl, scrollerHeight)) { // using scrollbars?
 
-				// make the all-day and header rows lines up
+				// make the all-day and header rows line up
 				compensateScroll(this.noScrollRowEls, getScrollbarWidths(this.scrollerEl));
 
 				// the scrollbar compensation might have changed text flow, which might affect height, so recalculate

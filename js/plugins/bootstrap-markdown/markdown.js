@@ -168,7 +168,7 @@
         var line_no = 1;
 
         if ( ( m = /^(\s*\n)/.exec(input) ) != null ) {
-            // skip (but count) leading blank lines
+            // skip (but count) leading blank line
             line_no += count_lines( m[0] );
             re.lastIndex = m[0].length;
         }
@@ -346,7 +346,7 @@
 
                 block_search:
                     do {
-                        // Now pull out the rest of the lines
+                        // Now pull out the rest of the line
                         var b = this.loop_re_over_block(
                             re, block.valueOf(), function( m ) { ret.push( m[1] ); } );
 
@@ -359,7 +359,7 @@
                             // Check the next block - it might be code too
                             if ( !next[0].match( re ) ) break block_search;
 
-                            // Pull how how many blanks lines follow - minus two to account for .join
+                            // Pull how how many blanks line follow - minus two to account for .join
                             ret.push ( block.trailing.replace(/[^\n]/g, '').substring(2) );
 
                             block = next.shift();
@@ -528,14 +528,14 @@
                     // Loop to search over block looking for inner block elements and loose lists
                     loose_search:
                         while( true ) {
-                            // Split into lines preserving new lines at end of line
+                            // Split into line preserving new line at end of line
                             var lines = block.split( /(?=\n)/ );
 
-                            // We have to grab all lines for a li and call processInline on them
-                            // once as there are some inline things that can span lines.
+                            // We have to grab all line for a li and call processInline on them
+                            // once as there are some inline things that can span line.
                             var li_accumulate = "";
 
-                            // Loop over the lines in this block looking for tight lists.
+                            // Loop over the line in this block looking for tight lists.
                             tight_search:
                                 for (var line_no=0; line_no < lines.length; line_no++) {
                                     var nl = "",
@@ -666,7 +666,7 @@
                     var lines = block.split( /\n/ ),
                         prev = [];
 
-                    // keep shifting lines until you find a crotchet
+                    // keep shifting line until you find a crotchet
                     while ( lines.length && lines[ 0 ][ 0 ] != ">" ) {
                         prev.push( lines.shift() );
                     }
@@ -1182,7 +1182,7 @@
         // we're only interested in the first block
         if ( block.lineNumber > 1 ) return undefined;
 
-        // document_meta blocks consist of one or more lines of `Key: Value\n`
+        // document_meta blocks consist of one or more line of `Key: Value\n`
         if ( ! block.match( /^(?:\w+:.*\n)*\w+:.*$/ ) ) return undefined;
 
         // make an attribute node if it doesn't exist

@@ -151,13 +151,13 @@
     d.cursorDiv = elt("div", null, "CodeMirror-cursors");
     // A visibility: hidden element used to find the size of things.
     d.measure = elt("div", null, "CodeMirror-measure");
-    // When lines outside of the viewport are measured, they are drawn in this.
+    // When line outside of the viewport are measured, they are drawn in this.
     d.lineMeasure = elt("div", null, "CodeMirror-measure");
     // Wraps everything that needs to exist inside the vertically-padded coordinate system
     d.lineSpace = elt("div", [d.measure, d.lineMeasure, d.selectionDiv, d.cursorDiv, d.lineDiv],
                       null, "position: relative; outline: none");
     // Moved around its parent to cover visible view.
-    d.mover = elt("div", [elt("div", [d.lineSpace], "CodeMirror-lines")], null, "position: relative");
+    d.mover = elt("div", [elt("div", [d.lineSpace], "CodeMirror-line")], null, "position: relative");
     // Set to the height of the document, allowing scrolling.
     d.sizer = elt("div", [d.mover], "CodeMirror-sizer");
     // Behavior of elts with overflow: auto and padding is
@@ -189,7 +189,7 @@
 
     // Current rendered range (may be bigger than the view window).
     d.viewFrom = d.viewTo = doc.first;
-    // Information about the rendered lines.
+    // Information about the rendered line.
     d.view = [];
     // Holds info about a single rendered line when it was rendered
     // for measurement, while not in view.
@@ -200,7 +200,7 @@
     d.updateLineNumbers = null;
 
     // Used to only resize the line number gutter when necessary (when
-    // the amount of lines crosses a boundary that makes its width change)
+    // the amount of line crosses a boundary that makes its width change)
     d.lineNumWidth = d.lineNumInnerWidth = d.lineNumChars = null;
     // See readInput and resetInput
     d.prevInput = "";
@@ -344,7 +344,7 @@
 
   // Compute the character length of a line, taking into account
   // collapsed ranges (see markText) that might hide parts, and join
-  // other lines onto it.
+  // other line onto it.
   function lineLength(line) {
     if (line.height == 0) return 0;
     var len = line.text.length, merged, cur = line;
@@ -466,7 +466,7 @@
     }
   }
 
-  // Compute the lines that are visible in a given viewport (defaults
+  // Compute the line that are visible in a given viewport (defaults
   // the the current scroll position). viewport may contain top,
   // height, and ensure (see op.scrollToPos) properties.
   function visibleLines(display, doc, viewport) {
@@ -476,7 +476,7 @@
 
     var from = lineAtHeight(doc, top), to = lineAtHeight(doc, bottom);
     // Ensure is a {from: {line, ch}, to: {line, ch}} object, and
-    // forces those lines into the viewport (if possible).
+    // forces those line into the viewport (if possible).
     if (viewport && viewport.ensure) {
       var ensureFrom = viewport.ensure.from.line, ensureTo = viewport.ensure.to.line;
       if (ensureFrom < from)
@@ -684,7 +684,7 @@
     }
   }
 
-  // Read the actual heights of the rendered lines, and update their
+  // Read the actual heights of the rendered line, and update their
   // stored heights to match.
   function updateHeightsInViewport(cm) {
     var display = cm.display;
@@ -735,7 +735,7 @@
   }
 
   // Sync the actual display DOM structure with display.view, removing
-  // nodes for lines that are no longer in view, and creating the ones
+  // nodes for line that are no longer in view, and creating the ones
   // that are not there yet, and updating the ones that are out of
   // date.
   function patchDisplay(cm, updateNumbersFrom, dims) {
@@ -909,7 +909,7 @@
     return lineView.node;
   }
 
-  // A lineView may contain multiple logical lines (when merged by
+  // A lineView may contain multiple logical line (when merged by
   // collapsed spans). The widgets for all of them need to be drawn.
   function insertLineWidgets(lineView, dims) {
     insertLineWidgetsFor(lineView.line, lineView, dims, true);
@@ -1348,7 +1348,7 @@
           right = rightPos.right;
         }
         if (fromArg == null && from == 0) left = leftSide;
-        if (rightPos.top - leftPos.top > 3) { // Different lines, draw top part
+        if (rightPos.top - leftPos.top > 3) { // Different line, draw top part
           add(left, leftPos.top, null, leftPos.bottom);
           left = leftSide;
           if (leftPos.bottom < rightPos.top) add(left, leftPos.bottom, null, rightPos.top);
@@ -1497,7 +1497,7 @@
   }
 
   // Ensure the lineView.wrapping.heights array is populated. This is
-  // an array of bottom offsets for the lines that make up a drawn
+  // an array of bottom offsets for the line that make up a drawn
   // line. When lineWrapping is on, there might be more than one
   // height.
   function ensureLineHeights(cm, lineView, rect) {
@@ -1520,7 +1520,7 @@
 
   // Find a line map (mapping character offsets to text nodes) and a
   // measurement cache for the given line number. (A line view might
-  // contain multiple lines when collapsed ranges are present.)
+  // contain multiple line when collapsed ranges are present.)
   function mapFromLineView(lineView, line, lineN) {
     if (lineView.line == line)
       return {map: lineView.measure.map, cache: lineView.measure.cache};
@@ -1907,7 +1907,7 @@
     if (display.cachedTextHeight != null) return display.cachedTextHeight;
     if (measureText == null) {
       measureText = elt("pre");
-      // Measure a bunch of lines, for browsers that compute
+      // Measure a bunch of line, for browsers that compute
       // fractional heights.
       for (var i = 0; i < 49; ++i) {
         measureText.appendChild(document.createTextNode("x"));
@@ -1948,7 +1948,7 @@
   function startOperation(cm) {
     cm.curOp = {
       cm: cm,
-      viewChanged: false,      // Flag that indicates that lines might need to be redrawn
+      viewChanged: false,      // Flag that indicates that line might need to be redrawn
       startHeight: cm.doc.height, // Used to detect need to update scrollbar
       forceUpdate: false,      // Used to force a redraw
       updateInput: null,       // Whether to reset the input textarea
@@ -2171,19 +2171,19 @@
 
   // These objects are used to represent the visible (currently drawn)
   // part of the document. A LineView may correspond to multiple
-  // logical lines, if those are connected by collapsed ranges.
+  // logical line, if those are connected by collapsed ranges.
   function LineView(doc, line, lineN) {
     // The starting line
     this.line = line;
-    // Continuing lines, if any
+    // Continuing line, if any
     this.rest = visualLineContinued(line);
-    // Number of logical lines in this visual line
+    // Number of logical line in this visual line
     this.size = this.rest ? lineNo(lst(this.rest)) - lineN + 1 : 1;
     this.node = this.text = null;
     this.hidden = lineIsHidden(doc, line);
   }
 
-  // Create a range of LineView objects for the given lines.
+  // Create a range of LineView objects for the given line.
   function buildViewArray(cm, from, to) {
     var array = [], nextPos;
     for (var pos = from; pos < to; pos = nextPos) {
@@ -2196,9 +2196,9 @@
 
   // Updates the display.view data structure for a given change to the
   // document. From and to are in pre-change coordinates. Lendiff is
-  // the amount of lines added or subtracted by the change. This is
-  // used for changes that span multiple lines, or change the way
-  // lines are divided into visual lines. regLineChange (below)
+  // the amount of line added or subtracted by the change. This is
+  // used for changes that span multiple line, or change the way
+  // line are divided into visual line. regLineChange (below)
   // registers single-line changes.
   function regChange(cm, from, to, lendiff) {
     if (from == null) from = cm.doc.first;
@@ -2343,7 +2343,7 @@
     display.viewTo = to;
   }
 
-  // Count the number of lines in the view whose DOM representation is
+  // Count the number of line in the view whose DOM representation is
   // out of date (or nonexistent).
   function countDirtyView(cm) {
     var view = cm.display.view, dirty = 0;
@@ -2427,7 +2427,7 @@
     while (same < l && prevInput.charCodeAt(same) == text.charCodeAt(same)) ++same;
     var inserted = text.slice(same), textLines = splitLines(inserted);
 
-    // When pasing N lines into N selections, insert one line per selection
+    // When pasing N line into N selections, insert one line per selection
     var multiPaste = null;
     if (cm.state.pasteIncoming && doc.sel.ranges.length > 1) {
       if (lastCopied && lastCopied.join("\n") == inserted)
@@ -3669,7 +3669,7 @@
     startWorker(cm, 400);
 
     var lendiff = change.text.length - (to.line - from.line) - 1;
-    // Remember that these lines changed, for updating the display
+    // Remember that these line changed, for updating the display
     if (from.line == to.line && change.text.length == 1 && !isWholeLineUpdate(cm.doc, change))
       regLineChange(cm, from.line, "text");
     else
@@ -3824,7 +3824,7 @@
   // Indent the given line. The how parameter can be "smart",
   // "add"/null, "subtract", or "prev". When aggressive is false
   // (typically set to true for forced single-line indents), empty
-  // lines are not indented, and places where the mode returns Pass
+  // line are not indented, and places where the mode returns Pass
   // are left alone.
   function indentLine(cm, n, how, aggressive) {
     var doc = cm.doc, state;
@@ -5083,10 +5083,10 @@
   // document. Line objects hold arrays (markedSpans) containing
   // {from, to, marker} object pointing to such marker objects, and
   // indicating that such a marker is present on that line. Multiple
-  // lines may point to the same marker when it spans across lines.
+  // line may point to the same marker when it spans across line.
   // The spans will have null for their from/to properties when the
   // marker continues beyond the start/end of the line. Markers have
-  // links back to the lines they currently touch.
+  // links back to the line they currently touch.
 
   var TextMarker = CodeMirror.TextMarker = function(doc, type) {
     this.lines = [];
@@ -5205,7 +5205,7 @@
   // when they overlap (they may nest, but not partially overlap).
   var nextMarkerId = 0;
 
-  // Create a marker, wire it up to the right lines, and
+  // Create a marker, wire it up to the right line, and
   function markText(doc, from, to, options, type) {
     // Shared markers (across linked documents) are handled separately
     // (markTextShared will call out to this again, once per
@@ -5360,7 +5360,7 @@
     }
   }
   // Remove a span from an array, returning undefined if no spans are
-  // left (we don't store arrays for lines without spans).
+  // left (we don't store arrays for line without spans).
   function removeMarkedSpan(spans, span) {
     for (var r, i = 0; i < spans.length; ++i)
       if (spans[i] != span) (r || (r = [])).push(spans[i]);
@@ -5601,7 +5601,7 @@
   }
 
   // A visual line is a line as drawn on the screen. Folding, for
-  // example, can cause multiple logical lines to appear on the same
+  // example, can cause multiple logical line to appear on the same
   // visual line. This finds the start of the visual line that the
   // given line is part of (usually that is the line itself).
   function visualLine(line) {
@@ -5611,8 +5611,8 @@
     return line;
   }
 
-  // Returns an array of logical lines that continue the visual line
-  // started by the argument, or undefined if there are no such lines.
+  // Returns an array of logical line that continue the visual line
+  // started by the argument, or undefined if there are no such line.
   function visualLineContinued(line) {
     var merged, lines;
     while (merged = collapsedSpanAtEnd(line)) {
@@ -5889,7 +5889,7 @@
   }
 
   // Lightweight form of highlight -- proceed over this line and
-  // update state, but don't save a style array. Used for lines that
+  // update state, but don't save a style array. Used for line that
   // aren't currently visible.
   function processLine(cm, text, state, startAt) {
     var mode = cm.doc.mode;
@@ -5926,7 +5926,7 @@
     var builder = {pre: elt("pre", [content]), content: content, col: 0, pos: 0, cm: cm};
     lineView.measure = {};
 
-    // Iterate over the logical lines that make up this visual line.
+    // Iterate over the logical line that make up this visual line.
     for (var i = 0; i <= (lineView.rest ? lineView.rest.length : 0); i++) {
       var line = i ? lineView.rest[i - 1] : lineView.line, order;
       builder.pos = 0;
@@ -6184,7 +6184,7 @@
   }
 
   // The document is represented as a BTree consisting of leaves, with
-  // chunk of lines in them, and branches, with up to ten leaves or
+  // chunk of line in them, and branches, with up to ten leaves or
   // other branch nodes below them. The top node is always a branch
   // node, and is the document object itself (meaning it has
   // additional methods and properties).
@@ -6208,7 +6208,7 @@
 
   LeafChunk.prototype = {
     chunkSize: function() { return this.lines.length; },
-    // Remove the n lines at offset 'at'.
+    // Remove the n line at offset 'at'.
     removeInner: function(at, n) {
       for (var i = at, e = at + n; i < e; ++i) {
         var line = this.lines[i];
@@ -6222,7 +6222,7 @@
     collapse: function(lines) {
       lines.push.apply(lines, this.lines);
     },
-    // Insert the given array of lines at offset 'at', count them as
+    // Insert the given array of line at offset 'at', count them as
     // having the given height.
     insertInner: function(at, lines, height) {
       this.height += height;
@@ -6264,7 +6264,7 @@
           at = 0;
         } else at -= sz;
       }
-      // If the result is smaller than 25 lines, ensure that it is a
+      // If the result is smaller than 25 line, ensure that it is a
       // single leaf node.
       if (this.size - n < 25 &&
           (this.children.length > 1 || !(this.children[0] instanceof LeafChunk))) {
@@ -6367,7 +6367,7 @@
       else this.iterN(this.first, this.first + this.size, from);
     },
 
-    // Non-public interface for adding and removing lines.
+    // Non-public interface for adding and removing line.
     insert: function(at, lines) {
       var height = 0;
       for (var i = 0; i < lines.length; ++i) height += lines[i].height;
@@ -6740,7 +6740,7 @@
     });
     return out;
   }
-  // Get the lines between from and to, as array of strings.
+  // Get the line between from and to, as array of strings.
   function getLines(doc, from, to) {
     var out = [];
     doc.iter(from, to, function(line) { out.push(line.text); });
@@ -6811,7 +6811,7 @@
   }
 
   // Get the bidi ordering for the given line (and cache it). Returns
-  // false for lines that are fully left-to-right, and an array of
+  // false for line that are fully left-to-right, and an array of
   // BidiSpan objects otherwise.
   function getOrder(line) {
     var order = line.order;
@@ -7022,7 +7022,7 @@
   }
 
   // Tries to rebase an array of history events given a change in the
-  // document. If the change touches the same lines as the event, the
+  // document. If the change touches the same line as the event, the
   // event, and everything 'behind' it, is discarded. If the change is
   // before the event, the event's positions are updated. Uses a
   // copy-on-write scheme for the positions, to avoid having to
@@ -7467,7 +7467,7 @@
   }
 
   // See if "".split is the broken IE version, if so, provide an
-  // alternative way to split lines.
+  // alternative way to split line.
   var splitLines = CodeMirror.splitLines = "\n\nb".split(/\n/).length != 3 ? function(string) {
     var pos = 0, result = [], l = string.length;
     while (pos <= l) {

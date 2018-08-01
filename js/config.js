@@ -62,9 +62,25 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
             controller: 'TopviewCtrl'
         })
         .state('rs.TOMCAT', {
-            url: "/TOMCAT",
-            templateUrl: "pages/probes/tomcat/overview.html",
+            url: "/TOMCAT/:key",
+            templateUrl: "pages/probes/tomcat/tomcatoverview.html",
             data: { pageTitle: 'Tomcat' },
+            controller: 'TomcatoverviewCtrl',
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            files: ['js/plugins/sparkline/jquery.sparkline.min.js']
+                        }
+                    ]);
+                }
+            }
+        })
+        .state('rs.SPRING_BOOT', {
+            url: "/SPRING_BOOT/:key",
+            templateUrl: "pages/probes/tomcat/tomcatoverview.html",
+            data: { pageTitle: 'Tomcat' },
+            controller: 'TomcatoverviewCtrl',
             resolve: {
                 loadPlugin: function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
@@ -76,7 +92,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
             }
         })
         .state('rs.TOMCATbasicinfo', {
-            url: "/TOMCATbasicinfo",
+            url: "/TOMCATbasicinfo/:key",
             templateUrl: "pages/probes/tomcat/basicinfo/basicinfo.html",
             data: { pageTitle: 'basicinfo' },
             controller: 'BasicinfoCtrl',
@@ -103,7 +119,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
         })
         .state('rs.MEMCACHED', {
             url: "/memcached",
-            templateUrl: "pages/probes/memcached/overview.html",
+            templateUrl: "pages/probes/memcached/tomcatoverview.html",
             data: { pageTitle: 'Memcached' },
             resolve: {
                 loadPlugin: function ($ocLazyLoad) {
@@ -117,7 +133,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
         })
         .state('rs.JAVA', {
             url: "/java",
-            templateUrl: "pages/probes/java/overview.html",
+            templateUrl: "pages/probes/java/tomcatoverview.html",
             data: { pageTitle: 'Java' },
             resolve: {
                 loadPlugin: function ($ocLazyLoad) {
@@ -131,7 +147,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
         })
         .state('rs.REDIS', {
             url: "/redis",
-            templateUrl: "pages/probes/redis/overview.html",
+            templateUrl: "pages/probes/redis/tomcatoverview.html",
             data: { pageTitle: 'Redis' },
             resolve: {
                 loadPlugin: function ($ocLazyLoad) {
@@ -145,7 +161,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
         })
         .state('rs.MYSQL', {
             url: "/mysql",
-            templateUrl: "pages/probes/mysql/overview.html",
+            templateUrl: "pages/probes/mysql/tomcatoverview.html",
             data: { pageTitle: 'Mysql' },
             resolve: {
                 loadPlugin: function ($ocLazyLoad) {
@@ -159,7 +175,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
         })
         .state('rs.ORACLE', {
             url: "/oracle",
-            templateUrl: "pages/probes/oracle/overview.html",
+            templateUrl: "pages/probes/oracle/tomcatoverview.html",
             data: { pageTitle: 'Oracle' },
             resolve: {
                 loadPlugin: function ($ocLazyLoad) {
@@ -173,7 +189,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
         })
         .state('rs.NGINX', {
             url: "/nginx",
-            templateUrl: "pages/probes/nginx/overview.html",
+            templateUrl: "pages/probes/nginx/tomcatoverview.html",
             data: { pageTitle: 'Nginx' },
             resolve: {
                 loadPlugin: function ($ocLazyLoad) {

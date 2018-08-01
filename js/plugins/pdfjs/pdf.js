@@ -7419,7 +7419,7 @@ var CanvasGraphics = (function CanvasGraphicsClosure() {
       consumePath = typeof consumePath !== 'undefined' ? consumePath : true;
       var ctx = this.ctx;
       var strokeColor = this.current.strokeColor;
-      // Prevent drawing too thin lines by enforcing a minimum line width.
+      // Prevent drawing too thin line by enforcing a minimum line width.
       ctx.lineWidth = Math.max(this.getSinglePixelWidth() * MIN_WIDTH_FACTOR,
                                this.current.lineWidth);
       // For stroke we want to temporarily change the global alpha to the

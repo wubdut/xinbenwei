@@ -3175,7 +3175,7 @@ jQuery.event = {
 		data = data != null ? jQuery.makeArray( data ) : [];
 		data.unshift( event );
 
-		// Allow special events to draw outside the lines
+		// Allow special events to draw outside the line
 		special = jQuery.event.special[ type ] || {};
 		if ( special.trigger && special.trigger.apply( elem, data ) === false ) {
 			return;
@@ -24300,7 +24300,7 @@ function asyncForEach(list, iterator, done) {
  * to a specific line length.
  *
  * @param {Object} error The exception to format, can be anything throwable
- * @param {Number=} [maxStackLines=5] max lines of the stack trace to include
+ * @param {Number=} [maxStackLines=5] max line of the stack trace to include
  *  default is 5.
  */
 function formatException(error, maxStackLines) {
@@ -24324,7 +24324,7 @@ function formatException(error, maxStackLines) {
  * Note: this returns another function because accessing .stack is very
  * expensive in Chrome.
  *
- * @param {Number} offset Number of stack lines to skip
+ * @param {Number} offset Number of stack line to skip
  */
 function callerFile(offset) {
   var error = new Error();

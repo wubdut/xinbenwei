@@ -20408,7 +20408,7 @@ function orderByFilter($parse) {
     // distinguish between two elements.
     predicates.push({ get: function() { return {}; }, descending: reverseOrder ? -1 : 1});
 
-    // The next three lines are a version of a Swartzian Transform idiom from Perl
+    // The next three line are a version of a Swartzian Transform idiom from Perl
     // (sometimes called the Decorate-Sort-Undecorate idiom)
     // See https://en.wikipedia.org/wiki/Schwartzian_transform
     var compareValues = Array.prototype.map.call(array, getComparisonObject);

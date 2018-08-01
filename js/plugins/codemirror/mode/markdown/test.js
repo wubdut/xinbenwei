@@ -92,7 +92,7 @@
      "        [comment hello]",
      "    [comment world]");
 
-  // Code blocks should end even after extra indented lines
+  // Code blocks should end even after extra indented line
   MT("codeBlocksWithTrailingIndentedLine",
      "    [comment foo]",
      "        [comment bar]",
@@ -336,7 +336,7 @@
      "",
      "    [variable-2 hello]");
 
-  // 4 spaces, extra blank lines (should still be list, per Dingus)
+  // 4 spaces, extra blank line (should still be list, per Dingus)
   MT("listMultiParagraphExtra",
      "[variable-2 * foo]",
      "",

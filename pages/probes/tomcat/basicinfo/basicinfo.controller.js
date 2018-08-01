@@ -8,15 +8,15 @@
      * @class
      */
     angular.module('inspinia')
-        .controller( 'BasicinfoCtrl', ['$scope', '$http', '$state', '$window', 'AuthService',
-            function ($scope, $http, $state, $window, authService) {
+        .controller( 'BasicinfoCtrl', ['$scope', '$http', '$state', '$stateParams', '$window', 'AuthService',
+            function ($scope, $http, $state, $stateParams, $window, authService) {
 
                 $scope.getData = function () {
                     $http.get(
-                        authService.getURL() + "/basicinfo/rsapm28",
+                        authService.getURL() + "/basicinfo/" + $stateParams.key,
                         {headers : authService.createAuthorizationTokenHeader()}
                     ).then(function (response) {
-                        console.log("yes");
+                        // console.log("yes");
                         console.log(response.data);
                         var data = response.data;
 
@@ -51,7 +51,7 @@
                     }
                 };
 
-                $scope.timeperiod = function ( period ) {
+                $scope.setPeriod = function ( period ) {
                     $scope.currentPeriod = period;
                 };
 

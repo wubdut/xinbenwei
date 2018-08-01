@@ -26,7 +26,7 @@
                             <li>
                                 <div>
                                     <div class="btn-group btn-group-sm" style="margin-top:0px;width:340px;float:left;">
-                                        <button type="button" class="btn" ng-class="{active: currentPeriod == period}" ng-click="timeperiod( period )" ng-repeat="period in ['5m', '30m', '1h', '3h', '6h', '12h', '1d', '2d']">{{period == "5m" ? "Last " + period : period}}</button>
+                                        <button type="button" class="btn" ng-class="currentPeriod == period ? 'btn btn-primary' : 'btn'" ng-click="setPeriod( period )" ng-repeat="period in ['5m', '30m', '1h', '3h', '6h', '12h', '1d', '2d']">{{period == "5m" ? "Last " + period : period}}</button>
                                     </div>
                                 </div>
                             </li>
@@ -112,45 +112,21 @@
     </div>
     <div class="row">
         <div class="col-lg-6">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>Line Chart Example
-                        <small>With custom colors.</small>
-                    </h5>
-                </div>
-                <div class="ibox-content">
-                    <div>
-                        <c3chart bindto-id="chart1">
-                            <chart-column column-id="data 1"
-                                          column-values="30, 200, 100, 400, 150, 250"
-                                          column-type="line" column-color="#1ab394"/>
-                            <chart-column column-id="data 2"
-                                          column-values="50, 20, 10, 40, 15, 25"
-                                          column-type="line" column-color="#BABABA" />
-                        </c3chart>
-                    </div>
-                </div>
-            </div>
+            <line-diagram url="/cpuload/rsapm28/" current-period="{{currentPeriod}}"></line-diagram>
         </div>
+
         <div class="col-lg-6">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>Bar Chart Example</h5>
-                </div>
-                <div class="ibox-content">
-                    <div>
-                        <c3chart bindto-id="chart2">
-                            <chart-column column-id="data 1"
-                                          column-values="30, 200, 100, 400, 150, 250"
-                                          column-type="spline" column-color="#1ab394"/>
-                            <chart-column column-id="data 2"
-                                          column-values="130, 100, 140, 200, 150, 50"
-                                          column-type="spline" column-color="#BABABA" />
-                        </c3chart>
-                    </div>
-                </div>
-            </div>
+            <line-diagram url="/jvmgc/rsapm28/" current-period="{{currentPeriod}}"></line-diagram>
         </div>
+
+        <div class="col-lg-6">
+            <line-diagram url="/transaction/rsapm28/" current-period="{{currentPeriod}}"></line-diagram>
+        </div>
+
+        <div class="col-lg-6">
+            <line-diagram url="/applicationresponsetime/rsapm28/" current-period="{{currentPeriod}}"></line-diagram>
+        </div>
+
     </div>
 
 </div>

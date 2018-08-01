@@ -29,12 +29,12 @@
  what it is:
  ____________________________________________________
 
- curvedLines is a plugin for flot, that tries to display lines in a smoother way.
+ curvedLines is a plugin for flot, that tries to display line in a smoother way.
  The plugin is based on nergal.dev's work https://code.google.com/p/flot/issues/detail?id=226
  and further extended with a mode that forces the min/max points of the curves to be on the
  points. Both modes are achieved through adding of more data points
  => 1) with large data sets you may get trouble
- => 2) if you want to display the points too, you have to plot them as 2nd data series over the lines
+ => 2) if you want to display the points too, you have to plot them as 2nd data series over the line
 
  && 3) consecutive x data points are not allowed to have the same value
 
@@ -52,7 +52,7 @@
 
  var options = { series: { curvedLines: {  active: true }}};
 
- $.plot($("#placeholder"), [{data = d1, lines: { show: true}, curvedLines: {apply: true}}], options);
+ $.plot($("#placeholder"), [{data = d1, line: { show: true}, curvedLines: {apply: true}}], options);
 
  _____________________________________________________
 
@@ -67,7 +67,7 @@
  fitPointDist:     int  defines the x axis distance of the additional two points that are used
  to enforce the min max condition.
 
- + line options (since v0.5 curved lines use flots line implementation for drawing
+ + line options (since v0.5 curved line use flots line implementation for drawing
  => line options like fill, show ... are supported out of the box)
 
  */
@@ -79,7 +79,7 @@
  *  v0.3   improved saddle handling and added basicinfo handling of Dates
  *  v0.4   rewritten fill option (thomas ritou) mostly from original flot code (now fill between points rather than to graph bottom), corrected fill Opacity bug
  *  v0.5   rewritten instead of implementing a own draw function CurvedLines is now based on the processDatapoints flot hook (credits go to thomas ritou).
- * 		   This change breakes existing code however CurvedLines are now just many tiny straight lines to flot and therefore all flot lines options (like gradient fill,
+ * 		   This change breakes existing code however CurvedLines are now just many tiny straight line to flot and therefore all flot line options (like gradient fill,
  * 	       shadow) are now supported out of the box
  *  v0.6   flot 0.8 compatibility and some bug fixes
  */

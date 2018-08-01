@@ -14,6 +14,13 @@
             template: '<div></div>',  // just an empty DIV element
             replace: true,
             scope: { model: '=goModel' },
+            controller: function ($scope) {
+                $scope.path = {
+                    TOMCAT: "TOMCAT",
+                    SPRING_BOOT: "SPRING_BOOT",
+                    USER: "USER"
+                };
+            },
             link: function(scope, element, attrs) {
 
                 var $ = go.GraphObject.make;  // for conciseness in defining templates
@@ -32,7 +39,7 @@
                                 $(go.LayeredDigraphLayout,
                                     { direction: 90,
                                         layerSpacing: 20,
-                                        columnSpacing: 50,
+                                        columnSpacing: 110,
                                         setsPortSpots: false })
                         }
                     );
@@ -45,12 +52,12 @@
                             $(go.Panel, "Auto",
                                 { name: "ICON" },
                                 $(go.Shape,  //go.Shape 图形  有一些基础的圆 矩形 圆角矩形等 箭头
-                                    { fill: null, portId: "",strokeWidth: 0,stroke: null },
-                                    new go.Binding("background", "problem", nodeProblemConverter)),
+                                    { fill: null, portId: "",strokeWidth: 0,stroke: null }
+                                ),
                                 $(go.Picture,  // the icon showing the logo
                                     // You should set the desiredSize (or width and height)
                                     // whenever you know what size the Picture should be.
-                                    { desiredSize: new go.Size(80, NaN) },
+                                    { desiredSize: new go.Size(80, 80) },
                                     new go.Binding("source", "type", convertKeyImage)
                                 ),
                                 $(go.Shape, "Circle",
@@ -61,12 +68,12 @@
                             )
                         ),
                         $(go.TextBlock,  // the text label
-                            { font: "bold 10pt helvetica, bold arial, sans-serif", textAlign: "center", maxSize: new go.Size(100, NaN), },
-                            new go.Binding("text", "name")
+                            { font: "bold 10pt helvetica, bold arial, sans-serif", textAlign: "center", maxSize: new go.Size(100, NaN) },
+                            new go.Binding("text", "key")
                             // new go.Binding("stroke","strokeColor")
                         ),
                         {
-                            click: function(e, obj) { window.selected_var=obj.part.data.type;showMessage(obj.part.data.type); }
+                            click: function(e, obj) { clickApp(obj.part.data.type, obj.part.data.key); }
                         }
                     );
 
@@ -97,46 +104,26 @@
                         )
                     );
 
-                function nodeProblemConverter(msg) {
-                    if (msg) return "red";
-                    return null;
-                }
-
                 function nodeStatusConverter(s) {
-                    if (s >= 2) return "red";
-                    if (s >= 1) return "green";
+                    if (s >= 1) return "red";
                     return "green";
                 }
 
                 function convertKeyImage(type) {
-                    if (!type) type = "JAVA";
-                    return "img/topview-pictures/" + type + ".png";
-                }
-
-                function showMessage(s) {
-                    // alert(s);
-                    self.location.href = "#/rs/" + s;
-                }
-
-                // whenever a GoJS transaction has finished modifying the model, update all Angular bindings
-                function updateAngular(e) {
-                    if (e.isTransactionFinished) {
-                        scope.$apply();
+                    if (!type) type = "UNKNOWN";
+                    // alert(scope.path[type]);
+                    if (typeof(scope.path[type]) === "undefined") {
+                        return "img/topview-pictures/" + "UNKNOWN" + ".png";
+                    } else {
+                        return "img/topview-pictures/" + type + ".png";
                     }
                 }
-                // update the Angular model when the Diagram.selection changes
-                function updateSelection(e) {
-                    diagram.model.selectedNodeData = null;
-                    var it = diagram.selection.iterator;
-                    while (it.next()) {
-                        var selnode = it.value;
-                        // ignore a selected link or a deleted node
-                        if (selnode instanceof go.Node && selnode.data !== null) {
-                            diagram.model.selectedNodeData = selnode.data;
-                            break;
-                        }
-                    }
-                    scope.$apply();
+
+                function clickApp(type, key) {
+                    // alert(type + ": " + key);
+                    if (typeof(scope.path[type]) === "undefined" || type === "USER") return;
+                    // alert("#/rs/" + type + "/" + key);
+                    self.location.href = "#/rs/" + type + "/" + key;
                 }
 
                 // notice when the value of "model" changes: update the Diagram.model
@@ -161,6 +148,27 @@
                     // re-enable normal updates
                     diagram.addModelChangedListener(updateAngular);
                 });
+
+                // whenever a GoJS transaction has finished modifying the model, update all Angular bindings
+                function updateAngular(e) {
+                    if (e.isTransactionFinished) {
+                        scope.$apply();
+                    }
+                }
+                // update the Angular model when the Diagram.selection changes
+                function updateSelection(e) {
+                    diagram.model.selectedNodeData = null;
+                    var it = diagram.selection.iterator;
+                    while (it.next()) {
+                        var selnode = it.value;
+                        // ignore a selected link or a deleted node
+                        if (selnode instanceof go.Node && selnode.data !== null) {
+                            diagram.model.selectedNodeData = selnode.data;
+                            break;
+                        }
+                    }
+                    scope.$apply();
+                }
 
             }
         };

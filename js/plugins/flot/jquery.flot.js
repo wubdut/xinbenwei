@@ -166,7 +166,7 @@ Licensed under the MIT license.
 		context.save();
 
 		// Scale the coordinate space to match the display density; so even though we
-		// may have twice as many pixels, we still want lines and other drawing to
+		// may have twice as many pixels, we still want line and other drawing to
 		// appear at the same size; the extra pixels will just make them crisper.
 
 		context.scale(pixelRatio, pixelRatio);
@@ -567,7 +567,7 @@ Licensed under the MIT license.
                     },
                     lines: {
                         // we don't put in show: false so we can see
-                        // whether lines were actively disabled
+                        // whether line were actively disabled
                         lineWidth: 2, // in pixels
                         fill: false,
                         fillColor: null,
@@ -1055,7 +1055,7 @@ Licensed under the MIT license.
                 else if (typeof s.color == "number")
                     s.color = colors[s.color].toString();
 
-                // turn on lines automatically in case nothing is set
+                // turn on line automatically in case nothing is set
                 if (s.lines.show == null) {
                     var v, show = true;
                     for (v in s)
@@ -1067,8 +1067,8 @@ Licensed under the MIT license.
                         s.lines.show = true;
                 }
 
-                // If nothing was provided for lines.zero, default it to match
-                // lines.fill, since areas by default should extend to zero.
+                // If nothing was provided for line.zero, default it to match
+                // line.fill, since areas by default should extend to zero.
 
                 if (s.lines.zero == null) {
                     s.lines.zero = !!s.lines.fill;
@@ -2858,7 +2858,7 @@ Licensed under the MIT license.
                         if (x == null)
                             continue;
 
-                        // For points and lines, the cursor must be within a
+                        // For points and line, the cursor must be within a
                         // certain distance to the data point
                         if (x - mx > maxx || x - mx < -maxx ||
                             y - my > maxy || y - my < -maxy)
