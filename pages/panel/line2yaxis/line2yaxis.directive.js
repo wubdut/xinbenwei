@@ -8,7 +8,7 @@
      * @class
      */
     angular.module('inspinia')
-        .directive('lineDiagram', [function() {
+        .directive('line2yaxisDiagram', [function() {
             return {
                 restrict: 'E',
                 templateUrl: 'pages/panel/line/line.html',
@@ -35,7 +35,7 @@
                             console.log(response.data);
                             $scope.chartData = response.data;
                             if (typeof($scope.chartData.title) !== "undefined"){
-                                $scope._id = '_' + Math.random().toString(36).substr(2, 9);//$scope.chartData.title.replace(/ /g, "_")+$scope._id;
+                                $scope._id = '_' + Math.random().toString(36).substr(2, 9);
                                 $scope.title = $scope.chartData.title;
                             }
                             $scope.c3Axis = transAxis($scope.chartData);
@@ -65,7 +65,8 @@
                     //         {
                     //             key: 'CPU_2',
                     //             value: [ 30, 400, 10, 300, 250, 350],
-                    //             type: 'area'
+                    //             type: 'area',
+                    //             axes: 'y2'
                     //         }
                     //     ],
                     //     groups: [
@@ -90,7 +91,8 @@
                             },
                             padding: {left:0, right:0}
                         };
-                        var y = {};
+
+                        var y = {}, y2 = {};
                         if (typeof(chartData.yLabel) !== "undefined") {
                             y['label'] = $scope.chartData.yLabel;
                         }
@@ -102,6 +104,19 @@
                         }
                         y['padding'] = {top:0, bottom:0};
                         res['y'] = y;
+
+                        y2['show'] = true;
+                        if (typeof(chartData.y2Label) !== "undefined") {
+                            y2['label'] = $scope.chartData.y2Label;
+                        }
+                        if (typeof(chartData.min2) !== "undefined") {
+                            y2['min'] = $scope.chartData.min2;
+                        }
+                        if (typeof(chartData.max2) !== "undefined") {
+                            y2['max'] = $scope.chartData.max2;
+                        }
+                        y2['padding'] = {top:0, bottom:0};
+                        res['y2'] = y2;
                         return res;
                     }
 
@@ -113,7 +128,8 @@
                             x: 'x',
                             columns: [],
                             types: {},
-                            groups: []
+                            groups: [],
+                            axes: {}
                         };
                         for (var i = 0; i < chartData.columns.length; i++) {
                             var tmp = [];
@@ -126,19 +142,19 @@
                             if (typeof(chartData.columns[i].type) !== "undefined") {
                                 res.types[chartData.columns[i].key] = chartData.columns[i].type;
                             }
+
+                            if (typeof(chartData.columns[i].axes) !== "undefined" && chartData.columns[i].axes === 'y2') {
+                                res.axes[chartData.columns[i].key] = 'y2';
+                            }
                         }
                         if (typeof(chartData.groups) !== "undefined") {
                             res.groups = chartData.groups;
                         }
                         return res;
                     }
-
                 },
                 link: function(scope, element, attrs) {
-                    // console.log(scope._id);
-
                     scope.$watch('currentPeriod', function () {
-                        // alert(scope.currentPeriod === "");
                         if (scope.currentPeriod === "") return;
                         console.log("currentPeriod = " + scope.currentPeriod);
                         scope.getData(scope.currentPeriod);
@@ -154,7 +170,6 @@
                             }
                         });
                     });
-
                 }
             };
         }]);

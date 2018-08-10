@@ -18,6 +18,34 @@
                 $scope.path = {
                     TOMCAT: "TOMCAT",
                     SPRING_BOOT: "SPRING_BOOT",
+                    APACHE: "APACHE",
+                    ARCUS: "ARCUS",
+                    BLOC: "BLOC",
+                    CASSANDRA: "CASSANDRA",
+                    CUBRID: "CUBRID",
+                    DUBBO: "DUBOO",
+                    ERROR: "ERROR",
+                    JAVA: "JAVA",
+                    JBOSS: "JBOSS",
+                    JETTY: "JETTY",
+                    MARIADB: "MARIADB",
+                    MEMCACHED: "MEMCACHED",
+                    MONGODB: "MONGODB",
+                    MSSQLSERVER: "MSSQLSERVER",
+                    MYSQL: "MYSQL",
+                    MYSQL_EXECUTE_QUERY: "MYSQL",
+                    NBASE: "NBASE",
+                    NGINX: "NGINX",
+                    ORACLE: "ORABLE",
+                    POSTGRESQL: "POSTGRESQL",
+                    QUEUE: "QUEUE",
+                    REDIS: "REDIS",
+                    RESIN: "RESIN",
+                    STAND_ALONE: "STAND_ALONE",
+                    UNAUTHORIZED: "UNAUTHORIZED",
+                    UNDEFINED: "UNDEFINED",
+                    VERTX: "VERTX",
+                    WEBSPHERE: "WEBSPHERE",
                     USER: "USER"
                 };
             },
@@ -115,7 +143,7 @@
                     if (typeof(scope.path[type]) === "undefined") {
                         return "img/topview-pictures/" + "UNKNOWN" + ".png";
                     } else {
-                        return "img/topview-pictures/" + type + ".png";
+                        return "img/topview-pictures/" + scope.path[type] + ".png";
                     }
                 }
 

@@ -1,0 +1,48 @@
+<!-- Main view  -->
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>代码定位</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a ui-sref="rs.topview">全景视图</a>
+            </li>
+            <li>
+                <a ui-sref="rs.TOMCAT({key: '{{key}}'})">Tomcat</a>
+            </li>
+            <li class="active">
+                <strong>代码定位</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="col-lg-8">
+                <treemap-diagram url="/calltree/accept/{{key}}/duration" height="600px"></treemap-diagram>
+            </div>
+            <div class="col-lg-4">
+                <treemap-diagram url="/calltree/exception/{{key}}/duration" height="245px"></treemap-diagram>
+            </div>
+            <div class="col-lg-4">
+                <treemap-diagram url="/calltree/slow/{{key}}/duration" height="245px"></treemap-diagram>
+            </div>
+
+            <div class="col-lg-8">
+                <treemap-diagram url="/calltree/accept/{{key}}/count" height="600px"></treemap-diagram>
+            </div>
+            <div class="col-lg-4">
+                <treemap-diagram url="/calltree/exception/{{key}}/count" height="245px"></treemap-diagram>
+            </div>
+            <div class="col-lg-4">
+                <treemap-diagram url="/calltree/slow/{{key}}/count" height="245px"></treemap-diagram>
+            </div>
+
+        </div>
+    </div>
+
+</div>

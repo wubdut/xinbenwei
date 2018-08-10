@@ -79,7 +79,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
         .state('rs.SPRING_BOOT', {
             url: "/SPRING_BOOT/:key",
             templateUrl: "pages/probes/tomcat/tomcatoverview.html",
-            data: { pageTitle: 'Tomcat' },
+            data: { pageTitle: 'Spring Boot' },
             controller: 'TomcatoverviewCtrl',
             resolve: {
                 loadPlugin: function ($ocLazyLoad) {
@@ -102,11 +102,29 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
                         {
                             serie: true,
                             files: ['css/plugins/c3/c3.min.css', 'js/plugins/d3/d3.min.js', 'js/plugins/c3/c3.min.js']
+                        }
+                    ]);
+                }
+            }
+        })
+        .state('rs.TOMCATcalltree', {
+            url: "/TOMCATcalltree/:key",
+            templateUrl: "pages/probes/tomcat/calltree/calltree.html",
+            data: { pageTitle: 'calltree' },
+            controller: 'CalltreeCtrl',
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            files: ['css/plugins/jsTree/style.min.css','js/plugins/jsTree/jstree.min.js']
                         },
                         {
-                            serie: true,
-                            name: 'gridshore.c3js.chart',
-                            files: ['js/plugins/c3/c3-angular.min.js']
+                            name: 'ngJsTree',
+                            files: ['js/plugins/jsTree/ngJsTree.min.js']
+                        },
+                        {
+                            name: 'angular-peity',
+                            files: ['js/plugins/peity/jquery.peity.min.js', 'js/plugins/peity/angular-peity.js']
                         }
                     ]);
                 }

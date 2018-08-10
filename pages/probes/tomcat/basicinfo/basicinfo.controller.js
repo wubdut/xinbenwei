@@ -4,13 +4,14 @@
      * wub-neu
      * 2018.07.23
      * @group Controller
-     * @name LoginCtrl
+     * @name BasicinfoCtrl
      * @class
      */
     angular.module('inspinia')
         .controller( 'BasicinfoCtrl', ['$scope', '$http', '$state', '$stateParams', '$window', 'AuthService',
             function ($scope, $http, $state, $stateParams, $window, authService) {
 
+                $scope.key = $stateParams.key;
                 $scope.getData = function () {
                     $http.get(
                         authService.getURL() + "/basicinfo/" + $stateParams.key,

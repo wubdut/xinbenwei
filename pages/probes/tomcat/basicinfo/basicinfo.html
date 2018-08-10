@@ -7,7 +7,7 @@
                 <a ui-sref="rs.topview">全景视图</a>
             </li>
             <li>
-                <a ui-sref="rs.TOMCAT">Tomcat</a>
+                <a ui-sref="rs.TOMCAT({key: '{{key}}'})">Tomcat</a>
             </li>
             <li class="active">
                 <strong>基本信息</strong>
@@ -112,19 +112,19 @@
     </div>
     <div class="row">
         <div class="col-lg-6">
-            <line-diagram url="/cpuload/rsapm28/" current-period="{{currentPeriod}}"></line-diagram>
+            <line-diagram url="/cpuload/{{key}}/" current-period="{{currentPeriod}}"></line-diagram>
         </div>
 
         <div class="col-lg-6">
-            <line-diagram url="/jvmgc/rsapm28/" current-period="{{currentPeriod}}"></line-diagram>
+            <line2yaxis-diagram url="/jvmgc/{{key}}/" current-period="{{currentPeriod}}"></line2yaxis-diagram>
         </div>
 
         <div class="col-lg-6">
-            <line-diagram url="/transaction/rsapm28/" current-period="{{currentPeriod}}"></line-diagram>
+            <line-diagram url="/transaction/{{key}}/" current-period="{{currentPeriod}}"></line-diagram>
         </div>
 
         <div class="col-lg-6">
-            <line-diagram url="/applicationresponsetime/rsapm28/" current-period="{{currentPeriod}}"></line-diagram>
+            <line2yaxis-diagram url="/applicationresponsetime/{{key}}/" current-period="{{currentPeriod}}"></line2yaxis-diagram>
         </div>
 
     </div>

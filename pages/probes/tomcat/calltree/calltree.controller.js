@@ -2,17 +2,17 @@
     'use strict';
     /**
      * wub-neu
-     * 2018.08.01
+     * 2018.07.23
      * @group Controller
-     * @name TomcatoverviewCtrl
+     * @name CalltreeCtrl
      * @class
      */
     angular.module('inspinia')
-        .controller( 'TomcatoverviewCtrl', ['$scope', '$http', '$state', '$stateParams', '$window', 'AuthService',
+        .controller( 'CalltreeCtrl', ['$scope', '$http', '$state', '$stateParams', '$window', 'AuthService',
             function ($scope, $http, $state, $stateParams, $window, authService) {
-                // alert($stateParams.key);
-                $scope.pageTitle = $state.current.data.pageTitle;
+
                 $scope.key = $stateParams.key;
+                // alert($scope.key);
             }
         ]);
 })();

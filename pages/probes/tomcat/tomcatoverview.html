@@ -1,12 +1,12 @@
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2>Tomcat</h2>
+        <h2>{{pageTitle}}</h2>
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a ui-sref="rs.topview">全景视图</a>
             </li>
             <li class="breadcrumb-item active">
-                <strong>Tomcat</strong>
+                <strong>{{pageTitle}}</strong>
             </li>
         </ol>
     </div>
@@ -24,24 +24,28 @@
                     <div class="ibox-content">
                         <h5 class="m-b-md">基本信息</h5>
                         <h2 class="text-navy">
-                            <i class="fa fa-play fa-rotate-270"></i> Up
+                            <i class="fa fa-bar-chart-o"></i> Info
                         </h2>
-                        <small>ip: 10.4.53.229</small>
+                        <small>{{pageTitle}}资源消耗及启动参数</small>
                     </div>
                 </div>
             </div>
         </a>
+
+        <a ui-sref="rs.TOMCATcalltree({key: '{{key}}'})">
         <div class="col-lg-3">
             <div class="ibox">
                 <div class="ibox-content ">
                     <h5 class="m-b-md">代码定位</h5>
-                    <h2 class="text-navy">
-                        <i class="fa fa-play fa-rotate-270"></i> Up
+                    <h2 class="text-danger">
+                        <i class="fa fa-sitemap fa-rotate-270"></i> Code
                     </h2>
-                    <small>Last down 42 days ago</small>
+                    <small>分析函数执行时间及方法栈</small>
                 </div>
             </div>
         </div>
+        </a>
+
         <div class="col-lg-3">
             <div class="ibox">
                 <div class="ibox-content">
